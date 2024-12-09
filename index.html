@@ -3,13 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Website</title>
+    <title>LUX</title>
+    <style>
+       
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.page {
+    display: none;
+    padding: 2rem;
+}
+
+.page.active {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+form input, form textarea, form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+    </style>
 </head>
 <body>
-    <footer>
-          <p>fillimi</p>
-          <p>Perfundimi</p>
-    </footer>
+    <!-- Navigation -->
+    <nav>
+        <h1>LUXury Homes</h1>
+        <ul>
+            <li><a href="#" onclick="navigate('home')">Home</a></li>
+            <li><a href="#" onclick="navigate('about')">About Us</a></li>
+            <li><a href="#" onclick="navigate('listings')">Listings</a></li>
+            <li><a href="#" onclick="navigate('contact')">Contact Us</a></li>
+            <li><a href="#" onclick="navigate('blog')">Blog</a></li>
+        </ul>
+    </nav>
 
+    <!-- Faqet -->
+    <div id="home" class="page active">
+        <h2>Welcome to LUXury Homes</h2>
+        <p>Your trusted platform for finding dream properties.</p>
+    </div>
+    <div id="about" class="page">
+        <h2>About Us</h2>
+        <p>We are a leading real estate company dedicated to connecting buyers and sellers.</p>
+    </div>
+    <div id="listings" class="page">
+        <h2>Property Listings</h2>
+        <ul>
+            <li>Modern Apartment - $250,000</li>
+            <li>Luxury Villa - $1,000,000</li>
+            <li>Cozy Cottage - $150,000</li>
+        </ul>
+    </div>
+    <div id="contact" class="page">
+        <h2>Contact Us</h2>
+        <p>Reach out for inquiries or property consultations:</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div id="blog" class="page">
+        <h2>Real Estate Blog</h2>
+        <p>Stay updated with the latest trends and tips in real estate.</p>
+    </div>
+
+    <script >function navigate(pageId) {
+        // Fsheh te gjitha faqet
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+    
+        // Shfaq vetem faqet e selektuara
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+        }
+    }
+    </script>
 </body>
 </html>
