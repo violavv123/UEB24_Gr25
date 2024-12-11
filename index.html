@@ -3,166 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUX</title>
+    <title>LUXury Homes</title>
     <meta name="title" content="LUXury Homes">
     <meta name="description" content="Kjo eshte nje Real Estate Website e punuar nga grupi 25">
     <link rel="stylesheet" href="style.css">
      <!-- favicon - logo e bisnezit -->
      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
      <!-- google fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+     <!--css files-->
+     <!--javascript files-->
+
     <style>
-       
+        
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
 }
 
-
-nav {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+/* Navbar Styles */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color:white ;
+    color:white ;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Logo and Brand */
+.logo {
     display: flex;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 0 1rem;
+.logo img {
+    height: 40px;
+    margin-right: 10px;
 }
 
-nav ul li a {
-    color: white;
+.brand {
+    font-size: 1.5em;
+    color:black ; 
     text-decoration: none;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-
-.page {
-    display: none;
-    padding: 2rem;
-}
-
-.page.active {
-    display: block;
-}
-
-form {
+/* Linqet e navigacionit*/
+.nav-links {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
 }
 
-form input, form textarea, form button {
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 400px;
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3399ff; 
 }
 
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <h1>LUXury Homes</h1>
-        <ul>
-            <li><a href="#" onclick="navigate('home')">Home</a></li>
-            <li><a href="#" onclick="navigate('about')">About Us</a></li>
-            <li><a href="#" onclick="navigate('listings')">Listings</a></li>
-            <li><a href="#" onclick="navigate('contact')">Contact Us</a></li>
-            <li><a href="#" onclick="navigate('blog')">Blog</a></li>
-        </ul>
-    </nav>
-
-    <!-- Faqet -->
-    <div id="home" class="page active">
-        <h2>Welcome to LUXury Homes</h2>
-        <p>Your trusted platform for finding dream properties.</p>
-    </div>
-    <div id="about" class="page">
-        <h2>About Us</h2>
-        <p>We are a leading real estate company dedicated to connecting buyers and sellers.</p>
-    </div>
-    <div id="listings" class="page">
-       <p>listings</p>
-    </div>
-    <div id="contact" class="page">
-        <h2>Contact Us</h2>
-        <p>
-            To Our Valued Clients:<br>
-            To ensure we provide the highest level of personalized service, we are unable to accept custom inquiries via email.
-            For tailored assistance with your real estate needs, please call us directly at our phone numbers during regular business hours.
-            We’re here to help you find your perfect property!
-        </p>
-    <section>
-        <h2>Location</h2>
-        <p>nr.36 Hajrullah Abdullahu, Prishtina 10000</p>
-    </section>
-    <section class="contact">
-        <h1>Contact</h1>
-        <ol>
-            <li>850-386-2253</li>
-            <li>740-446-1433</li>
-            <li>542-882-0128</li>
-        </ol>
-    </section>
-
-    <section class="hours">
-        <h1>Hours</h1>
-        <ul>
-            <li>Monday-Wednesday: 9:00 AM - 5:00 PM</li>
-            <li>Thursday-Friday: 8:30 AM - 4:30 PM</li>
-            <li>Saturday: 10:00 AM - 2:00 PM</li>
-            <li>Sunday: CLOSED</li>
-        </ul>
-    </section>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </div>
-    <div id="blog" class="page">
-        <h2>Real Estate Blog</h2>
-        <p>Stay updated with the latest trends and tips in real estate.</p>
-    </div>
-
-    <script >function navigate(pageId) {
-        // Fsheh te gjitha faqet
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
+<!--top per me kthy ne fillim te faqes-->
+<body id="top">
+<!--Navigation Bar-->
+<nav class="navbar">
     
-        // Shfaq vetem faqet e selektuara
-        const selectedPage = document.getElementById(pageId);
-        if (selectedPage) {
-            selectedPage.classList.add('active');
-        }
-    }
-    </script>
-    
+    <div class="logo">
+        <img src="logo.png" alt="Luxury Homes Logo" />
+        <a href="#top" class="brand">LUXury Homes</a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+</nav>
 </body>
 </html>
