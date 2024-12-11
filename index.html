@@ -29,7 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color:white ;
+    background-color: #0d0d0d;
     color:white ;
     position: sticky;
     top: 0;
@@ -50,7 +50,7 @@ body {
 
 .brand {
     font-size: 1.5em;
-    color:black ; 
+    color: white ; 
     text-decoration: none;
 }
 
@@ -68,7 +68,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: black;
+    color:white ;
     font-size: 1em;
     transition: color 0.3s ease;
 }
@@ -77,13 +77,121 @@ body {
     color: #3399ff; 
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Banner Styles */
+.banner {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    background-image: url('https://images.pexels.com/photos/20122587/pexels-photo-20122587/free-photo-of-golden-genie-lamp.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text readability */
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.banner-content {
+    text-align: left;
+    color: white;
+    padding: 10px;
+    max-width: 600px;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color:white;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color:#e6ac00;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+
+    .banner-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Text Animation */
+.animated-text {
+    font-size: 3rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    animation: fadeIn 2s ease-in-out;
+    position: relative;
+    background: linear-gradient(90deg, #f4e842, #fff, #f4e842);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Fade-in Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
     </style>
 </head>
 <!--top per me kthy ne fillim te faqes-->
 <body id="top">
 <!--Navigation Bar-->
 <nav class="navbar">
-    
     <div class="logo">
         <img src="logo.png" alt="Luxury Homes Logo" />
         <a href="#top" class="brand">LUXury Homes</a>
@@ -95,5 +203,16 @@ body {
         <li><a href="blog.html">Blog</a></li>
     </ul>
 </nav>
+<!--Header me banner-->
+<header class="banner">
+    <div class="banner-overlay">
+        <div class="banner-content">
+            <h1 class="animated-text">Your Wish, Our Command!</h1>
+            <p>Step into the genie’s world of luxurious living. Explore homes that redefine opulence and turn your dreams into reality.</p>
+            <!-- Button styled link -->
+            <a href="listings.html" class="btn">Discover Your Dream Home</a>
+        </div>
+    </div>
+</header>
 </body>
 </html>
