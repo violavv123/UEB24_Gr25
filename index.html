@@ -17,7 +17,11 @@
      <!--javascript files-->
 
     <style>
-        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -77,11 +81,6 @@ body {
     color: #3399ff; 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Banner Styles */
 .banner {
@@ -184,7 +183,69 @@ body {
         transform: translateY(0);
     }
 }
+/* Video and Text Section */
+.video-text-section {
+    display: flex;
+    gap: 20px;
+    padding: 40px 20px;
+    align-items: center;
+    background-color: #f4f4f4;
+}
 
+/* Video Styling */
+.video-text-section video {
+    flex: 1;
+    max-width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Content Styling */
+.text-content {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.text-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color:#003366;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Button Styling */
+.text-content .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #003366;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.text-content .btn:hover {
+    background-color: #e6ac00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-text-section {
+        flex-direction: column;
+    }
+
+    .video-text-section video,
+    .text-content {
+        max-width: 100%;
+        text-align: center;
+    }
+}
 
     </style>
 </head>
@@ -214,5 +275,21 @@ body {
         </div>
     </div>
 </header>
+<!-- Video and Text Section -->
+<section class="video-text-section">
+    <video controls autoplay loop>
+        <source src="SELL YOUR HOME.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="text-content">
+        <h3>Why Choose Us?</h3>
+        <p>
+            Our real estate agency offers personalized services to help you find your dream home quickly and easily. 
+            Watch the video to learn more about our approach and commitment to excellence.Sign in for a more personalized experience. <br><br>
+            <a href="contact.html" class="btn">Sign In</a>
+        </p>
+    </div>
+</section>
+   
 </body>
 </html>
