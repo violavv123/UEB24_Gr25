@@ -104,6 +104,55 @@ form input, form textarea, form button {
         <p>We are a leading real estate company dedicated to connecting buyers and sellers.</p>
     </div>
     <div id="listings" class="page">
+        <h2>Property Listings</h2>
+        <ul>
+            <li>Modern Apartment - $250,000</li>
+            <li>Luxury Villa - $1,000,000</li>
+            <li>Cozy Cottage - $150,000</li>
+        </ul>
+    </div>
+    <div id="contact" class="page">
+        <h2>Contact Us</h2>
+        <p>
+            To Our Valued Clients:<br>
+            To ensure we provide the highest level of personalized service, we are unable to accept custom inquiries via email.
+            For tailored assistance with your real estate needs, please call us directly at our phone numbers during regular business hours.
+            We’re here to help you find your perfect property!
+        </p>
+    <section>
+        <h2>Location</h2>
+        <p>nr.36 Hajrullah Abdullahu, Prishtina 10000</p>
+    </section>
+    <section class="contact">
+        <h1>Contact</h1>
+        <ol>
+            <li>850-386-2253</li>
+            <li>740-446-1433</li>
+            <li>542-882-0128</li>
+        </ol>
+    </section>
+
+    <section class="hours">
+        <h1>Hours</h1>
+        <ul>
+            <li>Monday-Wednesday: 9:00 AM - 5:00 PM</li>
+            <li>Thursday-Friday: 8:30 AM - 4:30 PM</li>
+            <li>Saturday: 10:00 AM - 2:00 PM</li>
+            <li>Sunday: CLOSED</li>
+        </ul>
+    </section>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+      </div>
+<!--yllkas's part--> 
+      <div class="listings">
         <section class="listing-section">
             <div class="container">
               <div class="filters">
@@ -332,64 +381,5 @@ form input, form textarea, form button {
               </div>
             </div>
           </section>
-    </div>
-    <div id="contact" class="page">
-        <h2>Contact Us</h2>
-        <p>
-            To Our Valued Clients:<br>
-            To ensure we provide the highest level of personalized service, we are unable to accept custom inquiries via email.
-            For tailored assistance with your real estate needs, please call us directly at our phone numbers during regular business hours.
-            We’re here to help you find your perfect property!
-        </p>
-    <section>
-        <h2>Location</h2>
-        <p>nr.36 Hajrullah Abdullahu, Prishtina 10000</p>
-    </section>
-    <section class="contact">
-        <h1>Contact</h1>
-        <ol>
-            <li>850-386-2253</li>
-            <li>740-446-1433</li>
-            <li>542-882-0128</li>
-        </ol>
-    </section>
-
-    <section class="hours">
-        <h1>Hours</h1>
-        <ul>
-            <li>Monday-Wednesday: 9:00 AM - 5:00 PM</li>
-            <li>Thursday-Friday: 8:30 AM - 4:30 PM</li>
-            <li>Saturday: 10:00 AM - 2:00 PM</li>
-            <li>Sunday: CLOSED</li>
-        </ul>
-    </section>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </div>
-    <div id="blog" class="page">
-        <h2>Real Estate Blog</h2>
-        <p>Stay updated with the latest trends and tips in real estate.</p>
-    </div>
-
-    <script >function navigate(pageId) {
-        // Fsheh te gjitha faqet
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
-    
-        // Shfaq vetem faqet e selektuara
-        const selectedPage = document.getElementById(pageId);
-        if (selectedPage) {
-            selectedPage.classList.add('active');
-        }
-    }
-    </script>
-   
 </body>
 </html>
