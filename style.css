@@ -1,201 +1,189 @@
+/* Reset Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Filters Section */
+.filters {
+  background: url('https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* Overlay for contrast */
+.filters::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 2, 2, 0.4); /* Dark overlay */
+  z-index: 0; /* Ensure it stays below the content */
+}
+
+/* Filter content */
+.filters h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  z-index: 2; /* Place above overlay */
+  margin-bottom: 20px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  z-index: 2; /* Ensure form is interactive */
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.filter-item label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.filter-item input,
+.filter-item select {
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #0056b3;
+}
+
+#price-value {
+  margin-top: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Listings Section */
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.property-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-details {
+  padding: 15px;
+  color: #000;
+}
+
+.property-details h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.property-details .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d0021b;
+  margin-bottom: 10px;
+}
+
+.property-details p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.property-details button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.property-details button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .filters {
-    background: url('https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    padding: 50px; /* Add padding for spacing */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden;
-    margin-bottom: 20px;
+    padding: 20px;
+    gap: 15px;
   }
-  
-  /* Dark overlay for better contrast */
-  .filters::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(9, 2, 2, 0.4); /* Increase opacity for more contrast */
+
+  .filter-form {
+    flex-direction: column;
   }
-  
-  /* Text styling */
- 
-  .filters input,
-  .filters select {
-    color: rgb(188, 184, 184); /* White text for readability */
-    position: relative; /* Ensure text is above overlay */
-    z-index: 2; /* Elevate above the overlay */
-  }
-  
-  /* Add text shadow for better visibility */
-  .filters h2 {
-    font-size: 2rem; /* Larger heading */
-    font-weight: bold;
-    color: white;
-    padding-right:200px;
-  }
-  
-  .filters label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
-  
-  .filters input,
-  .filters select {
-    padding: 10px;
-    font-size: 1rem;
-    margin: 5px 0;
-    border-radius: 8px;
-    border: none;
-  }
-  
-  .filters button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    z-index: 2; /* Ensure button is above overlay */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
-  }
-  
-  .filters button:hover {
-    background-color: #0056b3;
-  }
-  .filter-item{
-    color: white;
-  }
+
   .listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: 1fr;
   }
-  
-  .property-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s, transform 0.3s;
-  }
-  
-  .property-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .property-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .property-details {
-    padding: 15px;
-    color: #000; /* Set text color to black */
-  }
-  
-  .property-details h3 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000; /* Black heading for property title */
-    margin-bottom: 8px;
-  }
-  
-  .property-details .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #d0021b; /* Keep price red for emphasis */
-    margin-bottom: 10px;
-  }
-  
-  .property-details p {
-    font-size: 0.9rem;
-    color: #000; /* Set property details text to black */
-  }
-  
-  .property-details .new-badge {
-    display: inline-block;
-    background-color: #007bff;
-    color: black;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .property-details .info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    margin: 10px 0;
-    color: #666;
-  }
-  
-  .property-details .location {
-    color: #000; /* Black location text */
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
-  
-  .property-details button {
-    width: 100%;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: black;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  .property-details button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .filters {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 10px;
-    }
-  
-    .listings {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}
