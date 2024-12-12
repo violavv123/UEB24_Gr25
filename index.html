@@ -44,6 +44,56 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+        background-color: #0d0d0d; /* Optional dropdown background */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%; /* Full width for dropdown */
+        padding: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger icon */
+    }
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+
 /* Logo and Brand */
 .logo {
     display: flex;
@@ -62,12 +112,7 @@ body {
 }
 
 /* Linqet e navigacionit*/
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
+
 
 .nav-links li {
     margin-left: 20px;
@@ -516,6 +561,92 @@ button:hover {
       font-weight: bold;
     }
 
+    .testimonial-section {
+      padding: 50px 20px;
+      background-color: white;
+      text-align: center;
+    }
+
+    .testimonial-section h2 {
+      font-size: 2.5rem;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .testimonial {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      max-width: 300px;
+      padding: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 3rem;
+      color: #e6ac00;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .testimonial p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 20px 0;
+    }
+
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .client img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .client-info {
+      text-align: left;
+    }
+
+    .client-info h4 {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #003366;
+    }
+
+    .client-info span {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial {
+        max-width: 90%;
+      }
+    }
+
 
     </style>
 </head>
@@ -527,6 +658,14 @@ button:hover {
         <img src="logo.png" alt="Luxury Homes Logo" />
         <a href="#top" class="brand">LUXury Homes</a>
     </div>
+    
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+
     <ul class="nav-links">
         <li><a href="about.html">About Us</a></li>
         <li><a href="listings.html">Listings</a></li>
@@ -658,6 +797,68 @@ button:hover {
     </div>
 
 
+    <section class="testimonial-section">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials">
+          <!-- Testimonial 1 -->
+          <div class="testimonial">
+            <p>
+              Buying my dream home was seamless thanks to this agency! They handled everything professionally and quickly.
+            </p>
+            <div class="client">
+              <img src="https://images.pexels.com/photos/3139611/pexels-photo-3139611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Client Photo">
+              <div class="client-info">
+                <h4>Dren Bujupi</h4>
+                <span>Mitrovica</span>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Testimonial 2 -->
+          <div class="testimonial">
+            <p>
+              Outstanding service! The team was helpful throughout the selling process, ensuring I got the best price for my property.
+            </p>
+            <div class="client">
+              <img src="https://images.pexels.com/photos/8400599/pexels-photo-8400599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Client Photo">
+              <div class="client-info">
+                <h4>Merita Sylejmani</h4>
+                <span>Prizren</span>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Testimonial 3 -->
+          <div class="testimonial">
+            <p>
+              Excellent communication and dedication. I highly recommend them for their attention to detail and customer care.
+            </p>
+            <div class="client">
+              <img src="https://images.pexels.com/photos/28263303/pexels-photo-28263303/free-photo-of-fotografia-masculina.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Client Photo">
+              <div class="client-info">
+                <h4>Jon Kelmendi</h4>
+                <span>Gjilan</span>
+              </div>
+            </div>
+          </div>
+
+           <!-- Testimonial 4 -->
+           <div class="testimonial">
+            <p>
+                From start to finish, the process was smooth and stress-free. The team went above and beyond to find the perfect property for my family.
+            </p>
+            <div class="client">
+              <img src="https://images.pexels.com/photos/6635041/pexels-photo-6635041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Client Photo">
+              <div class="client-info">
+                <h4>Ema Gashi</h4>
+                <span>Prishtina</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+
 <footer class="responsive-footer" >
     <div class="footer-container">
       <div class="logo-contact">
@@ -733,5 +934,13 @@ button:hover {
   // Optional: Auto-rotate the slides every 5 seconds
   setInterval(() => moveSlide(1), 5000);
   
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active'); // Toggle the "active" class on the nav-links
+});
+
+
   </script>
 </html>
