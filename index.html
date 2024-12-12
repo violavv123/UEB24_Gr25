@@ -160,6 +160,9 @@ body {
         font-size: 1rem;
         padding: 10px 20px;
     }
+    .banner{
+        height: 70vh;
+    }
 }
 
 /* Text Animation */
@@ -478,6 +481,40 @@ body {
 button:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
+/*table*/
+    table {
+      width: 80%;
+      margin: 5% auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table td {
+    color: black !important; /* Overrides inline styles */
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    caption {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .highlight {
+      background-color: #e6f7ff;
+      font-weight: bold;
+    }
 
 
     </style>
@@ -525,6 +562,7 @@ button:hover {
         </p>
     </div>
 </section>
+
 <div class="property-slideshow">
     <div class="slides-container">
         <!-- Slide 1 -->
@@ -568,6 +606,58 @@ button:hover {
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
     <button class="next" onclick="moveSlide(1)">&#10095;</button>
   </div>
+
+  <div>
+    <table>
+        <caption>Real Estate Agency Service Costs</caption>
+        <thead>
+          <tr>
+            <th>Service Type</th>
+            <th>Description</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Property Listing</td>
+            <td>Includes online advertising and MLS listing</td>
+            <td>$500 per listing</td>
+          </tr>
+          <tr class="highlight">
+            <td>Home Staging</td>
+            <td>Professional staging to showcase the property</td>
+            <td>$1,000 - $3,000</td>
+          </tr>
+          <tr>
+            <td>Photography & Videography</td>
+            <td>High-quality photos and videos for marketing</td>
+            <td>$300 - $800</td>
+          </tr>
+          <tr>
+            <td>Open House Services</td>
+            <td>Organizing and hosting open house events</td>
+            <td>$200 per event</td>
+          </tr>
+          <tr class="highlight">
+            <td>Legal Paperwork Assistance</td>
+            <td>Help with contracts, title transfers, and closing documents</td>
+            <td>$750 flat fee</td>
+          </tr>
+          <tr>
+            <td>Market Analysis</td>
+            <td>Detailed property market value report</td>
+            <td>$150 per report</td>
+          </tr>
+          <tr>
+            <td>Property Management</td>
+            <td>Handling rentals, tenants, and maintenance</td>
+            <td>10% of monthly rent</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
 <footer class="responsive-footer" >
     <div class="footer-container">
       <div class="logo-contact">
