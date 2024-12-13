@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +16,6 @@
     margin-bottom: 10px;
   }
   
-  /* Listing Section */
   .listing-section {
     padding: 40px 0;
   }
@@ -28,7 +26,6 @@
     margin: 0 auto;
   }
   
-  /* General Styles for Filters */
 .filters {
     background: url('https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
     position: relative;
@@ -50,7 +47,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Dark overlay for better readability */
+    background: rgba(0, 0, 0, 0.3); 
     border-radius: 8px;
   }
   
@@ -97,7 +94,6 @@
   }
   
   
-  /* Listings Section */
   .listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -156,7 +152,6 @@
     background-color: #0056b3;
   }
   
-  /* Price Range Section */
   #price-range {
     width: 100%;
   }
@@ -166,7 +161,6 @@
     margin-left: 10px;
   }
   
-  /* Responsive Styles */
   @media (max-width: 768px) {
     .filters {
       padding: 20px;
