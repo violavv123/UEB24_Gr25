@@ -521,9 +521,8 @@ renderProperties(properties);
 });
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   //Kimete's javascript per faqen e kontaktit
- <script>
-     document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Ndalon dërgimin e formularit dhe rifreskimin e faqes
+ document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
 
     // Merr vlerat e formularit
     let name = document.getElementById('name').value;
@@ -531,20 +530,17 @@ renderProperties(properties);
     let phone = document.getElementById('phone').value;
     let message = document.getElementById('message').value;
 
-    // Kontrollon nëse të dhënat janë plotësuar
+    // Kontrollo nëse të dhënat janë plotësuar
     if (name && email && phone && message) {
         // Trego një mesazh falënderimi për klientin
         alert(`Thank you, ${name}! We have received your message.`);
 
-        // Pastron formularin pas dërgimit
+        // Pastro formularin pas dërgimit
         document.getElementById('contactForm').reset();
     } else {
-        // Nëse fushat janë bosh, tregon një mesazh për plotësimin e fushave
+        // Nëse fushat janë bosh, tregoni një mesazh përplotësimin e fushave
         alert('Please fill out all fields!');
     }
 });
 
-    
- 
-    </script>
 
