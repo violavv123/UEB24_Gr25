@@ -17,8 +17,7 @@
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
      <!--css files-->
      <link rel="stylesheet" href="style.css">
-     <!--javascript files-->
-     <script src="script.js" defer></script>
+     
 
 
     <style>
@@ -35,19 +34,21 @@
         <a href="#top" class="brand">LUXury Homes</a>
     </div>
     
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <!-- Navigation Button -->
+  <div class="nav-button">
+    <button class="menu-btn">
+      <span class="hamburger-icon">&#9776;</span>
+    </button>
     
-
+    <!-- Hidden Navigation Links -->
+    <div class="nav-links-container">
     <ul class="nav-links">
         <li><a href="about.html">About Us</a></li>
         <li><a href="listings.html">Listings</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="blog.html">Blog</a></li>
     </ul>
+    </div>
 </nav>
 <!--Header me banner-->
 <header class="banner">
@@ -282,10 +283,43 @@
     </div>
   </footer>
 
+<!--javascript files-->
+<script>
+   let currentIndex = 0;
+  
+  function moveSlide(direction) {
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+      const slidesToShow = 3; // Number of slides visible at once
+  
+      // Update the index based on the direction
+      currentIndex += direction;
+  
+      // If the index exceeds the total slides, reset to 0, otherwise, show the last set
+      if (currentIndex >= totalSlides - slidesToShow + 1) {
+          currentIndex = 0;
+      } else if (currentIndex < 0) {
+          currentIndex = totalSlides - slidesToShow; // Show the last set of slides
+      }
+  
+      // Move the slides container
+      const slidesContainer = document.querySelector('.slides-container');
+      slidesContainer.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
+  }
+  
+  // Optional: Auto-rotate the slides every 5 seconds
+  setInterval(() => moveSlide(1), 5000);
+  
+  const menuButton = document.querySelector('.menu-btn');
+const navContainer = document.querySelector('.nav-links-container');
+
+menuButton.addEventListener('click', () => {
+  navContainer.classList.toggle('active'); // Show/hide the nav links
+});
+
+
+
+</script>
    
 </body>
-<script>
-    
-
-  </script>
 </html>
