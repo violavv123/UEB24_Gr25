@@ -488,6 +488,7 @@ renderProperties(properties);
 
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   //viola's javascript for home page
+  
   let currentIndex = 0;
   
   function moveSlide(direction) {
@@ -519,6 +520,8 @@ renderProperties(properties);
   hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active'); // Toggle the "active" class on the nav-links
 });
+
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   //Kimete's javascript per faqen e kontaktit
  document.getElementById('contactForm').addEventListener('submit', function(e) {

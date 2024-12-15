@@ -10,72 +10,20 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-
-/* Navbar Styles */
+/* General Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #0d0d0d;
-  color:white ;
+  color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Hamburger Menu Styling */
-.hamburger {
-  display: none; /* Hidden on larger screens */
-  flex-direction: column;
-  justify-content: space-around;
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-}
-
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-  .nav-links {
-      display: none; /* Hide links by default */
-      flex-direction: column; /* Stack links vertically */
-      background-color: #0d0d0d; /* Optional dropdown background */
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%; /* Full width for dropdown */
-      padding: 30px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-links.active {
-      display: flex; /* Show links when active */
-  }
-
-  .hamburger {
-      display: flex; /* Show hamburger icon */
-  }
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-
-/* Logo and Brand */
+/* Logo Styling */
 .logo {
   display: flex;
   align-items: center;
@@ -87,28 +35,90 @@ body {
 }
 
 .brand {
-  font-size: 1.5em;
-  color: white ; 
+  color: white;
   text-decoration: none;
+  font-size: 1.5em;
 }
 
-/* Linqet e navigacionit*/
+/* Navigation Button */
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001; /* Ensures button stays above */
+}
 
+.hamburger-icon {
+  font-size: 2rem;
+}
+
+/* Hidden Nav Links by Default */
+.nav-links-container {
+  display: none; /* Hidden initially */
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #0d0d0d;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 .nav-links li {
-  margin-left: 20px;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .nav-links a {
   text-decoration: none;
-  color:white ;
+  color: white;
   font-size: 1em;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #3399ff; 
+  color: #3399ff;
 }
+
+/* Show links when active */
+.nav-links-container.active {
+  display: block; /* Show the nav links */
+}
+
+/* Responsive: Hide nav links for large screens */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none; /* Hide the menu button on larger screens */
+  }
+
+  .nav-links-container {
+    display: flex;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+}
+
+
 
 
 /* Banner Styles */
@@ -318,7 +328,7 @@ padding: 20px;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
-align-items: flex-start;
+align-items:center;
 }
 
 .logo-contact p{
