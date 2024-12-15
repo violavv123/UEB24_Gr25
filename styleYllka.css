@@ -351,6 +351,9 @@ background-color: #c9302c;
   margin-top: 20px;
 }
 
+
+
+/* ------------------------------------------------------------------------------------------------ */
 /* ABOUT US CSS */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -467,7 +470,6 @@ header h1 {
   margin: 40px auto;
 }
 
-/* Text Content Styling */
 .story-content {
   flex: 1;
   max-width: 600px;
