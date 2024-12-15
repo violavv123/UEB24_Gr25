@@ -6,6 +6,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="aboutUs.css">
+  <!--Leaflet js-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!--font awesome for icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <title>About Us</title>
 </head>
 <body>
@@ -46,7 +51,7 @@
       </div>
       
  
-    <h2 style="padding: 10px;">Our Team</h2>
+    <h2 id="team">Our Team</h2>
     <div class="team-section">
       <div class="team-member">
         <div class="team-card">
@@ -98,7 +103,7 @@
       </div>
     </div>
 <div class="our-workspace">
-    <h2>Our Workspace</h2>
+    <h2>Your Wish for the Perfect Home, Granted.</h2>
 <div class="workspace">
   <div class="gallery">
     <div class="gallery-item">
@@ -123,3 +128,82 @@
   </p>
 </div>
 </div>
+ 
+<h2 id="team">Our Office Locations</h2>
+<div id="map"></div>
+
+<footer class="responsive-footer" >
+    <div class="footer-container">
+      <div class="logo-contact">
+        <img src="logo.png" alt="Infiniti Property Kosovo" class="footer-logo">
+        <p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
+        <p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
+        <p><i class="fas fa-phone"></i> +383 49 790 117</p>
+        <p><i class="fas fa-envelope"></i> info@luxuryhomes.com</p>
+      </div>
+      <div class="footer-links-container">
+        <div class="footer-links">
+          <h3>AGENT</h3>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+        <div class="footer-links">
+          <h3>CITY LISTS</h3>
+          <a href="#">Peja</a>
+          <a href="#">Prishtina</a>
+          <a href="#">Prizren</a>
+          <a href="#">Others</a>
+        </div>
+        <div class="footer-links">
+          <h3>QUICK LINKS</h3>
+          <a href="#">Legal</a>
+          <a href="#">Privacy Policy</a>
+          <a href="blog.html">Blog</a>
+          <a href="#">Find an Agent</a>
+        </div>
+      </div>
+      <div class="newsletter">
+        <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
+        <p>Join our community of savvy real estate enthusiasts.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="social-icons">
+         <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([42.6722,21.1669 ], 5); // Centered on the first office
+
+    // Use OpenStreetMap tile layer (free)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Locations of the offices (add your office lat/lng here)
+    var locations = [
+        { lat:42.6722, lng: 21.1669}, // Prishtina
+        { lat:42.6742 , lng:20.2806}, // Peja
+        { lat:42.8853 , lng:20.8683}, // Mitrovica
+        { lat:42.2200 , lng:20.7383}, // Prizren
+        { lat:42.3803, lng:20.4266}, // Gjakova
+
+    ];
+
+    locations.forEach(function(location) {
+        L.marker([location.lat, location.lng]).addTo(map)
+            .bindPopup("Office Location")
+            .openPopup();
+    });
+</script>
+</body>
+</html>
