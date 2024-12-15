@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div id="contact" class="page">
-    <title>Contact Us</title>
-    <p>
-        To Our Valued Clients:<br>
-        To ensure we provide the highest level of personalized service, we are unable to accept custom inquiries via email.
-        For tailored assistance with your real estate needs, please call us directly at our phone numbers during regular business hours.
-        We’re here to help you find your perfect property!
-    </p>
-    <section>
-    <h2>Location</h2>
-    <p>Hajrulla Abdullahu Pristina 10000</p>
-</section>
-<section class="contact">
-    <h1>Contact</h1>
-    <ol>
-        <li>850-386-2253</li>
-        <li>740-446-1433</li>
-        <li>542-882-0128</li>
-    </ol>
-</section>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Contact</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Forma e Kontaktit -->
+        <section class="contact-form">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" action="#" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <!-- Detajet e Kontaktit -->
+        <section class="contact-details">
+            <h2>Contact Details</h2>
+            <p>Please find below contact details and contact us today!</p>
+            <ul>
+                <li><strong>Address:</strong> Enver Maloku 77 Rruga C, 10000 Prishtinë, Kosovë</li>
+                <li><strong>Phone:</strong> <a href="tel:+38349148853">+383 49 148 853</a></li>
+                <li><strong>Email:</strong> <a href="mailto:LUXury@homes-rks.com">LUXury@homes-rks.com</a></li>
+                <li><strong>Alternate Email:</strong> <a href="mailto:LUXuryhomes@gmail.com">LUXuryhomes@gmail.com</a></li>
+            </ul>
+
+        <!-- Pjesa "Why Choose Us" -->
+        <section class="features">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>Affordable Real Estate Options</li>
+                <li>Expert Guidance</li>
+                <li>Hassle-Free Documentation</li>
+                <li>Customer Support 24/7</li>
+            </ul>
+        </section>
+    </div>
+    <!-- Lidhu me skriptin JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+
