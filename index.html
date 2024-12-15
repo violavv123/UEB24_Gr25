@@ -34,19 +34,21 @@
         <a href="#top" class="brand">LUXury Homes</a>
     </div>
     
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <!-- Navigation Button -->
+  <div class="nav-button">
+    <button class="menu-btn">
+      <span class="hamburger-icon">&#9776;</span>
+    </button>
     
-
+    <!-- Hidden Navigation Links -->
+    <div class="nav-links-container">
     <ul class="nav-links">
         <li><a href="about.html">About Us</a></li>
         <li><a href="listings.html">Listings</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="blog.html">Blog</a></li>
     </ul>
+    </div>
 </nav>
 <!--Header me banner-->
 <header class="banner">
@@ -308,12 +310,14 @@
   // Optional: Auto-rotate the slides every 5 seconds
   setInterval(() => moveSlide(1), 5000);
   
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  const menuButton = document.querySelector('.menu-btn');
+const navContainer = document.querySelector('.nav-links-container');
 
-  hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active'); // Toggle the "active" class on the nav-links
+menuButton.addEventListener('click', () => {
+  navContainer.classList.toggle('active'); // Show/hide the nav links
 });
+
+
 
 </script>
    
