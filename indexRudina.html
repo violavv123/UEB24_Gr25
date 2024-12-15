@@ -1,11 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ury Homes</title>
+    <!--FAVICON-->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .articles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .article {
+            flex: 1 1 calc(33.333% - 20px);
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .article h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .article p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .article {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article {
+                flex: 1 1 100%;
+            }
+        }
+
+        .responsive-footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .logo-contact p {
+            margin: 5px 0;
+        }
+
+        .logo-contact {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links-container {
+            display: flex;
+            flex: 2;
+            justify-content: space-around;
+            min-width: 250px;
+        }
+
+        .footer-links {
+            margin: 0 10px;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter {
+            flex: 1.5;
+            min-width: 250px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .newsletter-form button {
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #008c9e;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-icons .fab:hover {
+            color: #00bcd4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                margin-bottom: 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0d0d0d;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hamburger Menu Styling */
+        .hamburger {
+            display: none;
+            /* Hidden on larger screens */
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Hide links by default */
+                flex-direction: column;
+                /* Stack links vertically */
+                background-color: #0d0d0d;
+                /* Optional dropdown background */
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                /* Full width for dropdown */
+                padding: 30px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+                /* Show links when active */
+            }
+
+            .hamburger {
+                display: flex;
+                /* Show hamburger icon */
+            }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Logo and Brand */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .brand {
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Linqet e navigacionit*/
+
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3399ff;
+        }
+
+        .article {
+            cursor: pointer;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            transition: background 0.3s;
+        }
+
+        .article:hover {
+            background: #eaeaea;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            max-height: 90%;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <!--Navigation Bar-->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Luxury Homes Logo" />
+            <a href="#top" class="brand">LUXury Homes</a>
+        </div>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <ul class="nav-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="listings.html">Listings</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="articles">
+
+            <article class="article" onclick="openModal('modal1')">
+                <h2>Blog Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
+                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
+            </article>
+            <!-- Full Article Modal -->
+            <div id="modal1" class="modal">
+                <article class="modal-content">
+                    <h2>Breaking News: Something Amazing Happened</h2>
+                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
+                        it a "game-changer."</p>
+                        <img src="logo.png" alt="">
+                    <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!</p>
+                </article>
+                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="article" onclick="openModal('modal1')">
+                <h2>Blog Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
+                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
+            </div>
+            <!-- Full Article Modal -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h2>Breaking News: Something Amazing Happened</h2>
+                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
+                        it a "game-changer."</p>
+                        <img src="logo.png" alt="">
+                    <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!</p>
+                </div>
+                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="article" onclick="openModal('modal1')">
+                <h2>Blog Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
+                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
+            </div>
+            <!-- Full Article Modal -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h2>Breaking News: Something Amazing Happened</h2>
+                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
+                        it a "game-changer."</p>
+                        <img src="logo.png" alt="">
+                    <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!</p>
+                </div>
+                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="article" onclick="openModal('modal1')">
+                <h2>Blog Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
+                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
+            </div>
+            <!-- Full Article Modal -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h2>Breaking News: Something Amazing Happened</h2>
+                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
+                        it a "game-changer."</p>
+                        <img src="logo.png" alt="">
+                    <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!</p>
+                </div>
+                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <footer class="responsive-footer">
+        <div class="footer-container">
+            <div class="logo-contact">
+                <img src="logo.png" alt="Infiniti Property Kosovo" class="footer-logo">
+                <p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
+                <p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
+                <p><i class="fas fa-phone"></i> +383 49 790 117</p>
+                <p><i class="fas fa-envelope"></i> info@luxuryhomes.com</p>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-links">
+                    <h3>AGENT</h3>
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+                <div class="footer-links">
+                    <h3>CITY LISTS</h3>
+                    <a href="#">Peja</a>
+                    <a href="#">Prishtina</a>
+                    <a href="#">Prizren</a>
+                    <a href="#">Others</a>
+                </div>
+                <div class="footer-links">
+                    <h3>QUICK LINKS</h3>
+                    <a href="#">Legal</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="#">Find an Agent</a>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
+                <p>Join our community of savvy real estate enthusiasts.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
+<script>
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside the content
+    window.onclick = function (event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    };
+</script>
+
 </html>
