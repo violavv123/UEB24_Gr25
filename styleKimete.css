@@ -6,7 +6,6 @@ body {
     padding: 0;
 }
 
-
 .container {
     display: flex;
     justify-content: center; 
@@ -15,7 +14,6 @@ body {
     min-height: 100vh; 
     padding: 20px;
 }
-
 
 .contact-form {
     background-color: #022446; 
@@ -29,12 +27,79 @@ body {
     z-index: 2; 
 }
 
+.contact-form label {
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: none;
+    border-radius: 8px; 
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem; 
+}
+
+.contact-form button {
+    background-color: #00bcd4; 
+    color: white; 
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0097a7; 
+}
+
+.contact-details {
+    background-color: #122947;
+    border-radius: 15px;
+    padding: 30px;
+    width: 30%;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-left: 20px;
+}
+
+.contact-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #f2f2f2;
+}
+
+.contact-details p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.contact-details ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.contact-details li {
+    font-size: 1rem;
+}
+
+.contact-details li strong {
+    color: #00bcd4; 
+}
 
 .features {
     background-color: #444; 
     color: white;
     padding: 20px;
-    width: 30%; 
+    width: 80%; 
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -51,37 +116,19 @@ body {
     margin: 10px 0;
 }
 
-
-.contact-form label {
-    font-size: 1.2rem; 
-    font-weight: bold; 
-    margin-bottom: 10px; 
-}
-
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 20px; 
-    border: none;
-    border-radius: 8px; 
-    background-color: #fff;
-    color: #333;
-    font-size: 1rem; 
-}
-
-
 @media (max-width: 768px) {
     .contact-form {
         width: 90%; 
         padding: 20px;
     }
 
-    .features {
+    .contact-details {
         width: 90%;
         padding: 20px;
     }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
-
-
