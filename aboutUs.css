@@ -12,7 +12,7 @@ body {
       overflow-x: hidden;
     }
     header {
-      background:#003366;
+      background:black;
       color: white;
       text-align: center;
       padding: 50px 20px;
@@ -38,15 +38,25 @@ body {
       background-image: url('https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
       background-size: cover;
       background-position: center;
+      animation: fadeIn 1.5s ease-in;
       height: 300px;
       display: flex;
       align-items:center;
       justify-content: center;
-      color: whitesmoke;
+      font-weight: bold;
+      color: white;
       text-shadow: 2px 2px 5px rgba( 0, 0, 1);
     }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
     .hero h2 {
       font-size: 2.5rem;
+      padding: 0 10px;
+      background-color: rgba(0, 0, 0, 0.6);  /* Dark transparent background */
     }
     .our-story {
       background: linear-gradient(120deg, #f8f9fa, #e9ecef);
@@ -252,7 +262,7 @@ body {
       margin: 10px 10px;
     }
 
-    .workspace {
+    /* .workspace {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
@@ -310,7 +320,7 @@ body {
       .workspace img {
         height: 150px;
       }
-    }
+    } */
 
     #map {
         height: 500px;
