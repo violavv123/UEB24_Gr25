@@ -523,43 +523,5 @@ renderProperties(properties);
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //Kimete's javascript per faqen e kontaktit
- document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
-
-    // Merr vlerat e formularit
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let phone = document.getElementById('phone').value;
-    let message = document.getElementById('message').value;
-
-    // Kontrollo nëse të dhënat janë plotësuar
-    if (name && email && phone && message) {
-        // Trego një mesazh falënderimi për klientin
-        alert(`Thank you, ${name}! We have received your message.`);
-
-        // Pastro formularin pas dërgimit
-        document.getElementById('contactForm').reset();
-    } else {
-        // Nëse fushat janë bosh, tregoni një mesazh përplotësimin e fushave
-        alert('Please fill out all fields!');
-    }
-});
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
-
-    // Merr vlerat e formularit
-    let name = document.getElementById('name').value.trim();
-    let email = document.getElementById('email').value.trim();
-    let phone = document.getElementById('phone').value.trim();
-    let message = document.getElementById('message').value.trim();
-
-    // Kontrollo nëse emaili përmban simbolin @
-    if (!email.includes('@')) {
-        alert('Please enter a valid email address containing "@" symbol.');
-        return;
-    }
-});
-
 
 
