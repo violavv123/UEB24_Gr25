@@ -545,5 +545,21 @@ renderProperties(properties);
         alert('Please fill out all fields!');
     }
 });
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
+
+    // Merr vlerat e formularit
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let phone = document.getElementById('phone').value.trim();
+    let message = document.getElementById('message').value.trim();
+
+    // Kontrollo nëse emaili përmban simbolin @
+    if (!email.includes('@')) {
+        alert('Please enter a valid email address containing "@" symbol.');
+        return;
+    }
+});
+
 
 
