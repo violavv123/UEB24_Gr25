@@ -6,9 +6,19 @@
   box-sizing: border-box;
   color:white;
 }
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+}
+
+mark{
+  background-color: lightblue;
+  color:#555;
+}
+
+mark a{
+  text-decoration: none;
 }
 /* General Navbar Styling */
 .navbar {
