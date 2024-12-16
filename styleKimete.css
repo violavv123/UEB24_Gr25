@@ -76,22 +76,6 @@ body {
     margin: 10px 0;
 }
 
-.contact-details {
-    background-color: #003366;
-    border-radius: 15px;
-    padding: 30px;
-    margin-top: 20px;
-    text-align: left;
-    color: white;
-    width: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-details h2,
-.features h2 {
-    color: #f2f2f2;
-}
-
 mark {
     background-color: #063066; 
     color: white;      
