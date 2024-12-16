@@ -1,5 +1,5 @@
 body {
-    background-color: #000000; 
+    background-color: black;
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,7 +17,7 @@ body {
 
 .contact-form,
 .contact-location {
-    background-color: #022446;
+    background-color: #003366;
     border-radius: 15px;
     padding: 40px;
     flex: 1; 
@@ -58,7 +58,7 @@ body {
 }
 
 .features {
-    background-color: #122947;
+    background-color: #003366;
     border-radius: 15px;
     padding: 30px;
     flex: 0.6;
@@ -77,7 +77,7 @@ body {
 }
 
 .contact-details {
-    background-color: #122947;
+    background-color: #003366;
     border-radius: 15px;
     padding: 30px;
     margin-top: 20px;
@@ -93,7 +93,7 @@ body {
 }
 
 mark {
-    background-color: #122947; 
+    background-color: #063066; 
     color: white;      
 }
 
