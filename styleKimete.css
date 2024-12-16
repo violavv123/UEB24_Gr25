@@ -67,9 +67,9 @@ body {
 }
 
 .features ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: square; 
 }
+
 
 .features li {
     font-size: 1.2rem;
