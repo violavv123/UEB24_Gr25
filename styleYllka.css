@@ -476,3 +476,113 @@ background-color: #c9302c;
   }
   }
 
+  /*Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0d0d0d;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/* Navigation Button */
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001; /* Ensures button stays above */
+}
+
+.hamburger-icon {
+  font-size: 2rem;
+}
+
+/* Hidden Nav Links by Default */
+.nav-links-container {
+  display: none; /* Hidden initially */
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #0d0d0d;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #3399ff;
+}
+
+/* Show links when active */
+.nav-links-container.active {
+  display: block; /* Show the nav links */
+}
+
+/* Responsive: Hide nav links for large screens */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none; /* Hide the menu button on larger screens */
+  }
+
+  .nav-links-container {
+    display: flex;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+}
+
+
+

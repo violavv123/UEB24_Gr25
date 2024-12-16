@@ -9,6 +9,34 @@
 </head>
 <body>
 
+<!--Navigation Bar-->
+<nav class="navbar">
+  <div class="logo">
+      <img src="logo.png" alt="Luxury Homes Logo" />
+      <a href="#top" class="brand">LUXury Homes</a>
+  </div>
+  
+  <!-- Navigation Button -->
+<div class="nav-button">
+  <button class="menu-btn">
+    <span class="hamburger-icon">&#9776;</span>
+  </button>
+  
+  <!-- Hidden Navigation Links -->
+  <div class="nav-links-container">
+  <ul class="nav-links">
+    <!--perdorimi i atributeve brenda HTML elementeve-->
+    <!--hyperlinks brenda HTML faqes-->
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="indexYllka.html">Listings</a></li>
+      <li><a href="indexKimete.html">Contact Us</a></li>
+      <li><a href="indexRudina.html">Blog</a></li>
+  </ul>
+  </div>
+</nav>
+
+
+
   <section class="listing-section">
     <div class="container">
       <div class="filters">
@@ -314,6 +342,19 @@
       </div>
     </div>
   </footer>
+
+<script>
+
+
+//javascript per navbar
+  const menuButton = document.querySelector('.menu-btn');
+  const navContainer = document.querySelector('.nav-links-container');
+
+  menuButton.addEventListener('click', () => {
+  navContainer.classList.toggle('active'); // Show/hide the nav links
+});
+</script>
+
 </body>
 </html>
 
