@@ -20,7 +20,7 @@ mark{
 mark a{
   text-decoration: none;
 }
-/* General Navbar Styling */
+/*Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
