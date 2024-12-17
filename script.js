@@ -458,31 +458,24 @@ priceRangeInput.addEventListener('input', () => {
   priceValue.textContent = `€${priceRangeInput.value.toLocaleString()}`;
 });
 
-input.addEventListener('input', () => {
-  const query = input.value.trim().toLowerCase();
-  suggestions.innerHTML = '';
-  if (query) {
-    const matchingCities = cities.filter(city => city.toLowerCase().includes(query));
-    matchingCities.forEach(city => {
-      const suggestionItem = document.createElement('div');
-      suggestionItem.textContent = city;
-      suggestionItem.classList.add('suggestion-item');
-      suggestionItem.addEventListener('click', () => {
-        input.value = city;
-        suggestions.innerHTML = '';
-      });
-      suggestions.appendChild(suggestionItem);
+// JS per datalist
+const locationInput = document.getElementById('location');
+const locationSuggestions = document.getElementById('location-suggestions');
+
+const locations = ['Prishtina', 'Peja', 'Mitrovica', 'Prizren', 'Gjakova', 'Ferizaj', 'Vushtrri'];
+locationInput.addEventListener('input', function() {
+    const userInput = locationInput.value.toLowerCase();
+    const filteredLocations = locations.filter(location => location.toLowerCase().includes(userInput));
+
+    locationSuggestions.innerHTML = '';
+
+    filteredLocations.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location;
+        locationSuggestions.appendChild(option);
     });
-  }
 });
 
-document.addEventListener('click', (e) => {
-  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
-    suggestions.innerHTML = '';
-  }
-});
-
-renderProperties(properties);
 
 
 
