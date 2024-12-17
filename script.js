@@ -487,39 +487,6 @@ renderProperties(properties);
 
 
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //viola's javascript for home page
-  
-  let currentIndex = 0;
-  
-  function moveSlide(direction) {
-      const slides = document.querySelectorAll('.slide');
-      const totalSlides = slides.length;
-      const slidesToShow = 3; // Number of slides visible at once
-  
-      // Update the index based on the direction
-      currentIndex += direction;
-  
-      // If the index exceeds the total slides, reset to 0, otherwise, show the last set
-      if (currentIndex >= totalSlides - slidesToShow + 1) {
-          currentIndex = 0;
-      } else if (currentIndex < 0) {
-          currentIndex = totalSlides - slidesToShow; // Show the last set of slides
-      }
-  
-      // Move the slides container
-      const slidesContainer = document.querySelector('.slides-container');
-      slidesContainer.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
-  }
-  
-  // Optional: Auto-rotate the slides every 5 seconds
-  setInterval(() => moveSlide(1), 5000);
-  
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active'); // Toggle the "active" class on the nav-links
-});
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
