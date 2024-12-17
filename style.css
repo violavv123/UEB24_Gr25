@@ -531,18 +531,20 @@ button:hover {
   table {
     width: 80%;
     margin: 5% auto;
-    border-collapse: collapse;
+    border-collapse: collapse; /*krijimi i borders*/
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-spacing: 15px; /*table cellspacing*/
   }
 
   table td {
   color: black !important; /* Overrides inline styles */
+     padding: 10px; /* cellpading*/
   }
   th, td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; /*rregullimi i borders*/
   }
   th {
     background-color: #003366;
