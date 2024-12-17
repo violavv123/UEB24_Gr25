@@ -562,17 +562,24 @@ button:hover {
     font-weight: bold;
   }
 
+  .for-content::before{
+     content:"What Our Clients Say";
+     font-size: 2.5rem;
+     color: #003366;
+     margin-bottom: 20px;
+  }
+
   .testimonial-section {
     padding: 50px 20px;
     background-color: white;
     text-align: center;
   }
 
-  .testimonial-section h2 {
+  /* .testimonial-section h2 {
     font-size: 2.5rem;
     color: #003366;
     margin-bottom: 20px;
-  }
+  } */
 
   .testimonials {
     display: flex;
