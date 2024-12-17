@@ -101,6 +101,32 @@ body {
 .nav-links-container.active {
   display: block; /* Show the nav links */
 }
+
+/* Responsive: Hide nav links for large screens */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none; /* Hide the menu button on larger screens */
+  }
+
+  .nav-links-container {
+    display: flex;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+}
+
+
 /* CSS per drag and drop */
 .gallery-container {
   padding: 20px;
@@ -134,29 +160,6 @@ body {
   opacity: 0.8;
 }
 
-/* Responsive: Hide nav links for large screens */
-@media (min-width: 769px) {
-  .menu-btn {
-    display: none; /* Hide the menu button on larger screens */
-  }
-
-  .nav-links-container {
-    display: flex;
-    position: static;
-    background: none;
-    box-shadow: none;
-    width: auto;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 0 10px;
-  }
-}
 
 
     header {
