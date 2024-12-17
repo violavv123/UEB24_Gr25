@@ -287,6 +287,8 @@ body {
       font-weight: bold;
       margin-top: 30px;
     }
+
+    /*photo gallery*/
   
     .photo-gallery {
       flex: 1;
@@ -313,6 +315,65 @@ body {
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
      
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      margin: 20px 15px;
+      padding:10px;
+    }
+    
+    /* Header Styling */
+    th {
+      background-color: #003366;
+      color: #ffffff;
+      padding: 12px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    /* Row Styling */
+    td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    /* Alternating Row Colors */
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Hover Effect */
+    tr:hover {
+      background-color: #f1f1f1;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Image Styling */
+    img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Heading Highlight */
+    .milestone-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #2C3E50;
+    }
+
+    /* Emphasis Styling */
+    em {
+      color: #7F8C8D;
+    }
+
+
+    /*team section*/
     .team-section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
