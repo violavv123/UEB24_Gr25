@@ -354,7 +354,6 @@ body {
     table {
       width: 90%;
       border-collapse: collapse;
-      font-family: Arial, sans-serif;
       margin: 20px 20px;
       padding:10px;
       margin: 10% auto;
@@ -389,7 +388,7 @@ body {
     }
 
     /* Image Styling */
-    img {
+     table img {
       width: 120px;
       height: 80px;
       object-fit: cover;
