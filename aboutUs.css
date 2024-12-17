@@ -101,6 +101,38 @@ body {
 .nav-links-container.active {
   display: block; /* Show the nav links */
 }
+/* CSS per drag and drop */
+.gallery-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab; 
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.gallery img:active {
+  cursor: grabbing;
+  transform: scale(1.02);
+  opacity: 0.8;
+}
 
 /* Responsive: Hide nav links for large screens */
 @media (min-width: 769px) {
