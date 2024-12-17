@@ -215,11 +215,22 @@
         <div style="color: black; margin: 15px; padding-bottom: 15px;">  
         <h2>Find your Dream Home</h2>
       </div> 
-        <form class="filter-form">
+       <form class="filter-form">
+          <!-- DATALIST -->
           <div class="filter-item" style="position: relative;">
             <label for="location">Location</label>
-            <input type="text" id="location" placeholder="Enter city or area" autocomplete="off">
-             <!--Div elementi 2-->
+            <input type="text" id="location" placeholder="Enter city or area" autocomplete="off" list="location-suggestions">
+            <datalist id="location-suggestions">
+              <option value="Prishtina">
+              <option value="Peja">
+                <option value="Prizren">
+              <option value="Mitrovica">
+              <option value="Podujeva">
+              <option value="Gjakova">
+              <option value="Ferizaj">
+              <option value="Vushtrri">
+                <option value="Gjilan">
+            </datalist>
             <div id="suggestions"></div>
           </div>
             <!--Div element 3-->
