@@ -535,11 +535,13 @@ button:hover {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-spacing: 15px; /*table cellspacing*/
+    border: 2px solid rgb(10, 10, 78); /*borders style - solid*/
   }
 
   table td {
   color: black !important; /* Overrides inline styles */
      padding: 10px; /* cellpading*/
+       border: 1px dashed rgb(14, 9, 9); /*borders style- dashed*/
   }
   th, td {
     padding: 15px;
