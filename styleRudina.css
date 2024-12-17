@@ -1,3 +1,8 @@
+/*font i njejte per krejt faqet*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* Footer Styling */
 .responsive-footer {
     background-color: black;
