@@ -458,65 +458,30 @@ priceRangeInput.addEventListener('input', () => {
   priceValue.textContent = `€${priceRangeInput.value.toLocaleString()}`;
 });
 
-input.addEventListener('input', () => {
-  const query = input.value.trim().toLowerCase();
-  suggestions.innerHTML = '';
-  if (query) {
-    const matchingCities = cities.filter(city => city.toLowerCase().includes(query));
-    matchingCities.forEach(city => {
-      const suggestionItem = document.createElement('div');
-      suggestionItem.textContent = city;
-      suggestionItem.classList.add('suggestion-item');
-      suggestionItem.addEventListener('click', () => {
-        input.value = city;
-        suggestions.innerHTML = '';
-      });
-      suggestions.appendChild(suggestionItem);
+// JS per datalist
+const locationInput = document.getElementById('location');
+const locationSuggestions = document.getElementById('location-suggestions');
+
+const locations = ['Prishtina', 'Peja', 'Mitrovica', 'Prizren', 'Gjakova', 'Ferizaj', 'Vushtrri'];
+locationInput.addEventListener('input', function() {
+    const userInput = locationInput.value.toLowerCase();
+    const filteredLocations = locations.filter(location => location.toLowerCase().includes(userInput));
+
+    locationSuggestions.innerHTML = '';
+
+    filteredLocations.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location;
+        locationSuggestions.appendChild(option);
     });
-  }
 });
 
-document.addEventListener('click', (e) => {
-  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
-    suggestions.innerHTML = '';
-  }
-});
-
-renderProperties(properties);
 
 
 
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //viola's javascript for home page
-  let currentIndex = 0;
-  
-  function moveSlide(direction) {
-      const slides = document.querySelectorAll('.slide');
-      const totalSlides = slides.length;
-      const slidesToShow = 3; // Number of slides visible at once
-  
-      // Update the index based on the direction
-      currentIndex += direction;
-  
-      // If the index exceeds the total slides, reset to 0, otherwise, show the last set
-      if (currentIndex >= totalSlides - slidesToShow + 1) {
-          currentIndex = 0;
-      } else if (currentIndex < 0) {
-          currentIndex = totalSlides - slidesToShow; // Show the last set of slides
-      }
-  
-      // Move the slides container
-      const slidesContainer = document.querySelector('.slides-container');
-      slidesContainer.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
-  }
-  
-  // Optional: Auto-rotate the slides every 5 seconds
-  setInterval(() => moveSlide(1), 5000);
-  
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
 
-  hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active'); // Toggle the "active" class on the nav-links
-});
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
