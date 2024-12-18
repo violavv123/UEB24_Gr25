@@ -41,7 +41,7 @@
     </ul>
     </div>
 </nav>
-    <div class="container">
+     <div class="container">
         <section class="contact-form">
             <h2>Get in Touch</h2>
             <form id="contactForm" action="#" method="POST">
@@ -49,19 +49,30 @@
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
+           
+              
+                <label for="gender">Gender:</label><br>
+                <div class="gender-radio-buttons">
+                <label for="male">
+                <input type="radio" id="male" name="gender" value="male" required>
+                    Male
+                  </label>
+                  <label for="female">
+                  <input type="radio" id="female" name="gender" value="female" required>
+                  Female
+                 </label>
+                </div>
+              
 
-        <section class="map-section">
-            <h2>Our Location</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
-                loading="lazy" allowfullscreen></iframe>
-        </section>
+          <button type="submit">Submit</button>
+      </form>
+  </section>
 
         <section class="features">
             <h2 style="text-decoration: underline;">
@@ -73,9 +84,42 @@
                 <li><mark>Hassle-Free Documentation</mark></li>
                 <li><mark>Customer Support 24/7</mark></li>
             </ul>
-        </section>
+            <section class="checkboxes">
+              <h2>Where did you hear about us:</h2>
+                <input type="checkbox" id="Rrjetet sociale" name="property-type" value="Rrjetet sociale">
+                    <label for="Rrjetet sociale">Rrjetet sociale</label>
+
+                    <input type="checkbox" id="Rrethi shoqeror-familjar" name="property-type" value="Rrethi shoqeror-familjar">
+                    <label for="Rrethi shoqeror-familjar">Rrethi shoqeror-familjar</label>
+
+                    <input type="checkbox" id="Reklamat" name="Reklamat" value="Reklamat">
+                    <label for="Reklamat">Reklamat</label>
+
+
+                    <h2>Find a Property</h2>
+                    <form>
+                        <label for="property-type">Property Type:</label>
+                        <input type="text" id="property-type" name="property-type" list="property-types" placeholder="Choose a type">
+                        
+                        <datalist id="property-types">
+                            <option value="Apartment"></option>
+                            <option value="House"></option>
+                            <option value="Land"></option>
+                            <option value="Office"></option>
+                            <option value="Villa"></option>
+                        </datalist>
+                
+
+                    <section class="map-section">
+                      <h2>Our Location</h2>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
+                          loading="lazy" allowfullscreen></iframe>
+                  </section>
+            </section>
+            </section>
+      
     </div>
-    
+     
     <!--footer-->
     <footer class="responsive-footer" >
         <div class="footer-container">
