@@ -1,25 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div id="contact" class="page">
-    <title>Contact Us</title>
-    <p>
-        To Our Valued Clients:<br>
-        To ensure we provide the highest level of personalized service, we are unable to accept custom inquiries via email.
-        For tailored assistance with your real estate needs, please call us directly at our phone numbers during regular business hours.
-        We’re here to help you find your perfect property!
-    </p>
-    <section>
-    <h2>Location</h2>
-    <p>Hajrulla Abdullahu Pristina 10000</p>
-</section>
-<section class="contact">
-    <h1>Contact</h1>
-    <ol>
-        <li>850-386-2253</li>
-        <li>740-446-1433</li>
-        <li>542-882-0128</li>
-    </ol>
-</section>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Contact</title>
+    <link rel="stylesheet" type="text/css" href="styleKimete.css">
+    <!--font awesome for icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   <!--Navigation Bar-->
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">
+            <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
+            </a>
+        <a href="#top" class="brand">LUXury Homes</a>
+    </div>
+    
+    <!-- Navigation Button -->
+  <div class="nav-button">
+    <button class="menu-btn">
+      <span class="hamburger-icon">&#9776;</span>
+    </button>
+    
+    <!-- Hidden Navigation Links -->
+    <div class="nav-links-container">
+    <ul class="nav-links">
+      <!--perdorimi i atributeve brenda HTML elementeve-->
+      <!--hyperlinks brenda HTML faqes-->
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="indexYllka.html">Listings</a></li>
+        <li><a href="indexKimete.html">Contact Us</a></li>
+        <li><a href="indexRudina.html">Blog</a></li>
+    </ul>
+    </div>
+</nav>
+     <div class="container">
+        <section class="contact-form">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" action="#" method="POST">
+                 <!--Perdorimi i text fushave dhe password-->
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+           
+              <!--Perdorimi i radio buttons-->
+                <label for="gender">Gender:</label><br>
+                <div class="gender-radio-buttons">
+                <label for="male">
+                <input type="radio" id="male" name="gender" value="male" required>
+                    Male
+                  </label>
+                  <label for="female">
+                  <input type="radio" id="female" name="gender" value="female" required>
+                  Female
+                 </label>
+                </div>
+              
+ <!--Perdorimi i Submit butoni-->
+          <button type="submit">Submit</button>
+      </form>
+  </section>
+
+        <section class="features">
+            <h2 style="text-decoration: underline;">
+                <em>Why Choose Us?</em>
+            </h2>
+            <!--Perdorimi i listave te parenditura-->
+            <ul>
+                <!--Perdorimi i tekstit te theksuar-->
+                <li><mark>Affordable Real Estate Options</mark></li>
+                <li><mark>Expert Guidance</mark></li>
+                <li><mark>Hassle-Free Documentation</mark></li>
+                <li><mark>Customer Support 24/7</mark></li>
+            </ul>
+             <!--Perdorimi i checkboxes-->
+            <section class="checkboxes">
+              <h2>Where did you hear about us:</h2>
+                <input type="checkbox" id="Rrjetet sociale" name="property-type" value="Rrjetet sociale">
+                    <label for="Rrjetet sociale">Rrjetet sociale</label>
+
+                    <input type="checkbox" id="Rrethi shoqeror-familjar" name="property-type" value="Rrethi shoqeror-familjar">
+                    <label for="Rrethi shoqeror-familjar">Rrethi shoqeror-familjar</label>
+
+                    <input type="checkbox" id="Reklamat" name="Reklamat" value="Reklamat">
+                    <label for="Reklamat">Reklamat</label>
+
+
+                    <h2>Find a Property</h2>
+                    <form>
+                        <label for="property-type">Property Type:</label>
+                        <input type="text" id="property-type" name="property-type" list="property-types" placeholder="Choose a type">
+                         <!--Perdorimi i datalist-->
+                        <datalist id="property-types">
+                            <option value="Apartment"></option>
+                            <option value="House"></option>
+                            <option value="Office"></option>
+                            <option value="Villa"></option>
+                        </datalist>
+                
+
+                    <section class="map-section">
+                      <h2>Our Location</h2>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
+                          loading="lazy" allowfullscreen></iframe>
+                  </section>
+            </section>
+            </section>
+      
+    </div>
+     
+    <!--footer-->
+    <footer class="responsive-footer" >
+        <div class="footer-container">
+          <div class="logo-contact">
+            <img src="logo.png" alt="Luxury Homes Logo" class="footer-logo">
+            <!--perdorimi i tagut address-->
+            <address>
+              <p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
+            <p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
+            <p><i class="fas fa-phone"></i> +383 49 790 117</p>
+            <p><i class="fas fa-envelope"></i> info@luxuryhomes.com</p>
+            </address>
+          </div>
+          <div class="footer-links-container">
+            <div class="footer-links">
+              <h3>AGENT</h3>
+              <a href="#">Login</a>
+              <a href="#">Register</a>
+            </div>
+            <div class="footer-links">
+              <h3>CITY LISTS</h3>
+              <a href="#">Peja</a>
+              <a href="#">Prishtina</a>
+              <a href="#">Prizren</a>
+              <a href="#">Others</a>
+            </div>
+            <div class="footer-links">
+              <h3>QUICK LINKS</h3>
+              <a href="#">Legal</a>
+              <a href="#">Privacy Policy</a>
+              <a href="indexRudina.html">Blog</a>
+              <a href="#">Find an Agent</a>
+            </div>
+          </div>
+          <div class="newsletter">
+            <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
+            <p>Join our community of savvy real estate enthusiasts.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Your email address">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div class="social-icons">
+              <!--Hyperlink tek nje URL tjeter-->
+             <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+
+    //java script
+  <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
+    
+        // Merr vlerat e formularit
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let phone = document.getElementById('phone').value;
+        let message = document.getElementById('message').value;
+    
+        // Kontrollo nëse të dhënat janë plotësuar
+        if (name && email && phone && message) {
+            // Trego një mesazh falënderimi për klientin
+            alert(`Thank you, ${name}! We have received your message.`);
+    
+            // Pastro formularin pas dërgimit
+            document.getElementById('contactForm').reset();
+        } else {
+            // Nëse fushat janë bosh, tregoni një mesazh përplotësimin e fushave
+            alert('Please fill out all fields!');
+        }
+      });
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
+    
+        // Merr vlerat e formularit
+        let name = document.getElementById('name').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let phone = document.getElementById('phone').value.trim();
+        let message = document.getElementById('message').value.trim();
+    
+        // Kontrollo nëse emaili përmban simbolin @
+        if (!email.includes('@')) {
+            alert('Please enter a valid email address containing "@" symbol.');
+            return;
+        }
+    });     
+//javascript per navbar
+  const menuButton = document.querySelector('.menu-btn');
+  const navContainer = document.querySelector('.nav-links-container');
+
+  menuButton.addEventListener('click', () => {
+  navContainer.classList.toggle('active'); // Show/hide the nav links
+});
+    </script>
+</body>
+</html>
