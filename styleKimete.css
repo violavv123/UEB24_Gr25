@@ -12,6 +12,36 @@ body {
   align-items: center;
   gap: 20px;
   padding: 20px;
+  font-size:20px;
+}
+ .gender-radio-buttons {
+  display: flex;
+  gap: 20px; 
+  align-items: center; 
+}
+.gender-radio-buttons label {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  } 
+  
+.container button[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px; 
+  font-size: 18px;
+  background-color: #061335;
+  color: white;
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  width: 80%; 
+  max-width: 400px; 
+}
+
+
+.container button[type="submit"]:hover {
+  background-color: #45a049;
 }
 
 .contact-form,
@@ -36,6 +66,25 @@ body {
   height: 300px; 
  
 }
+      .checkbox-container label{
+        display:inline-block;
+        margin-right:15px;
+
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap; /* Mundëson që checkbox-et të shfaqen në rreshta të ndryshëm nëse është e nevojshme */
+  gap: 20px; /* Hapësirë mes checkbox-eve */
+}
+
+.checkbox-group input {
+  margin-right: 10px; /* Hapësirë mes checkbox dhe etiketës */
+}
+
+.checkbox-group label {
+  margin-right: 15px; /* Hapësirë mes checkbox-ve */
+}
+
 
 mark {
   background-color: rgb(10, 9, 65); 
@@ -60,7 +109,6 @@ mark {
       width: 90%; 
   }
 }
-
 
 /* Footer Styling */
 .responsive-footer {
