@@ -344,6 +344,14 @@
             color: #fff;
             cursor: pointer;
         }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ul li {
+            list-style-type: circle;
+        }
     </style>
 </head>
 
@@ -371,129 +379,237 @@
     </nav>
 
     <div class="container">
+
         <div class="articles">
 
             <article class="article" onclick="openModal('modal1')">
-                <h2>Blog Title</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
-                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
+                <h2>How to know a house is right for you: Picking your new home</h2>
+                <p>In this post we included some tips to help you decide if a home is the right one for you to buy...
+                </p>
             </article>
             <!-- Full Article Modal -->
             <div id="modal1" class="modal">
                 <article class="modal-content">
-                    <h2>Breaking News: Something Amazing Happened</h2>
-                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
-                        it a "game-changer."</p>
-                        <img src="logo.png" alt="">
+                    <h2>How to know a house is right for you: Picking your new home</h2>
+                    <p>Buying a home is more than a big financial commitment – it’s also emotional. If you don’t love or
+                        at least like your home, the time and money you put into buying it may not feel worth it. It’s
+                        also not always easy to know if a home is right for you. Sometimes, you’ll know the moment you
+                        see it, but it often takes time and careful consideration to make a good decision.</p>
+                    <h3><i>Most important points</i></h3>
+                    <ul>
+                        <li>Buying a home is a big deal, so you want to ensure you buy a home you’re happy to live in.
+                        </li>
+                        <li>Make a list of your wants, needs and must-haves, and make sure you know how much you can
+                            afford before you start shopping.</li>
+                        <li>Take your time to consider each property carefully, but also be ready to act quickly to
+                            avoid losing out to another offer.</li>
+                    </ul>
+                    <h1>Choose a home that is right for you in 6 steps</h1>
+                    <ol>
+                        <li>
+                            Affording the house
+                            <ul>
+                                <li>Following the 28/36 rule, which says your mortgage should take up no more than 28%
+                                    of your gross monthly income and your total monthly debt payments – mortgage payment
+                                    included – should total no more than 36% of your gross monthly income.</li>
+                                <li>Limiting the amount you borrow for a mortgage to somewhere between two and three
+                                    times your annual income.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Make A List Of Your Wants, Needs And Must-Haves
+                            <ul>
+                                <li>Must-haves are absolutely essential. Your agent shouldn’t even show you homes that
+                                    don’t check these boxes. Examples include a specific number of bedrooms or a
+                                    neighborhood with good schools and that’s close to work.</li>
+                                <li>Needs are important, but you may be willing to compromise on one or two for an
+                                    affordable property.</li>
+                                <li>Wants are, of course, wants. You’d like to find a home with these features, but
+                                    you’re willing to accept that you likely won’t get all of them. For example, having
+                                    a pool might be nice, but you’re not going to pass on a home without one.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Narrow Down Where You Want To Live
+                            <ul>
+                                <li>Deciding where you want to live is important because a good location will help your
+                                    home’s value grow over time, while even a great home might not appreciate as much in
+                                    a less desirable area.</li>
+                                <li>A good location can give you more than a higher likelihood that the home’s value
+                                    will appreciate; it can mean a tolerable commute, a good school district, and easy
+                                    access to restaurants, entertainment and shopping. </li>
+                                <li>Finding the right location for your needs will likely make you much happier in the
+                                    long run.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Work With A Real Estate Agent
+                            <ul>
+                                <li>A skilled real estate agent will get to know you and what you want in a home.
+                                    They’ll then work to show you properties that fit the criteria you set.</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            Look For Potential Problems With The House
+                            <ul>
+                                <li>Research the area. Is the pond behind the house prone to flooding? Is it a safe
+                                    area? How far away would you be from the nearest hospital? Go online and figure out
+                                    the vital stuff like the area’s safety rating, as well as the fun things like nearby
+                                    restaurants and the location of the closest gym.</li>
+                                <li>Look at the plumbing. Look under sinks and behind toilets for signs of water damage
+                                    or leaks. Be on the lookout for telltale discoloration of ceilings and walls as
+                                    well. Check the basement for a mildew smell. </li>
+                                <li>Test everything. Once you’ve determined that the house is a real contender, use your
+                                    final walk-through to make sure everything works. Flip on all the light switches and
+                                    flush the toilets. Turn on the shower. Turn on the tap and taste the water.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Red Flags To Watch For
+                            <ul>
+                                <li>Problems with flooring or tiling, or shoddy work. Damaged floors and tiles can
+                                    indicate a lack of important maintenance. </li>
+                                <li>Foundation damage. Small cracks in a home’s foundation, especially if the home is
+                                    old, may be nothing to worry about, but large gaps and cracking are signs of major
+                                    problems requiring expensive repairs. </li>
+                                <li>Poor ventilation. Lack of proper ventilation also increases the risk of mold.</li>
+                                <li>Window damage. Damaged windows or windows that don’t look properly installed could
+                                    be a sign of poor remodeling work or an early indicator of problems with the
+                                    foundation.</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+                </article>
+                <span class="close-button" onclick="closeModal('modal2')">&times;</span>
+            </div>
+
+            <article class="article" onclick="openModal('modal2')">
+                <h2>The Top 2 Reasons To Look at Newly Built Homes</h2>
+                <img src="blog2.png" alt="family in newly built house">
+                <p>Here’s why a new build is worth considering – and how an agent can help you find one that meets your
+                    needs and your budget.</p>
+            </article>
+            <!-- Full Article Modal -->
+            <div id="modal2" class="modal">
+                <article class="modal-content">
+                    <h2>The Top 2 Reasons To Look at Newly Built Homes</h2>
+                    <p>Here’s why a new build is worth considering – and how an agent can help you find one that meets
+                        your needs and your budget.</p>
+                    <img src="blog2.png" alt="family in newly built house">
                     <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
                         story!</p>
                 </article>
-                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+                <span class="close-button" onclick="closeModal('modal2')">&times;</span>
             </div>
-            <div class="article" onclick="openModal('modal1')">
+
+            <div class="article" onclick="openModal('modal3')">
                 <h2>Blog Title</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
                     facilisi. Proin euismod vel lectus vel pulvinar.</p>
             </div>
             <!-- Full Article Modal -->
-            <div id="modal1" class="modal">
+            <div id="modal3" class="modal">
                 <div class="modal-content">
                     <h2>Breaking News: Something Amazing Happened</h2>
                     <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
                         it a "game-changer."</p>
-                        <img src="logo.png" alt="">
+                    <img src="logo.png" alt="">
                     <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
                         story!</p>
                 </div>
-                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+                <span class="close-button" onclick="closeModal('modal3')">&times;</span>
             </div>
-            <div class="article" onclick="openModal('modal1')">
+            <div class="article" onclick="openModal('modal4')">
                 <h2>Blog Title</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
                     facilisi. Proin euismod vel lectus vel pulvinar.</p>
             </div>
             <!-- Full Article Modal -->
-            <div id="modal1" class="modal">
+            <div id="modal4" class="modal">
                 <div class="modal-content">
                     <h2>Breaking News: Something Amazing Happened</h2>
                     <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
                         it a "game-changer."</p>
-                        <img src="logo.png" alt="">
+                    <img src="logo.png" alt="">
                     <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
+                        story!The full details are being revealed as we speak. Stay tuned for more updates on this
+                        developing
                         story!</p>
                 </div>
-                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+                <span class="close-button" onclick="closeModal('modal4')">&times;</span>
             </div>
-            <div class="article" onclick="openModal('modal1')">
-                <h2>Blog Title</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
-                    facilisi. Proin euismod vel lectus vel pulvinar.</p>
-            </div>
-            <!-- Full Article Modal -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <h2>Breaking News: Something Amazing Happened</h2>
-                    <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
-                        it a "game-changer."</p>
-                        <img src="logo.png" alt="">
-                    <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!The full details are being revealed as we speak. Stay tuned for more updates on this developing
-                        story!</p>
-                </div>
-                <span class="close-button" onclick="closeModal('modal1')">&times;</span>
-            </div>
-
-
-
-
-
 
         </div>
     </div>
