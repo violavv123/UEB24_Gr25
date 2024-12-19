@@ -190,7 +190,7 @@
 
     //java script
   <script>
-             document.getElementById('contactForm').addEventListener('submit', function(e) {
+     document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             let name = document.getElementById('name').value;
             let email = document.getElementById('email').value;
@@ -205,29 +205,30 @@
             }
        
     
-                  // Kontrollo nëse emaili përmban simbolin @
-                  if (!email.includes('@')) {
-                   alert('Please enter a valid email address containing "@" symbol.');
-                   return;
-                  }
-                    });
+           // Kontrollo nëse emaili përmban simbolin @
+            if (!email.includes('@')) {
+            alert('Please enter a valid email address containing "@" symbol.');
+            return;
+        }
+    });
     document.getElementById('generateKey').addEventListener('click', function() {
-    // Funksioni për të gjeneruar një çelës 
-    function generateRandomKey(length) {
+      //Funksioni per te krijuar nje celes rastesor me gjatesi te specifikuar
+       function generateRandomKey(length) {
+      //Grupi i karaktereve qe mund te perdoren ne celes
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
+        //Zgjedh karaktere rastesore dhe nderton celesin
         for (let i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
-        return result;
+        return result; //Kthen celesin e krijuar
     }
-
-    // Gjenero çelësin me gjatësi 16 karaktere
+// Gjenero celesin e sigurt me gjatesi 16 karaktere
     const secureKey = generateRandomKey(16);
-
-    // Shfaq çelësin në elementin output
-    const outputElement = document.getElementById('keyOutput');
-    outputElement.textContent = secureKey;
+    //Shfaq celesin ne elementin keyOutput
+    document.getElementById('keyOutput').textContent = secureKey;
+    //Vendos celesin ne nje input te fshehur "secureKeyInput" per ta ruajtur ose derguar
+    document.getElementById('secureKeyInput').value = secureKey;
 });
 //javascript per navbar
   const menuButton = document.querySelector('.menu-btn');
