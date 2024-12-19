@@ -41,7 +41,7 @@
     </ul>
     </div>
 </nav>
-      <div class="container">
+       <div class="container">
       <!--Perdorimi i text fushave dhe password-->
         <section class="contact-form">
             <h2>Get in Touch</h2>
@@ -56,14 +56,10 @@
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
-           
-             <!--Perdorimi i keygen dhe output-->
-                <label>Generate a Secure Key:</label>
-                   <button type="button" id="generateKey">Generate Key</button>
-            <output id="keyOutput">No key generated yet.</output>
+          
             <br>
             <br>
-                <!--Perdorimi i radio buttons-->
+            <!--Perdorimi i radio buttons-->
                 <label for="gender">Gender:</label><br>
                 <div class="gender-radio-buttons">
                 <label for="male">
@@ -80,31 +76,37 @@
       <h2>Where did you hear about us:</h2>
       <div class="checkbox-group">
         <div class="checkbox-item">
-          <label for="Rrjetet sociale">Rrjetet sociale</label>
-      <input type="checkbox" id="Rrjetet sociale" name="property-type" value="Rrjetet sociale">
+          <label for="Social Media">Social Media</label>
+      <input type="checkbox" id="Social Media" name="property-type" value="Social Media">
         </div>
         <div class="checkbox-item">
-          <label for="Rrethi shoqeror-familjar">Rrethi shoqeror-familjar</label>
-        <input type="checkbox" id="Rrethi shoqeror-familjar" name="property-type" value="Rrethi shoqeror-familjar">
+          <label for="Family/Friends">Family/Friends</label>
+        <input type="checkbox" id="Family/Friends" name="property-type" value="Family/Friends">
           </div>
         <div class="checkbox-item">
-          <label for="Reklamat">Reklamat</label>
-        <input type="checkbox" id="Reklamat" name="Reklamat" value="Reklamat">
+          <label for="Advertisments">Advertisments</label>
+        <input type="checkbox" id="Advertisment" name="Advertisment" value="Advertisment">
         </div>
         </div>
      </section>
-  <!--Perdorimi i datalist-->
+
                  <h2>Find a Property</h2>
                     <form>
              <label for="property-type">Property Type:</label>
              <input type="text" id="property-type" name="property-type" list="property-types" placeholder="Choose a type">
-      
+      <!--Perdorimi i datalist-->
                <datalist id="property-types">
                <option value="Apartment"></option>
                <option value="House"></option>
               <option value="Office"></option>
               <option value="Villa"></option>
               </datalist>
+
+              <input type="hidden" id="secureKeyInput" name="secureKey">
+
+              <label>Generate a Secure Key:</label>
+              <button type="button" id="generateKey">Generate Key</button>
+       <output id="keyOutput">No key generated yet.</output>
               
 <!--Perdorimi i Submit butonit-->
           <button type="submit">Submit</button>
@@ -132,7 +134,6 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
           loading="lazy" allowfullscreen></iframe>
   </section>
-     
      
     <!--footer-->
     <footer class="responsive-footer" >
