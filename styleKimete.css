@@ -68,12 +68,19 @@ h3{
 .container button[type="submit"]:hover {
   background-color: #45a049;
 }
+#removeFormButton:hover {
+  background-color: #c9302c; 
+}
+#addFormButton:hover {
+  background-color: #c9302c;
+}
 
 .gender-radio-buttons {
   display: flex;
   gap: 20px;
   font-size:20px;
 }
+
 
 /* Features Section */
 .features {
@@ -84,7 +91,7 @@ h3{
 
 .features ul {
   list-style-type: none;
-  padding: 0;
+   padding: 0;
 }
 
 .features li {
@@ -99,7 +106,7 @@ h3{
 
 .checkbox-item {
   display: flex; 
-  align-items: center;
+  align-items: center; 
   margin-bottom: 10px; 
 }
 
@@ -109,8 +116,6 @@ h3{
   color: #fff; 
   margin-right: 10px; 
 }
-
-
 .checkbox-item input[type="checkbox"] {
   width: 20px; 
   height: 20px; 
@@ -140,6 +145,7 @@ mark {
         width: 90%; 
     }
   }
+  
   
 /* Footer Styling */
 .responsive-footer {
