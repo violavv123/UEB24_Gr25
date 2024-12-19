@@ -89,27 +89,18 @@
         </div>
         </div>
      </section>
-
-                 <h2>Find a Property</h2>
-                    <form>
-             <label for="property-type">Property Type:</label>
-             <input type="text" id="property-type" name="property-type" list="property-types" placeholder="Choose a type">
-      <!--Perdorimi i datalist-->
-               <datalist id="property-types">
-               <option value="Apartment"></option>
-               <option value="House"></option>
-              <option value="Office"></option>
-              <option value="Villa"></option>
-              </datalist>
-
               <input type="hidden" id="secureKeyInput" name="secureKey">
-
               <label>Generate a Secure Key:</label>
               <button type="button" id="generateKey">Generate Key</button>
        <output id="keyOutput">No key generated yet.</output>
-              
-<!--Perdorimi i Submit butonit-->
+              <!--Perdorimi i Submit butonit-->
           <button type="submit">Submit</button>
+          <br>
+           <!--Perdorimi i jQuery me Html(remove)-->
+       <button type="button" id="removeFormButton">Remove Form</button>
+           <!--Perdorimi i jQuery me Html(add)-->
+       <button type="button" id="addFormButton">Add New Form</button>
+
       </form>
   </section>
       
@@ -229,7 +220,49 @@
     document.getElementById('keyOutput').textContent = secureKey;
     //Vendos celesin ne nje input te fshehur "secureKeyInput" per ta ruajtur ose derguar
     document.getElementById('secureKeyInput').value = secureKey;
+    });            
+$(document).ready(function() {
+  // Kur butoni për të hequr formularin klikohet
+  $("#removeFormButton").click(function() {
+    // Heq formularin nga DOM (document)
+    $(".contact-form").remove(); // Kjo do të fshijë tërë seksionin me formularin
+  });
 });
+$(document).ready(function() {
+  // Butoni me shtu nje formular te ri
+  $("#addFormButton").click(function() {
+    
+    var newForm = `
+      <section class="contact-form">
+        <h2>Property Preferences</h2>
+        <form>
+          <label for="property-type">Property Type:</label>
+          <select id="property-type" name="property-type" required>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="office">Office</option>
+            <option value="villa">Villa</option>
+          </select>
+          
+          <label for="budget">Budget (in EUR):</label>
+          <input type="number" id="budget" name="budget" placeholder="Enter your budget" required>
+          
+          <label for="location">Preferred Location:</label>
+          <input type="text" id="location" name="location" placeholder="Enter your preferred location" required>
+          
+          <label for="bedrooms">Number of Bedrooms:</label>
+          <input type="number" id="bedrooms" name="bedrooms" placeholder="Enter the number of bedrooms" required>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    `;
+    
+    // Me shtu formularin e ri para footerit
+    $("footer").before(newForm);  
+  });
+});
+
 //javascript per navbar
   const menuButton = document.querySelector('.menu-btn');
   const navContainer = document.querySelector('.nav-links-container');
