@@ -23,7 +23,7 @@
         <a href="#top" class="brand">LUXury Homes</a>
     </div>
     
-    <!-- Navigation Button -->
+    <!-- Navigation Button --> 
   <div class="nav-button">
     <button class="menu-btn">
       <span class="hamburger-icon">&#9776;</span>
@@ -41,11 +41,11 @@
     </ul>
     </div>
 </nav>
-     <div class="container">
+       <div class="container">
+      <!--Perdorimi i text fushave dhe password-->
         <section class="contact-form">
             <h2>Get in Touch</h2>
             <form id="contactForm" action="#" method="POST">
-                 <!--Perdorimi i text fushave dhe password-->
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 <label for="email">Email:</label>
@@ -56,8 +56,10 @@
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
-           
-              <!--Perdorimi i radio buttons-->
+          
+            <br>
+            <br>
+            <!--Perdorimi i radio buttons-->
                 <label for="gender">Gender:</label><br>
                 <div class="gender-radio-buttons">
                 <label for="male">
@@ -69,59 +71,60 @@
                   Female
                  </label>
                 </div>
-              
- <!--Perdorimi i Submit butoni-->
+<!--Perdorimi i checkboxes-->
+     <section class="checkboxes">
+      <h2>Where did you hear about us:</h2>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <label for="Social Media">Social Media</label>
+      <input type="checkbox" id="Social Media" name="property-type" value="Social Media">
+        </div>
+        <div class="checkbox-item">
+          <label for="Family/Friends">Family/Friends</label>
+        <input type="checkbox" id="Family/Friends" name="property-type" value="Family/Friends">
+          </div>
+        <div class="checkbox-item">
+          <label for="Advertisments">Advertisments</label>
+        <input type="checkbox" id="Advertisment" name="Advertisment" value="Advertisment">
+        </div>
+        </div>
+     </section>
+              <input type="hidden" id="secureKeyInput" name="secureKey">
+              <label>Generate a Secure Key:</label>
+              <button type="button" id="generateKey">Generate Key</button>
+       <output id="keyOutput">No key generated yet.</output>
+              <!--Perdorimi i Submit butonit-->
           <button type="submit">Submit</button>
+          <br>
+           <!--Perdorimi i jQuery me Html(remove)-->
+       <button type="button" id="removeFormButton">Remove Form</button>
+           <!--Perdorimi i jQuery me Html(add)-->
+       <button type="button" id="addFormButton">Add New Form</button>
+
       </form>
   </section>
-
+      
         <section class="features">
-            <h2 style="text-decoration: underline;">
+            <h3 style="text-decoration: underline;">
                 <em>Why Choose Us?</em>
-            </h2>
+            </h3>
             <!--Perdorimi i listave te parenditura-->
             <ul>
-                <!--Perdorimi i tekstit te theksuar-->
+              <!--Perdorimi i tekstit te theksuar-->
                 <li><mark>Affordable Real Estate Options</mark></li>
                 <li><mark>Expert Guidance</mark></li>
                 <li><mark>Hassle-Free Documentation</mark></li>
                 <li><mark>Customer Support 24/7</mark></li>
             </ul>
-             <!--Perdorimi i checkboxes-->
-            <section class="checkboxes">
-              <h2>Where did you hear about us:</h2>
-                <input type="checkbox" id="Rrjetet sociale" name="property-type" value="Rrjetet sociale">
-                    <label for="Rrjetet sociale">Rrjetet sociale</label>
-
-                    <input type="checkbox" id="Rrethi shoqeror-familjar" name="property-type" value="Rrethi shoqeror-familjar">
-                    <label for="Rrethi shoqeror-familjar">Rrethi shoqeror-familjar</label>
-
-                    <input type="checkbox" id="Reklamat" name="Reklamat" value="Reklamat">
-                    <label for="Reklamat">Reklamat</label>
-
-
-                    <h2>Find a Property</h2>
-                    <form>
-                        <label for="property-type">Property Type:</label>
-                        <input type="text" id="property-type" name="property-type" list="property-types" placeholder="Choose a type">
-                         <!--Perdorimi i datalist-->
-                        <datalist id="property-types">
-                            <option value="Apartment"></option>
-                            <option value="House"></option>
-                            <option value="Office"></option>
-                            <option value="Villa"></option>
-                        </datalist>
-                
-
-                    <section class="map-section">
-                      <h2>Our Location</h2>
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
-                          loading="lazy" allowfullscreen></iframe>
-                  </section>
             </section>
             </section>
       
     </div>
+    <section class="map-section">
+      <h2>Our Location</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
+          loading="lazy" allowfullscreen></iframe>
+  </section>
      
     <!--footer-->
     <footer class="responsive-footer" >
@@ -176,44 +179,90 @@
       </footer>
     
 
-    //java script
+    <!--javascript-->
   <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
+     document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let message = document.getElementById('message').value;
+
+            if (name && email && phone && message) {
+                alert(`Thank you, ${name}! We recieved your message.`);
+                document.getElementById('contactForm').reset();
+            } else {
+                alert('Please fill out all fields!');
+            }
+       
     
-        // Merr vlerat e formularit
-        let name = document.getElementById('name').value;
-        let email = document.getElementById('email').value;
-        let phone = document.getElementById('phone').value;
-        let message = document.getElementById('message').value;
-    
-        // Kontrollo nëse të dhënat janë plotësuar
-        if (name && email && phone && message) {
-            // Trego një mesazh falënderimi për klientin
-            alert(`Thank you, ${name}! We have received your message.`);
-    
-            // Pastro formularin pas dërgimit
-            document.getElementById('contactForm').reset();
-        } else {
-            // Nëse fushat janë bosh, tregoni një mesazh përplotësimin e fushave
-            alert('Please fill out all fields!');
-        }
-      });
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Ndalo dërgimin e formularit dhe rifreskimin e faqes
-    
-        // Merr vlerat e formularit
-        let name = document.getElementById('name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let phone = document.getElementById('phone').value.trim();
-        let message = document.getElementById('message').value.trim();
-    
-        // Kontrollo nëse emaili përmban simbolin @
-        if (!email.includes('@')) {
+           // Kontrollo nëse emaili përmban simbolin @
+            if (!email.includes('@')) {
             alert('Please enter a valid email address containing "@" symbol.');
             return;
         }
-    });     
+    });
+    document.getElementById('generateKey').addEventListener('click', function() {
+      //Funksioni per te krijuar nje celes rastesor me gjatesi te specifikuar
+       function generateRandomKey(length) {
+      //Grupi i karaktereve qe mund te perdoren ne celes
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        //Zgjedh karaktere rastesore dhe nderton celesin
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result; //Kthen celesin e krijuar
+    }
+// Gjenero celesin e sigurt me gjatesi 16 karaktere
+    const secureKey = generateRandomKey(16);
+    //Shfaq celesin ne elementin keyOutput
+    document.getElementById('keyOutput').textContent = secureKey;
+    //Vendos celesin ne nje input te fshehur "secureKeyInput" per ta ruajtur ose derguar
+    document.getElementById('secureKeyInput').value = secureKey;
+    });            
+$(document).ready(function() {
+  // Kur butoni për të hequr formularin klikohet
+  $("#removeFormButton").click(function() {
+    // Heq formularin nga DOM (document)
+    $(".contact-form").remove(); // Kjo do të fshijë tërë seksionin me formularin
+  });
+});
+$(document).ready(function() {
+  // Butoni me shtu nje formular te ri
+  $("#addFormButton").click(function() {
+    
+    var newForm = `
+      <section class="contact-form">
+        <h2>Property Preferences</h2>
+        <form>
+          <label for="property-type">Property Type:</label>
+          <select id="property-type" name="property-type" required>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="office">Office</option>
+            <option value="villa">Villa</option>
+          </select>
+          
+          <label for="budget">Budget (in EUR):</label>
+          <input type="number" id="budget" name="budget" placeholder="Enter your budget" required>
+          
+          <label for="location">Preferred Location:</label>
+          <input type="text" id="location" name="location" placeholder="Enter your preferred location" required>
+          
+          <label for="bedrooms">Number of Bedrooms:</label>
+          <input type="number" id="bedrooms" name="bedrooms" placeholder="Enter the number of bedrooms" required>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    `;
+    
+    // Me shtu formularin e ri para footerit
+    $("footer").before(newForm);  
+  });
+});
+
 //javascript per navbar
   const menuButton = document.querySelector('.menu-btn');
   const navContainer = document.querySelector('.nav-links-container');
