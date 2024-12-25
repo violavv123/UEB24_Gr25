@@ -33,7 +33,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
          "https://images.pexels.com/photos/3288104/pexels-photo-3288104.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/90317/pexels-photo-90317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ],
-      moreInfo: "This home offers an elegant design, a large terrace with stunning city views, and is situated in the heart of Prishtina, perfect for families and professionals."
+      moreInfo: "This house is perfect for large families, with a spacious garden, modern amenities, and located in a prime area of Prizren."
     },
     {
       location: 'Gjilan',
@@ -50,7 +50,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/105934/pexels-photo-105934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo: "Located in a serene neighborhood of Gjilan, this property boasts a spacious living area, a private backyard, and easy access to local landmarks."
+      moreInfo: "Prizren"
     },
     {
       location: 'Prishtina',
@@ -67,7 +67,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/2988865/pexels-photo-2988865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/90319/pexels-photo-90319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo: "This house in Prishtina is ideal for nature lovers, featuring a lush garden, modern interiors, and proximity to beautiful parks."
+      moreInfo: "Prizren"
     },
     {
       location: 'Prishtina', 
@@ -84,7 +84,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/1599790/pexels-photo-1599790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo:"A perfect choice in Prishtina, this property combines a central location, luxurious finishes, and ample space for both family living and entertaining."
+      moreInfo:"Prizren"
     },
     {
       location: 'Peja',
@@ -101,7 +101,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/3965521/pexels-photo-3965521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         ],
-        moreInfo: "Nestled in the charming streets of Prizren, this home blends traditional architecture with contemporary comfort, offering a unique living experience."
+        moreInfo: "Prizren"
       },
     {
       location: 'Peja',
@@ -118,7 +118,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/6186825/pexels-photo-6186825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"Situated in a quiet yet central area of Peja, this apartment features sleek modern design, a sunlit balcony, and access to vibrant cultural spots."
+      moreInfo:"Prizren"
     },
     {
       location: 'Mitrovica',
@@ -135,9 +135,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
          "https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
          "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ],
-      moreInfo:"This elegant house in Mitrovica is surrounded by greenery, with spacious interiors, eco-friendly features, and close proximity to top schools."
-
-
+      moreInfo:"Prizren"
     },
     {
       location: 'Mitrovica', 
@@ -154,7 +152,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/6186825/pexels-photo-6186825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"Located near the river, this Mitrovica home features traditional charm, modern updates, and a peaceful garden oasis."
+      moreInfo:"Prizren"
     },
     {
       location: 'Prishtina',
@@ -171,9 +169,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/1599790/pexels-photo-1599790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo:"In the heart of Prishtina, this home offers contemporary finishes, a cozy courtyard, and a prime location near the city hall."
-
-
+      moreInfo:"Prizren"
         },
     {
       location: 'Prishtina', 
@@ -185,14 +181,12 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       size: '50m²',
       images: [
          'https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-         'https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-         'https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/1571452/pexels-photo-1571452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3016430/pexels-photo-3016430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3935352/pexels-photo-3935352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-      
+      'https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/373548/pexels-photo-373548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/1599790/pexels-photo-1599790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo:"This property in Prishtina is perfect for relaxation, with a rooftop terrace, sleek modern decor, and a short walk to the coastline."
+      moreInfo:"Prizren"
     },
     {
       location: 'Ferizaj',
@@ -210,7 +204,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/90319/pexels-photo-90319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo: "This elegant house in Ferizaj combines timeless architecture, a large private yard, and a central location perfect for city living."
+      moreInfo: "Prizren"
     },
     {
       location: 'Ferizaj', 
@@ -226,7 +220,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/3935352/pexels-photo-3935352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1374125/pexels-photo-1374125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"This stylish Ferizaj property is ideal for urban living, with chic modern features, a sunny balcony, and quick access to the city's bustling port area."
+      moreInfo:"Prizren"
     },
     {
       location: 'Gjakova',
@@ -242,7 +236,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/6315803/pexels-photo-6315803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"This charming home in Gjakova offers a blend of traditional design and modern amenities, located in a peaceful neighborhood perfect for families."
+      moreInfo:"Prizren"
     },
     {
       location: 'Gjakova',
@@ -258,7 +252,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/2988865/pexels-photo-2988865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/90319/pexels-photo-90319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       ] ,
-      moreInfo: "A cozy retreat in the heart of Gjakova, this apartment boasts elegant interiors  and a welcoming community atmosphere."
+      moreInfo: "Prizren"
     },
     {
       location: 'Vushtrri',
@@ -274,7 +268,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/3935352/pexels-photo-3935352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1374125/pexels-photo-1374125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"This lovely home in Vushtrri combines comfort and style, featuring a large garden, modern kitchen, and proximity to local schools and parks."
+      moreInfo:"Prizren"
     },
     {
       location: 'Vushtrri', 
@@ -290,7 +284,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/6186825/pexels-photo-6186825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"Located in a quiet area of Vushtrri, this property is ideal for families, offering a spacious living area, contemporary design, and great neighborhood vibes."
+      moreInfo:"Prizren"
     },
     {
       location: 'Peja',
@@ -306,7 +300,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
       'https://images.pexels.com/photos/3935352/pexels-photo-3935352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1374125/pexels-photo-1374125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ],
-      moreInfo:"This modern home in Prizren is designed for comfort, featuring an open-concept layout, a large terrace, and scenic views of the castle."
+      moreInfo:"Prizren"
     },
     {
       location: 'Peja', 
@@ -322,7 +316,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         'https://images.pexels.com/photos/1599790/pexels-photo-1599790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       ] ,
-      moreInfo:"This picturesque apartment in Peja offers breathtaking views of the Rugova Mountains, modern amenities, and a tranquil setting for nature lovers."
+      moreInfo:"Prizren"
     },
     {
       location: 'Prishtina',
@@ -338,7 +332,8 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         "https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
      ],
-     moreInfo: "This luxurious home in Prishtina offers contemporary design, a large yard, and easy access to the city’s vibrant downtown."
+     moreInfo: "This house is perfect for large families, with a spacious garden, modern amenities, and located in a prime area of Prizren."
+
     },
     {
       location: 'Prishtina', 
@@ -354,7 +349,7 @@ const cities = ["Prishtina", "Prizren", "Peja", "Podujeva", "Gjakova", "Mitrovic
         "https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
      ],
-     moreInfo:"This centrally located house in Prishtina is ideal for urban living, with stylish interiors, a rooftop terrace, and a short walk to popular shops and restaurants."
+     moreInfo:"Prizren"
     }
   ]; 
 
@@ -372,11 +367,11 @@ const showPropertyDetails = (property) => {
   const carousel = detailsModal.querySelector(".carousel");
 
   const moreInfo = property.moreInfo || "This property is located in a prime area with excellent amenities nearby. It features a spacious garden, modern interiors, and convenient access to schools and shops.";
-
-  detailsModal.querySelector(".modal-title").textContent = `${property.type} in ${property.location}`;
-  detailsModal.querySelector(".modal-price").textContent = `€${property.price.toLocaleString()}`;
-  detailsModal.querySelector(".modal-details").textContent = `${property.beds} Beds | ${property.baths} Baths | ${property.size}`;
-  detailsModal.querySelector(".additional-info").textContent = moreInfo;
+// perdorimi i jQuery selektoreve
+  $(detailsModal).find(".modal-title").text(`${property.type} in ${property.location}`);
+$(detailsModal).find(".modal-price").text(`€${property.price.toLocaleString()}`);
+$(detailsModal).find(".modal-details").text(`${property.beds} Beds | ${property.baths} Baths | ${property.size}`);
+$(detailsModal).find(".additional-info").text(moreInfo);
 
   if (property.images && Array.isArray(property.images) && property.images.length > 0) {
     mainImage.src = property.images[0]; 
@@ -475,7 +470,6 @@ locationInput.addEventListener('input', function() {
         locationSuggestions.appendChild(option);
     });
 });
-
 
 
 
