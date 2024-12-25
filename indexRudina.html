@@ -12,167 +12,164 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Blog</title>
     <style>
-        
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
+        /* General Container Styling */
         .container {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            padding: 10px;
         }
 
-        <style>
-  /* General Container Styling */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px;
-  }
+        /* Articles Grid */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
 
-  /* Articles Grid */
-  .articles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
+        /* Article Cards */
+        .article {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-  /* Article Cards */
-  .article {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+        .article:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-  .article:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+        .article img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-  .article img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+        .article h2 {
+            font-size: 1.5rem;
+            margin: 15px;
+        }
 
-  .article h2 {
-    font-size: 1.5rem;
-    margin: 15px;
-  }
+        .article p {
+            font-size: 1rem;
+            margin: 15px;
+            color: #555;
+        }
 
-  .article p {
-    font-size: 1rem;
-    margin: 15px;
-    color: #555;
-  }
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-  /* Modal Styling */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90%;
+            overflow-y: auto;
+        }
 
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90%;
-    overflow-y: auto;
-  }
+        .modal-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
 
-  .modal-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+        }
 
-  .modal-content img {
-    max-width: 100%;
-    height: auto;
-    margin: 15px 0;
-  }
+        .modal-content ul,
+        .modal-content ol {
+            margin-left: 20px;
+        }
 
-  .modal-content ul, .modal-content ol {
-    margin-left: 20px;
-  }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-  .close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.7);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
+        ol ul li {
+            list-style-type: square;
+        }
+
+        .post-ul li::before {
+            content: "★";
+            /* Adds a star before each list item */
+            margin-right: 8px;
+        }
+
+        .post-ul li {
+            list-style-type: none;
+        }
+    </style>
 </head>
 
 <body>
-  <!--Navigation Bar-->
-<nav class="navbar">
-    <div class="logo">
-        <a href="/">
-            <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
+    <!--Navigation Bar-->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
             </a>
-        <a href="#top" class="brand">LUXury Homes</a>
-    </div>
-    
-    <!-- Navigation Button -->
-  <div class="nav-button">
-    <button class="menu-btn">
-      <span class="hamburger-icon">&#9776;</span>
-    </button>
-    
-    <!-- Hidden Navigation Links -->
-    <div class="nav-links-container">
-    <ul class="nav-links">
-      <!--perdorimi i atributeve brenda HTML elementeve-->
-      <!--hyperlinks brenda HTML faqes-->
-        <li><a href="aboutUs.html">About Us</a></li>
-        <li><a href="indexYllka.html">Listings</a></li>
-        <li><a href="indexKimete.html">Contact Us</a></li>
-        <li><a href="indexRudina.html">Blog</a></li>
-    </ul>
-    </div>
-</nav>
+            <a href="#top" class="brand">LUXury Homes</a>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="nav-button">
+            <button class="menu-btn">
+                <span class="hamburger-icon">&#9776;</span>
+            </button>
+
+            <!-- Hidden Navigation Links -->
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <!--perdorimi i atributeve brenda HTML elementeve-->
+                    <!--hyperlinks brenda HTML faqes-->
+                    <li><a href="aboutUs.html">About Us</a></li>
+                    <li><a href="indexYllka.html">Listings</a></li>
+                    <li><a href="indexKimete.html">Contact Us</a></li>
+                    <li><a href="indexRudina.html">Blog</a></li>
+                </ul>
+            </div>
+    </nav>
 
     <div class="container">
 
         <div class="articles">
 
             <article class="article" onclick="openModal('modal1')">
-                <img src="blog2.png" alt="family in newly built house" style="width: 300px;  /* Set the width to a specific value */
-  height: auto;">
+                <img src="blog1.png" alt="family picking keys of new house">
                 <h2>How to know a house is right for you: Picking your new home</h2>
                 <p>In this post we included some tips to help you decide if a home is the right one for you to buy...
                 </p>
@@ -186,7 +183,7 @@
                         also not always easy to know if a home is right for you. Sometimes, you’ll know the moment you
                         see it, but it often takes time and careful consideration to make a good decision.</p>
                     <h3><i>Most important points</i></h3>
-                    <ul>
+                    <ul class="post-ul">
                         <li>Buying a home is a big deal, so you want to ensure you buy a home you’re happy to live in.
                         </li>
                         <li>Make a list of your wants, needs and must-haves, and make sure you know how much you can
@@ -319,7 +316,8 @@
             </div>
 
             <div class="article" onclick="openModal('modal3')">
-                <h2>Blog Title</h2>
+                <img src="blog31.png" alt="apartment complex being build">
+                <h2>Prices of apartments in  neighborhoods of Prishtina</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim sapien. Nulla
                     facilisi. Proin euismod vel lectus vel pulvinar.</p>
             </div>
@@ -329,7 +327,7 @@
                     <h2>Breaking News: Something Amazing Happened</h2>
                     <p>Today, in an unexpected turn of events, something truly remarkable occurred. Experts are calling
                         it a "game-changer."</p>
-                    <img src="logo.png" alt="">
+                    <img src="blog3.png" alt="apartment complex being build">
                     <p>The full details are being revealed as we speak. Stay tuned for more updates on this developing
                         story!The full details are being revealed as we speak. Stay tuned for more updates on this
                         developing
@@ -479,8 +477,8 @@
     const navContainer = document.querySelector('.nav-links-container');
 
     menuButton.addEventListener('click', () => {
-    navContainer.classList.toggle('active'); // Show/hide the nav links
-});
+        navContainer.classList.toggle('active'); // Show/hide the nav links
+    });
 </script>
 
 </html>
