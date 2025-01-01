@@ -8,6 +8,10 @@
     <!--font awesome for icons-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- google fonts -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -262,6 +266,46 @@ $(document).ready(function() {
     $("footer").before(newForm);  
   });
 });
+       // Leaflet Map Initialization
+        var map = L.map('map').setView([42.6026, 20.9026], 7); // Kosova coordinates
+
+        // Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Marker
+        L.marker([42.65575228509542, 21.159112006476047]).addTo(map)
+            .bindPopup('Apartment ')
+            .openPopup();
+                  
+        var apartmentMarker = L.marker([42.67911292887467, 21.163043463037788]).addTo(map); //Koordinatat e nje apartamenti
+       apartmentMarker.bindPopup("Apartment ")
+       .openPopup();
+       var apartmentMarker = L.marker([42.659416550587906, 20.28741942269552]).addTo(map); // Koordinatat e  nje apartamenti
+       apartmentMarker.bindPopup("Apartment ")
+       .openPopup();
+       var apartmentMarker = L.marker([42.218083890928476, 20.743623468641516]).addTo(map); // Koordinatat e nje apartamenti
+       apartmentMarker.bindPopup("Apartment ")
+       .openPopup();
+       var villaMarker = L.marker([42.22538928230871, 20.730259406786494]).addTo(map); // Koordinatat e nje ville
+       apartmentMarker.bindPopup("Villa ")
+       .openPopup();
+       var villaMarker = L.marker([42.882798499295944, 20.853957675239798]).addTo(map); // Koordinatat e nje ville
+       apartmentMarker.bindPopup("Villa ")
+       .openPopup();
+       var apartmentMarker = L.marker([42.39163821370002, 20.439327178135276]).addTo(map); //Koordinatat e nje apartamenti
+       apartmentMarker.bindPopup("House ")
+       .openPopup();
+        var houseMarker = L.marker([42.67139575852414, 21.155248202195352]).addTo(map); // Koordinatat e një shtëpie
+       houseMarker.bindPopup("House ")
+       .openPopup();
+       var houseMarker = L.marker([42.88837439050088, 20.85854803808907]).addTo(map); // Koordinatat e një shtëpie
+       houseMarker.bindPopup("House ")
+       .openPopup();
+
+
+
 
 //javascript per navbar
   const menuButton = document.querySelector('.menu-btn');
