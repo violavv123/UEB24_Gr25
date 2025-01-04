@@ -179,7 +179,9 @@ mark a{
 /* Button Styling */
 .btn {
   display: inline-block;
-  background-color: #003366;
+  /* background-color: #003366; */
+  /*perdorimi i gradientit linear*/
+  background: linear-gradient(to right, #003366, #0055cc);
   color: white;
   text-decoration: none;
   padding: 12px 25px;
@@ -190,7 +192,8 @@ mark a{
 }
 
 .btn:hover {
-  background-color:#e6ac00;
+  /* background-color:#e6ac00; */
+  background: linear-gradient(to right, #e6ac00 ,#fbd666 );
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 

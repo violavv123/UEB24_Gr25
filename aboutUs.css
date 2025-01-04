@@ -190,6 +190,8 @@ body {
       background-image: url('https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
       background-size: cover;
       background-position: center;
+      /*perdorimi i background origin*/
+      /* background-origin: border-box; */
       animation: fadeIn 1.5s ease-in;
       height: 300px;
       display: flex;
