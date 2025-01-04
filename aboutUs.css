@@ -55,7 +55,7 @@ body {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1001; /* Ensures button stays above */
+  z-index: 1001; 
 }
 
 .hamburger-icon {
@@ -64,7 +64,7 @@ body {
 
 /* Hidden Nav Links by Default */
 .nav-links-container {
-  display: none; /* Hidden initially */
+  display: none; 
   position: absolute;
   top: 60px;
   right: 10px;
@@ -99,13 +99,13 @@ body {
 
 /* Show links when active */
 .nav-links-container.active {
-  display: block; /* Show the nav links */
+  display: block; 
 }
 
 /* Responsive: Hide nav links for large screens */
 @media (min-width: 769px) {
   .menu-btn {
-    display: none; /* Hide the menu button on larger screens */
+    display: none; 
   }
 
   .nav-links-container {
@@ -161,7 +161,6 @@ body {
 }
 
 
-
     header {
       background:black;
       color: white;
@@ -210,7 +209,7 @@ body {
       font-size: 2.5rem;
       color: white;
       padding: 0 10px;
-      background-color: rgba(0, 0, 0, 0.6);  /* Dark transparent background */
+      background-color: rgba(0, 0, 0, 0.6);  
     }
     .our-story {
       background: linear-gradient(120deg, #f8f9fa, #e9ecef);
