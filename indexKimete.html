@@ -185,7 +185,7 @@
 
     <!--javascript-->
   <script>
-      <!--Perdorimi jQuery me HTM(get)-->
+    //Perdorimi jQuery me HTM(get)
      document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             let name = document.getElementById('name').value;
@@ -201,7 +201,7 @@
             }
        
     
-           // Kontrollo nëse emaili përmban simbolin @
+           //Kontrollo nëse emaili përmban simbolin @
             if (!email.includes('@')) {
             alert('Please enter a valid email address containing "@" symbol.');
             return;
@@ -210,7 +210,7 @@
     document.getElementById('generateKey').addEventListener('click', function() {
       //Funksioni per te krijuar nje celes rastesor me gjatesi te specifikuar
        function generateRandomKey(length) {
-      //Grupi i karaktereve qe mund te perdoren ne celes
+     //Grupi i karaktereve qe mund te perdoren ne celes
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
         //Zgjedh karaktere rastesore dhe nderton celesin
@@ -219,25 +219,24 @@
         }
         return result; //Kthen celesin e krijuar
     }
-// Gjenero celesin e sigurt me gjatesi 16 karaktere
+      Gjenero celesin e sigurt me gjatesi 16 karaktere
     const secureKey = generateRandomKey(16);
-    //Shfaq celesin ne elementin keyOutput
+    Shfaq celesin ne elementin keyOutput
     document.getElementById('keyOutput').textContent = secureKey;
     //Vendos celesin ne nje input te fshehur "secureKeyInput" per ta ruajtur ose derguar
     document.getElementById('secureKeyInput').value = secureKey;
     });            
 $(document).ready(function() {
-  // Kur butoni për të hequr formularin klikohet
+  //Kur butoni për të hequr formularin klikohet
   $("#removeFormButton").click(function() {
-    // Heq formularin nga DOM (document)
-    $(".contact-form").remove(); // Kjo do të fshijë tërë seksionin me formularin
+    Heq formularin nga DOM (document)
+    $(".contact-form").remove(); // e fshin seksionin me formularin
   });
 });
 $(document).ready(function() {
-  // Butoni me shtu nje formular te ri
+  //Butoni me shtu nje formular te ri
   $("#addFormButton").click(function() {
-    
-    var newForm = `
+      var newForm = `
       <section class="contact-form">
         <h2>Property Preferences</h2>
         <form>
@@ -263,19 +262,18 @@ $(document).ready(function() {
       </section>
     `;
     
-    // Me shtu formularin e ri para footerit
+    //Me shtu formularin e ri para footerit
     $("footer").before(newForm);  
   });
 });
-       // Leaflet Map Initialization
-        var map = L.map('map').setView([42.6026, 20.9026], 7); // Kosova coordinates
+       //Inicializimi i Hartes me Leaflet
+        var map = L.map('map').setView([42.6026, 20.9026], 7); // Koordinatat e Kosoves
 
-        // Tile Layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Marker
+        //Shenjat ne Harte
         L.marker([42.65575228509542, 21.159112006476047]).addTo(map)
             .bindPopup('Apartment ')
             .openPopup();
