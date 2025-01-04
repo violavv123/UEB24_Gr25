@@ -357,8 +357,8 @@ const input = document.getElementById('location');
 const suggestions = document.getElementById('suggestions');
 const listingsContainer = document.querySelector('.listings');
 const filterForm = document.querySelector('.filter-form');
-const priceRangeInput = document.getElementById('price-range');
-const priceValue = document.getElementById('price-value');
+const minPriceInput = document.getElementById('min-price');
+const maxPriceInput = document.getElementById('max-price');
 const detailsModal = document.getElementById('details-modal'); 
 const modalOverlay = document.getElementById('modal-overlay');
 
@@ -435,24 +435,27 @@ closeButton.addEventListener('click', () => {
 
 filterForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
   const location = input.value.trim().toLowerCase();
   const propertyType = document.getElementById('property-type').value;
   const propertyUse = document.getElementById('property-use').value;
-  const maxPrice = parseInt(priceRangeInput.value);
+  const minPrice = parseInt(minPriceInput.value) || 100;
+  const maxPrice = parseInt(maxPriceInput.value) || 1000000;
+
+  if (minPrice > maxPrice) {
+    alert('Minimum price cannot be greater than the maximum price.');
+    return;
+  }
 
   const filteredProperties = properties.filter(property =>
     property.location.toLowerCase().includes(location) &&
     (propertyType === 'any' || property.type.toLowerCase() === propertyType.toLowerCase()) &&
+    property.price >= minPrice &&
     property.price <= maxPrice
   );
 
   renderProperties(filteredProperties);
 });
-
-priceRangeInput.addEventListener('input', () => {
-  priceValue.textContent = `€${priceRangeInput.value.toLocaleString()}`;
-});
-
 // JS per datalist
 const locationInput = document.getElementById('location');
 const locationSuggestions = document.getElementById('location-suggestions');
@@ -476,6 +479,4 @@ locationInput.addEventListener('input', function() {
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+//-----------------------------------------
