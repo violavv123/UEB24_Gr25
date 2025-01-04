@@ -315,31 +315,31 @@
   function moveSlide(direction) {
       const slides = document.querySelectorAll('.slide');
       const totalSlides = slides.length;
-      const slidesToShow = 3; // Number of slides visible at once
+      const slidesToShow = 3; // numri i sllajdeve qe shfaqen njekohesisht
   
-      // Update the index based on the direction
+      // Update indeksin ne baze te direction
       currentIndex += direction;
   
-      // If the index exceeds the total slides, reset to 0, otherwise, show the last set
+      //  nese indeksi tejkalon totalin e sllajdeve ktheu ne 0 
       if (currentIndex >= totalSlides - slidesToShow + 1) {
           currentIndex = 0;
       } else if (currentIndex < 0) {
-          currentIndex = totalSlides - slidesToShow; // Show the last set of slides
+          currentIndex = totalSlides - slidesToShow; 
       }
   
-      // Move the slides container
+      
       const slidesContainer = document.querySelector('.slides-container');
       slidesContainer.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
   }
   
-  // Optional: Auto-rotate the slides every 5 seconds
+  // Auto-rotate slides qdo 5 sekonda
   setInterval(() => moveSlide(1), 5000);
   
   const menuButton = document.querySelector('.menu-btn');
   const navContainer = document.querySelector('.nav-links-container');
 
   menuButton.addEventListener('click', () => {
-  navContainer.classList.toggle('active'); // Show/hide the nav links
+  navContainer.classList.toggle('active'); //shfaq/hide linqet
 });
 
 
