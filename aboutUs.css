@@ -1,6 +1,13 @@
 * {
     box-sizing: border-box;
 }
+/*perdorimi i font face rule*/
+@font-face{
+  font-family: 'Montserrat';
+  src:url('Montserrat-Regular.ttf')format('truetype');
+  font-weight: 300;
+  font-style:normal;
+} 
 
 body {
       font-family: 'Montserrat', sans-serif;
