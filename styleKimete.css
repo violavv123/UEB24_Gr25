@@ -20,6 +20,7 @@ body {
 .container {
   width: 80%;
   margin: 0 auto;
+  padding:5px;
 }
 
 h2 {
@@ -63,6 +64,7 @@ h3{
 .contact-form input[type="tel"],
 .contact-form textarea {
   background-color: #f9f9f9;
+  width:90%;
 }
 
 .contact-form button {
@@ -393,4 +395,6 @@ mark {
     }
   }
   
-  
+  .map-section h2{
+    color:#003366;
+  }
