@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -64,7 +65,7 @@
             <br>
             <br>
             <!--Perdorimi i radio buttons-->
-                <label for="gender">Gender:</label><br>
+                <label>Gender:</label><br>
                 <div class="gender-radio-buttons">
                 <label for="male">
                 <input type="radio" id="male" name="gender" value="male" required>
@@ -81,16 +82,16 @@
       <h2>Where did you hear about us:</h2>
       <div class="checkbox-group">
         <div class="checkbox-item">
-          <label for="Social Media">Social Media</label>
-      <input type="checkbox" id="Social Media" name="property-type" value="Social Media" checked>
+          <label for="Social_Media">Social Media</label>
+      <input type="checkbox" id="Social_Media" name="property-type" value="Social Media">
         </div>
         <div class="checkbox-item">
-          <label for="Family/Friends">Family/Friends</label>
-        <input type="checkbox" id="Family/Friends" name="property-type" value="Family/Friends">
+          <label for="Family_Friends">Family/Friends</label>
+        <input type="checkbox" id="Family_Friends" name="property-type" value="Family/Friends">
           </div>
         <div class="checkbox-item">
-          <label for="Advertisments">Advertisments</label>
-        <input type="checkbox" id="Advertisment" name="Advertisment" value="Advertisment">
+          <label for="Advertisements">Advertisements</label>
+        <input type="checkbox" id="Advertisements" name="Advertisements" value="Advertisment">
         </div>
         </div>
      </section>
@@ -123,14 +124,14 @@
                 <li><mark>Customer Support 24/7</mark></li>
             </ul>
             </section>
-            </section>
 
     </div>
-    <section class="map-section">
-      <h2>Our Location</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6644.262357451411!2d21.159112006476047!3d42.65575228509542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprishtina%20real%20estate!5e0!3m2!1sen!2s!4v1734298722389!5m2!1sen!2s"
-          loading="lazy" allowfullscreen></iframe>
+ <!-- Leaflet Map Section -->
+ <section class="map-section">
+    <h2>Our Location</h2>
+    <div id="map" style="height: 400px;"></div> <!-- Map container -->
   </section>
+
 
     <!--footer-->
     <footer class="responsive-footer" >
@@ -268,7 +269,7 @@ $(document).ready(function() {
     //Me shtu formularin e ri para footerit
     $("footer").before(newForm); 
       //Përdorimi i jQuery efekteve(Fade)
-      $(".contact-form").hide();fadeIn(1000); //Shfaq formularin gradualishte
+      $(".contact-form").hide().fadeIn(1000); //Shfaq formularin gradualishte
   });
 });
       //Përdorimi i jQuery efekteve(animate)
