@@ -147,15 +147,16 @@
             document.getElementById('keyOutput').textContent = secureKey;
             document.getElementById('secureKeyInput').value = secureKey;
         });
-
+       // jQuery with HTML(remove)
         $(document).ready(function() {
             $("#removeFormButton").click(function() {
+                //The use of jQuery effects(fade)
                 $(".contact-form").fadeOut(1000, function() {
                     $(this).remove(); // Pasi të jetë fshirë gradualisht, e heq nga DOM
             });
         });
         });
-
+        //jQuery with HTML(add)
         $(document).ready(function() {
             $("#addFormButton").click(function() {
                 var newForm = `
@@ -180,10 +181,11 @@
                     </section>
                 `;
                 $("footer").before(newForm);
+                //The use of jQuery effects(fade)
                 $(".contact-form").hide().fadeIn(1000); // Shfaq formularin gradualisht
             });
         });
-
+      //The use of jQuery effects(animate)
         $(document).ready(function() {
     $("#generateKey").click(function() {
         $(this).animate({
