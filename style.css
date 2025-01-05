@@ -312,6 +312,8 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 width: 100%; /* per me marr video full size te container */
 max-width: 500px; 
 margin: auto; /* per me qene nqender*/
+
+
 }
 .video-frame video {
 display: block; /* largon hapesiren e bardhe mes videos edhe borders */
@@ -667,4 +669,15 @@ button:hover {
       max-width: 90%;
     }
   }
+  
+  .underneath{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  /* #playPauseButton{
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+  } */
