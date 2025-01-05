@@ -73,13 +73,25 @@
 </header>
 <!-- Video and Text Section -->
 <section class="video-text-section">
+  <div class="audiovideo">
    <div class="video-frame">
+    <!--perfshirja e fajllave video-->
     <video controls autoplay loop>
         <!--perdorimi i tagut src dhe te gjitha atributeve te tij-->
         <source src="SELL YOUR HOME.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
    </div>
+   <div class="underneath">
+    <!-- <button id="playPauseButton" class="btn">Play audio</button> -->
+    <!--perfshirja e fajllave audio-->
+    <audio id="myAudio" controls autoplay>
+      <source src="music.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+      </audio>
+   </div>
+   </div>
+
     <div class="text-content">
         <h3>Why Choose Us?</h3>
         <!--perdorimi i tekstit te theksuar highlight me tagun mark-->
@@ -91,6 +103,7 @@
         </p>
     </div>
 </section>
+
 
 <div class="property-slideshow">
     <div class="slides-container">
@@ -341,6 +354,19 @@
   menuButton.addEventListener('click', () => {
   navContainer.classList.toggle('active'); //shfaq/hide linqet
 });
+
+// const audio = document.getElementById('myAudio');
+// const playPauseButton = document.getElementById('playPauseButton');
+
+// playPauseButton.addEventListener('click', () => {
+// if (audio.paused) {
+//     audio.play(); 
+//     playPauseButton.textContent = 'Pause'; 
+// } else {
+//     audio.pause(); 
+//     playPauseButton.textContent = 'Play'; 
+// }
+// });
 
 
 
