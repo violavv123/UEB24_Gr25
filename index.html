@@ -11,7 +11,7 @@
     <meta name="description" content="Kjo eshte nje Real Estate Website e punuar nga grupi 25">
     <link rel="stylesheet" href="style.css">
      <!-- favicon - logo e bisnezit -->
-     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
      <!--font awesome for icons-->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
      <!-- google fonts -->
@@ -20,6 +20,8 @@
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
      <!--css files-->
      <link rel="stylesheet" href="style.css">
+     <!--jquery-->
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
      
 
 
@@ -31,11 +33,12 @@
 <!--top per me kthy ne fillim te faqes-->
 <body id="top">
 <!--Navigation Bar-->
+<!--perdorimi i elementeve te semantikes te html5-->
 <nav class="navbar">
     <div class="logo">
         <!--perdorimi i atributeve width edhe height-->
         <a href="/">
-        <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
+        <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo">
         </a>
         <!--perdorimi i atributit id ne linqe me top-->
         <a href="#top" class="brand">LUXury Homes</a>
@@ -58,6 +61,7 @@
         <li><a href="indexRudina.html">Blog</a></li>
     </ul>
     </div>
+    </div>
 </nav>
 <!--Header me banner-->
 <header class="banner">
@@ -73,24 +77,37 @@
 </header>
 <!-- Video and Text Section -->
 <section class="video-text-section">
+  <div class="audiovideo">
    <div class="video-frame">
+    <!--perfshirja e fajllave video-->
     <video controls autoplay loop>
         <!--perdorimi i tagut src dhe te gjitha atributeve te tij-->
-        <source src="SELL YOUR HOME.mp4" type="video/mp4">
+        <source src="SELL_YOUR_HOME.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
    </div>
+   <div class="underneath">
+    <button id="playPauseButton" class="btn">Play audio</button>
+    <!--perfshirja e fajllave audio-->
+    <audio id="myAudio" autoplay>
+      <source src="music.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+      </audio>
+   </div>
+   </div>
+
     <div class="text-content">
         <h3>Why Choose Us?</h3>
         <!--perdorimi i tekstit te theksuar highlight me tagun mark-->
         <!--hyperlink per tek nje fajll qe mund te hapet ne shfletues-->
         <p >
             Our real estate agency offers personalized services to help you find your dream home quickly and easily. 
-            <mark><a href="SELL YOUR HOME.mp4">Watch the video</a></mark> to learn more about our approach and commitment to excellence. Sign in for a more personalized experience. <br><br>
+            <mark><a href="SELL_YOUR_HOME.mp4">Watch the video</a></mark> to learn more about our approach and commitment to excellence. Sign in for a more personalized experience. <br><br>
             <a href="indexKimete.html" class="btn">Sign In</a>
         </p>
     </div>
 </section>
+
 
 <div class="property-slideshow">
     <div class="slides-container">
@@ -141,7 +158,7 @@
     <!--Funksioni i tagjeve bazike ne krijimin e tabelave-->
     <!--Krijimi i tabelave-->
     <table align="center">
-        <caption style="color:#003366; font-size: 1.8rem;margin-bottom: 10px;">Real Estate Agency Service Costs</caption>
+        <caption  style="color:#003366; font-size: 1.8rem;margin-bottom: 10px;">Real Estate Agency Service Costs</caption>
         <thead>
           <tr>
             <th>Service Type</th>
@@ -188,7 +205,13 @@
         </tbody>
       </table>
     </div>
-
+    
+    <div class="specialevent">
+    <h3 style="color:#003366;">Upcoming Open House</h3>
+    <p >Don't miss our special event! The countdown has begun:</p>
+    <p id="countdown">Event countdown will appear here...</p>
+    </div>
+   
   <!--perdorimi i headings dhe paragrafeve ne vend te duhur-->
     <section class="testimonial-section">
       <!--perdorimi i CSS per vendosje te tekstit me content te klasa for-content-->
@@ -208,6 +231,7 @@
               </div>
             </div>
           </div>
+
     
           <!-- Testimonial 2 -->
           <div class="testimonial">
@@ -293,8 +317,8 @@
       <div class="newsletter">
         <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
         <p>Join our community of savvy real estate enthusiasts.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Your email address">
+        <div  class="newsletter-form">
+          <input type="email" placeholder="Your email address" >
           <button type="submit"><i class="fas fa-paper-plane"></i></button>
         </div>
         <div class="social-icons">
@@ -315,36 +339,77 @@
   function moveSlide(direction) {
       const slides = document.querySelectorAll('.slide');
       const totalSlides = slides.length;
-      const slidesToShow = 3; // Number of slides visible at once
+      const slidesToShow = 3; // numri i sllajdeve qe shfaqen njekohesisht
   
-      // Update the index based on the direction
+      // Update indeksin ne baze te direction
       currentIndex += direction;
   
-      // If the index exceeds the total slides, reset to 0, otherwise, show the last set
+      //  nese indeksi tejkalon totalin e sllajdeve ktheu ne 0 
+      //perdorimi i kushtezimeve if else
       if (currentIndex >= totalSlides - slidesToShow + 1) {
           currentIndex = 0;
       } else if (currentIndex < 0) {
-          currentIndex = totalSlides - slidesToShow; // Show the last set of slides
+          currentIndex = totalSlides - slidesToShow; 
       }
   
-      // Move the slides container
+      
       const slidesContainer = document.querySelector('.slides-container');
       slidesContainer.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
   }
   
-  // Optional: Auto-rotate the slides every 5 seconds
+  // Auto-rotate slides qdo 5 sekonda
   setInterval(() => moveSlide(1), 5000);
   
   const menuButton = document.querySelector('.menu-btn');
   const navContainer = document.querySelector('.nav-links-container');
 
   menuButton.addEventListener('click', () => {
-  navContainer.classList.toggle('active'); // Show/hide the nav links
+  navContainer.classList.toggle('active'); //shfaq/hide linqet
 });
 
+const audio = document.getElementById('myAudio');
+const playPauseButton = document.getElementById('playPauseButton');
+
+playPauseButton.addEventListener('click', () => {
+if (audio.paused) {
+    audio.play(); 
+    playPauseButton.textContent = 'Pause'; 
+} else {
+    audio.pause(); 
+    playPauseButton.textContent = 'Play'; 
+}
+});
+
+//perdorimi i objektit Date dhe try/catch
+const eventDate = new Date("2025-01-15T00:00:00");
+const countdownElement = document.getElementById("countdown");
+
+function updateCountdown() {
+  try {
+    const now = new Date();
+    const timeLeft = eventDate - now;
+
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+      countdownElement.textContent = "The event has started!";
+    }
+  } catch (error) {
+    console.error("Error updating countdown:", error);
+    countdownElement.textContent = "An error occurred while updating the countdown.";
+  }
+}
+
+setInterval(updateCountdown, 1000);
 
 
 </script>
+
    
 </body>
 </html>
