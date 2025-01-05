@@ -399,6 +399,7 @@ const showPropertyDetails = (property) => {
     carousel.innerHTML = ''; 
   }
 
+/**perdorimi i unazes forEach */
   carousel.querySelectorAll("img").forEach((img) => {
     img.addEventListener("click", () => {
       mainImage.src = img.src;

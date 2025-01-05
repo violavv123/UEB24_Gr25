@@ -344,6 +344,7 @@
       currentIndex += direction;
   
       //  nese indeksi tejkalon totalin e sllajdeve ktheu ne 0 
+      //perdorimi i kushtezimeve if else
       if (currentIndex >= totalSlides - slidesToShow + 1) {
           currentIndex = 0;
       } else if (currentIndex < 0) {
@@ -378,10 +379,12 @@ if (audio.paused) {
 }
 });
 
-const eventDate = new Date("2025-01-15T00:00:00"); 
-  const countdownElement = document.getElementById("countdown");
+//perdorimi i objektit Date dhe try/catch
+const eventDate = new Date("2025-01-15T00:00:00");
+const countdownElement = document.getElementById("countdown");
 
-  function updateCountdown() {
+function updateCountdown() {
+  try {
     const now = new Date();
     const timeLeft = eventDate - now;
 
@@ -395,9 +398,14 @@ const eventDate = new Date("2025-01-15T00:00:00");
     } else {
       countdownElement.textContent = "The event has started!";
     }
+  } catch (error) {
+    console.error("Error updating countdown:", error);
+    countdownElement.textContent = "An error occurred while updating the countdown.";
   }
+}
 
-  setInterval(updateCountdown, 1000);
+setInterval(updateCountdown, 1000);
+
 
 </script>
 
