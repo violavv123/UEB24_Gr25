@@ -204,7 +204,13 @@
         </tbody>
       </table>
     </div>
-
+    
+    <div class="specialevent">
+    <h3 style="color:#003366;">Upcoming Open House</h3>
+    <p >Don't miss our special event! The countdown has begun:</p>
+    <p id="countdown">Event countdown will appear here...</p>
+    </div>
+   
   <!--perdorimi i headings dhe paragrafeve ne vend te duhur-->
     <section class="testimonial-section">
       <!--perdorimi i CSS per vendosje te tekstit me content te klasa for-content-->
@@ -224,6 +230,7 @@
               </div>
             </div>
           </div>
+
     
           <!-- Testimonial 2 -->
           <div class="testimonial">
@@ -371,7 +378,26 @@ if (audio.paused) {
 }
 });
 
+const eventDate = new Date("2025-01-15T00:00:00"); 
+  const countdownElement = document.getElementById("countdown");
 
+  function updateCountdown() {
+    const now = new Date();
+    const timeLeft = eventDate - now;
+
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+      countdownElement.textContent = "The event has started!";
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
 
 </script>
 

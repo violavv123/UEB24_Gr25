@@ -681,4 +681,15 @@ button:hover {
     border: none;
     font-family: 'Montserrat', sans-serif;
   }
+
+  .specialevent{
+    text-align: center;
+    background-color: lightblue;
+    padding: 15px 0;
+    margin: 0 10%;
+  }
+  .specialevent p {
+    color:#003366;
+  }
   
+
