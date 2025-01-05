@@ -203,6 +203,7 @@
        
     
            //Kontrollo nëse emaili përmban simbolin @
+           //perdorimi i js per paraqitjen e verejtjeve
             if (!email.includes('@')) {
             alert('Please enter a valid email address containing "@" symbol.');
             return;
@@ -215,6 +216,7 @@
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
         //Zgjedh karaktere rastesore dhe nderton celesin
+        //perdorimi i arrays dhe qasja e elementeve brenda vargjeve
         for (let i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
@@ -318,7 +320,6 @@ $(document).ready(function() {
        var houseMarker = L.marker([42.88837439050088, 20.85854803808907]).addTo(map); // Koordinatat e një shtëpie
        houseMarker.bindPopup("House ")
        .openPopup();
-
 
 
 

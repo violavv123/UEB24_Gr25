@@ -20,6 +20,8 @@
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
      <!--css files-->
      <link rel="stylesheet" href="style.css">
+     <!--jquery-->
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
      
 
 
@@ -31,6 +33,7 @@
 <!--top per me kthy ne fillim te faqes-->
 <body id="top">
 <!--Navigation Bar-->
+<!--perdorimi i elementeve te semantikes te html5-->
 <nav class="navbar">
     <div class="logo">
         <!--perdorimi i atributeve width edhe height-->
@@ -83,9 +86,9 @@
     </video>
    </div>
    <div class="underneath">
-    <!-- <button id="playPauseButton" class="btn">Play audio</button> -->
+    <button id="playPauseButton" class="btn">Play audio</button>
     <!--perfshirja e fajllave audio-->
-    <audio id="myAudio" controls autoplay>
+    <audio id="myAudio" autoplay>
       <source src="music.m4a" type="audio/mp4">
       Your browser does not support the audio element.
       </audio>
@@ -154,7 +157,7 @@
     <!--Funksioni i tagjeve bazike ne krijimin e tabelave-->
     <!--Krijimi i tabelave-->
     <table align="center">
-        <caption style="color:#003366; font-size: 1.8rem;margin-bottom: 10px;">Real Estate Agency Service Costs</caption>
+        <caption  style="color:#003366; font-size: 1.8rem;margin-bottom: 10px;">Real Estate Agency Service Costs</caption>
         <thead>
           <tr>
             <th>Service Type</th>
@@ -306,7 +309,7 @@
       <div class="newsletter">
         <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
         <p>Join our community of savvy real estate enthusiasts.</p>
-        <div class="newsletter-form">
+        <div  class="newsletter-form">
           <input type="email" placeholder="Your email address" >
           <button type="submit"><i class="fas fa-paper-plane"></i></button>
         </div>
@@ -355,22 +358,23 @@
   navContainer.classList.toggle('active'); //shfaq/hide linqet
 });
 
-// const audio = document.getElementById('myAudio');
-// const playPauseButton = document.getElementById('playPauseButton');
+const audio = document.getElementById('myAudio');
+const playPauseButton = document.getElementById('playPauseButton');
 
-// playPauseButton.addEventListener('click', () => {
-// if (audio.paused) {
-//     audio.play(); 
-//     playPauseButton.textContent = 'Pause'; 
-// } else {
-//     audio.pause(); 
-//     playPauseButton.textContent = 'Play'; 
-// }
-// });
+playPauseButton.addEventListener('click', () => {
+if (audio.paused) {
+    audio.play(); 
+    playPauseButton.textContent = 'Pause'; 
+} else {
+    audio.pause(); 
+    playPauseButton.textContent = 'Play'; 
+}
+});
 
 
 
 </script>
+
    
 </body>
 </html>
