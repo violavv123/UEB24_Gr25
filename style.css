@@ -6,6 +6,13 @@
   box-sizing: border-box;
   color:white;
 }
+/*perdorimi i font face rule*/
+ @font-face{
+  font-family: 'Montserrat';
+  src:url('Montserrat-Regular.ttf')format('truetype');
+  font-weight: 300;
+  font-style:normal;
+} 
 
 body {
   margin: 0;
@@ -57,7 +64,7 @@ mark a{
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1001; /* Ensures button stays above */
+  z-index: 1001; /* siguron qe butoni qendron lart*/
 }
 
 .hamburger-icon {
@@ -66,13 +73,14 @@ mark a{
 
 /* Hidden Nav Links by Default */
 .nav-links-container {
-  display: none; /* Hidden initially */
+  display: none; 
   position: absolute;
   top: 60px;
   right: 10px;
   background-color: #0d0d0d;
   width: 200px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /*perdorimi i border radius*/
   border-radius: 5px;
   padding: 10px 0;
 }
@@ -101,13 +109,13 @@ mark a{
 
 /* Show links when active */
 .nav-links-container.active {
-  display: block; /* Show the nav links */
+  display: block; 
 }
 
 /* Responsive: Hide nav links for large screens */
 @media (min-width: 769px) {
   .menu-btn {
-    display: none; /* Hide the menu button on larger screens */
+    display: none; 
   }
 
   .nav-links-container {
@@ -135,7 +143,8 @@ mark a{
 .banner {
   position: relative;
   height: 100vh; /* Full viewport height */
-  background-image: url('https://images.pexels.com/photos/20122587/pexels-photo-20122587/free-photo-of-golden-genie-lamp.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Replace with your image */
+  background-image: url('https://images.pexels.com/photos/20122587/pexels-photo-20122587/free-photo-of-golden-genie-lamp.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
+  /*perdorimi i background size*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -147,7 +156,7 @@ mark a{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text readability */
+  background-color: rgba(0, 0, 0, 0.5); /* per lexim ma tlehte te tekstit */
   display: flex;
   justify-content: flex-start;
   padding: 0 50px;
@@ -177,7 +186,9 @@ mark a{
 /* Button Styling */
 .btn {
   display: inline-block;
-  background-color: #003366;
+  /* background-color: #003366; */
+  /*perdorimi i gradientit linear*/
+  background: linear-gradient(to right, #003366, #0055cc);
   color: white;
   text-decoration: none;
   padding: 12px 25px;
@@ -188,7 +199,8 @@ mark a{
 }
 
 .btn:hover {
-  background-color:#e6ac00;
+  /* background-color:#e6ac00; */
+  background: linear-gradient(to right, #e6ac00 ,#fbd666 );
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -252,6 +264,7 @@ mark a{
   max-width: 100%;
   height:auto;
   border-radius: 10px;
+  /*perdorimi i shadow te borders*/
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -290,20 +303,22 @@ mark a{
 }
 
 .video-frame {
-display: inline-block; /* Keeps the frame tight around the video */
-padding: 0px; /* Space between the video and the border */
-border: 5px solid #003366; /* Border thickness and color */
-border-radius: 15px; /* Optional: Adds rounded corners */
-background-color: #f0f0f0; /* Optional: Adds a background color */
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
-width: 100%; /* Ensures the frame takes full width */
-max-width: 500px; /* Limits the size on larger screens */
-margin: auto; /* Centers the frame */
+display: inline-block; /* ben qe borders me qene te ngjeshura me frame tvideos */
+padding: 0px; /* nuk ka hapsire mes borders edhe videos */
+border: 5px solid #003366; 
+border-radius: 15px; 
+background-color: #f0f0f0; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+width: 100%; /* per me marr video full size te container */
+max-width: 500px; 
+margin: auto; /* per me qene nqender*/
+
+
 }
 .video-frame video {
-display: block; /* Removes extra whitespace around the video */
-width: 100%; /* Makes the video responsive */
-height: auto; /* Maintains the video’s aspect ratio */
+display: block; /* largon hapesiren e bardhe mes videos edhe borders */
+width: 100%; 
+height: auto; 
 }
 
 /* Responsive Design */
@@ -318,12 +333,12 @@ height: auto; /* Maintains the video’s aspect ratio */
       max-width: 100%;
   }
   .video-frame {
-  padding: 5px; /* Reduce padding for smaller screens */
-  border: 2px solid #000; /* Adjust border thickness */
+  padding: 5px; 
+  border: 2px solid #000; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .text-content {
-      padding-top: 20px; /* Add space between video and text */
+      padding-top: 20px; 
   }
   
 }
@@ -456,16 +471,16 @@ color: #00bcd4;
 background-color: white;
   position: relative;
   width: 100vw; /* Full viewport width */
-  max-width: 100%; /* Ensure it doesn't exceed the screen width */
+  max-width: 100%; /* mos me tejkalu hapsiren e screen */
   margin: auto;
-  overflow: hidden; /* Hides the overflow content that is not visible */
+  overflow: hidden; 
   padding: 10px 5px;
   height:400px;
 }
 
 @media (max-width: 768px) {
   .property-slideshow {
-      height: 300px; /* Adjust height for smaller screens */
+      height: 300px; 
   }
   .slide-caption{
       font-size: 0.5rem;
@@ -474,11 +489,11 @@ background-color: white;
 
 .slides-container {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth transition between slides */
+  transition: transform 0.5s ease-in-out; 
 }
 
 .slide {
-  min-width: 33.33%; /* This will show 3 slides at once (change percentage to show more/less) */
+  min-width: 33.33%; /* shfaq tri sllajde se bashku varesisht prej perqindjes */
   box-sizing: border-box;
   position: relative;
 }
@@ -487,7 +502,7 @@ background-color: white;
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: cover;/*ensures the image covers the area without stretching*/
+  object-fit: cover;/*siguron qe fotoja mos mu bo stretch*/
   flex-grow:1;
 }
 
@@ -534,13 +549,13 @@ button:hover {
     border-collapse: collapse; /*krijimi i borders*/
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-spacing: 15px; /*table cellspacing*/
+    border-spacing: 15px; 
     border: 2px solid rgb(10, 10, 78); /*borders style - solid*/
   }
 
   table td {
   color: black !important; /* Overrides inline styles */
-     padding: 10px; /* cellpading*/
+     padding: 10px; 
        border: 1px dashed rgb(14, 9, 9); /*borders style- dashed*/
   }
   th, td {
@@ -579,11 +594,7 @@ button:hover {
     text-align: center;
   }
 
-  /* .testimonial-section h2 {
-    font-size: 2.5rem;
-    color: #003366;
-    margin-bottom: 20px;
-  } */
+ 
 
   .testimonials {
     display: flex;
@@ -658,4 +669,27 @@ button:hover {
       max-width: 90%;
     }
   }
+  
+  .underneath{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #playPauseButton{
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .specialevent{
+    text-align: center;
+    background-color: lightblue;
+    padding: 15px 0;
+    margin: 0 10%;
+  }
+  .specialevent p {
+    color:#003366;
+  }
+  
 
