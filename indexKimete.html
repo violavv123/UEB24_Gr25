@@ -185,7 +185,7 @@
 
     <!--javascript-->
   <script>
-    //Perdorimi jQuery me HTM(get)
+    //Perdorimi jQuery me HTML(get)
      document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             let name = document.getElementById('name').value;
@@ -219,9 +219,9 @@
         }
         return result; //Kthen celesin e krijuar
     }
-      Gjenero celesin e sigurt me gjatesi 16 karaktere
+     // Gjenero celesin e sigurt me gjatesi 16 karaktere
     const secureKey = generateRandomKey(16);
-    Shfaq celesin ne elementin keyOutput
+    //Shfaq celesin ne elementin keyOutput
     document.getElementById('keyOutput').textContent = secureKey;
     //Vendos celesin ne nje input te fshehur "secureKeyInput" per ta ruajtur ose derguar
     document.getElementById('secureKeyInput').value = secureKey;
