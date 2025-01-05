@@ -677,7 +677,8 @@ button:hover {
     align-items: center;
   }
 
-  /* #playPauseButton{
+  #playPauseButton{
     border: none;
     font-family: 'Montserrat', sans-serif;
-  } */
+  }
+  
