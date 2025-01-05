@@ -8,7 +8,6 @@
 } 
 body {
   font-family: 'Montserrat', sans-serif;
-
   background-color:rgb(223, 223, 243); 
   color:white;
   margin: 0;
@@ -18,6 +17,7 @@ body {
 .container {
   width: 80%;
   margin: 0 auto;
+  padding:10px;
 }
 
 h2 {
@@ -61,6 +61,7 @@ h3{
 .contact-form input[type="tel"],
 .contact-form textarea {
   background-color: #f9f9f9;
+  width: 90%;
 }
 
 .contact-form button {
@@ -389,4 +390,7 @@ mark {
     .nav-links li {
       margin: 0 10px;
     }
+  }
+  .map-section h2{
+    color:#003366;
   }

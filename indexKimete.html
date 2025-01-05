@@ -53,7 +53,7 @@
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="on">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 <label for="phone">Phone Number:</label>
@@ -76,12 +76,13 @@
                  </label>
                 </div>
 <!--Perdorimi i checkboxes-->
+<!--perdorimi i atributeve te inputit si checked, required, autocomplete etj -->
      <section class="checkboxes">
       <h2>Where did you hear about us:</h2>
       <div class="checkbox-group">
         <div class="checkbox-item">
           <label for="Social Media">Social Media</label>
-      <input type="checkbox" id="Social Media" name="property-type" value="Social Media">
+      <input type="checkbox" id="Social Media" name="property-type" value="Social Media" checked>
         </div>
         <div class="checkbox-item">
           <label for="Family/Friends">Family/Friends</label>
@@ -93,6 +94,7 @@
         </div>
         </div>
      </section>
+              <!--keygen and output-->
               <input type="hidden" id="secureKeyInput" name="secureKey">
               <label>Generate a Secure Key:</label>
               <button type="button" id="generateKey">Generate Key</button>
