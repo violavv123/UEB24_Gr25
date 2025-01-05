@@ -229,9 +229,11 @@
 $(document).ready(function() {
   //Kur butoni për të hequr formularin klikohet
   $("#removeFormButton").click(function() {
-    Heq formularin nga DOM (document)
-    $(".contact-form").remove(); // e fshin seksionin me formularin
-  });
+      //Përdorimi i jQuery efekteve(Fade)
+    $(".contact-form").fadeOut(1000,function(){ 
+  $(this).remove(); //E heq nga Dom gradualishte
+      });
+    });
 });
 $(document).ready(function() {
   //Butoni me shtu nje formular te ri
@@ -263,9 +265,22 @@ $(document).ready(function() {
     `;
     
     //Me shtu formularin e ri para footerit
-    $("footer").before(newForm);  
+    $("footer").before(newForm); 
+      //Përdorimi i jQuery efekteve(Fade)
+      $(".contact-form").hide()fadeIn(1000); //Shfaq formularin gradualishte
   });
 });
+      //Përdorimi i jQuery efekteve(animate)
+         $(document).ready(function() {
+    $("#generateKey").click(function() {
+        $(this).animate({
+            width: "150px", //Ndryshon gjeresine
+            height: "50px"  //Ndryshon lartesine
+        }, 1000); //Koha e animacionit 1 sekonde
+    });
+});
+
+      
        //Inicializimi i Hartes me Leaflet
         var map = L.map('map').setView([42.6026, 20.9026], 7); // Koordinatat e Kosoves
 
