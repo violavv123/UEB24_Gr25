@@ -367,7 +367,6 @@
      moreInfo:"This centrally located house in Prishtina is ideal for urban living, with stylish interiors, a rooftop terrace, and a short walk to popular shops and restaurants."
     }
   ]; 
-
 const input = document.getElementById('location');
 const suggestions = document.getElementById('suggestions');
 const listingsContainer = document.querySelector('.listings');
@@ -378,86 +377,91 @@ const detailsModal = document.getElementById('details-modal');
 const modalOverlay = document.getElementById('modal-overlay');
 
 const showPropertyDetails = (property) => {
-  const mainImage = detailsModal.querySelector(".main-image");
-  const carousel = detailsModal.querySelector(".carousel");
+const mainImage = detailsModal.querySelector(".main-image");
+const carousel = detailsModal.querySelector(".carousel");
 
-  const moreInfo = property.moreInfo || "This property is located in a prime area with excellent amenities nearby. It features a spacious garden, modern interiors, and convenient access to schools and shops.";
+const moreInfo = property.moreInfo || "This property is located in a prime area with excellent amenities nearby. It features a spacious garden, modern interiors, and convenient access to schools and shops.";
 
-  detailsModal.querySelector(".modal-title").textContent = `${property.type} in ${property.location}`;
-  detailsModal.querySelector(".modal-price").textContent = `€${property.price.toLocaleString()}`;
-  detailsModal.querySelector(".modal-details").textContent = `${property.beds} Beds | ${property.baths} Baths | ${property.size}`;
-  detailsModal.querySelector(".additional-info").textContent = moreInfo;
+detailsModal.querySelector(".modal-title").textContent = `${property.type} in ${property.location}`;
+detailsModal.querySelector(".modal-price").textContent = `€${property.price.toLocaleString()}`;
+detailsModal.querySelector(".modal-details").textContent = `${property.beds} Beds | ${property.baths} Baths | ${property.size}`;
+detailsModal.querySelector(".additional-info").textContent = moreInfo;
 
-  if (property.images && Array.isArray(property.images) && property.images.length > 0) {
-    mainImage.src = property.images[0]; 
-    carousel.innerHTML = property.images.map((src) => `<img src="${src}" alt="Additional Image">`).join(""); 
-  } else if (property.image) {
-    mainImage.src = property.image; 
-    carousel.innerHTML = `<img src="${property.image}" alt="Additional Image">`; 
-  } else {
-    mainImage.src = ''; 
-    carousel.innerHTML = ''; 
-  }
+if (property.images && Array.isArray(property.images) && property.images.length > 0) {
+mainImage.src = property.images[0]; 
+carousel.innerHTML = property.images.map((src) => `<img src="${src}" alt="Additional Image">`).join(""); 
+} else if (property.image) {
+mainImage.src = property.image; 
+carousel.innerHTML = `<img src="${property.image}" alt="Additional Image">`; 
+} else {
+mainImage.src = ''; 
+carousel.innerHTML = ''; 
+}
 
 /**perdorimi i unazes forEach */
-  carousel.querySelectorAll("img").forEach((img) => {
-    img.addEventListener("click", () => {
-      mainImage.src = img.src;
-    });
-  });
+carousel.querySelectorAll("img").forEach((img) => {
+img.addEventListener("click", () => {
+  mainImage.src = img.src;
+});
+});
 
-  detailsModal.classList.add("active");
-  modalOverlay.classList.add("active");
+detailsModal.classList.add("active");
+modalOverlay.classList.add("active");
 };
 
 const renderProperties = (filteredProperties) => {
-  listingsContainer.innerHTML = '';
-  if (filteredProperties.length === 0) {
-    const noPropertiesMessage = document.createElement('p');
-    noPropertiesMessage.textContent = 'No properties found for your search criteria.';
-    noPropertiesMessage.classList.add('no-properties-message');
-    listingsContainer.appendChild(noPropertiesMessage);
-    return;
-  }
+listingsContainer.innerHTML = '';
+if (filteredProperties.length === 0) {
+const noPropertiesMessage = document.createElement('p');
+noPropertiesMessage.textContent = 'No properties found for your search criteria.';
+noPropertiesMessage.classList.add('no-properties-message');
+listingsContainer.appendChild(noPropertiesMessage);
+return;
+}
 
-  filteredProperties.forEach(property => {
-    const propertyCard = document.createElement('div');
-    propertyCard.classList.add('property-card');
-    
-    const propertyImage = property.images && Array.isArray(property.images) && property.images.length > 0 ? property.images[0] : property.image;
+filteredProperties.forEach(property => {
+const propertyCard = document.createElement('div');
+propertyCard.classList.add('property-card');
 
-    propertyCard.innerHTML = `
-      <img src="${propertyImage}" alt="${property.type} in ${property.location}">
-      <div class="property-details">
-        <h3>${property.type} in ${property.location}</h3>
-        <p class="price">€${property.price.toLocaleString()}</p>
-        <p>${property.beds} Beds | ${property.baths} Baths | ${property.size}</p>
-        <button class="view-details">View Details</button>
-      </div>
-    `;
+const propertyImage = property.images && Array.isArray(property.images) && property.images.length > 0 ? property.images[0] : property.image;
 
-    listingsContainer.appendChild(propertyCard);
+propertyCard.innerHTML = `
+  <img src="${propertyImage}" alt="${property.type} in ${property.location}">
+  <div class="property-details">
+    <h3>${property.type} in ${property.location}</h3>
+    <p class="price">€${property.price.toLocaleString()}</p>
+    <p>${property.beds} Beds | ${property.baths} Baths | ${property.size}</p>
+    <button class="view-details">View Details</button>
+  </div>
+`;
 
-    const viewDetailsButton = propertyCard.querySelector('.view-details');
-    viewDetailsButton.addEventListener('click', () => showPropertyDetails(property));
-  });
+listingsContainer.appendChild(propertyCard);
+
+const viewDetailsButton = propertyCard.querySelector('.view-details');
+viewDetailsButton.addEventListener('click', () => showPropertyDetails(property));
+});
 };
 const closeButton = detailsModal.querySelector('.close-btn'); 
 
 closeButton.addEventListener('click', () => {
-  detailsModal.classList.remove('active'); 
-  modalOverlay.classList.remove('active'); 
+detailsModal.classList.remove('active'); 
+modalOverlay.classList.remove('active'); 
 });
 renderProperties(properties);
 
 filterForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const location = input.value.trim().toLowerCase();
-  const propertyType = document.getElementById('property-type').value;
-  const propertyUse = document.getElementById('property-use').value;
-  const minPrice = parseInt(minPriceInput.value) || 100;
-  const maxPrice = parseInt(maxPriceInput.value) || 1000000;
+  const location = input.value.trim().toLowerCase().toString();
+  const propertyType = document.getElementById('property-type').value.toString(); //perdorimi i toString()
+  const propertyUse = document.getElementById('property-use').value.toString();
+  const minPrice = parseInt(minPriceInput.value) || 0; 
+  const maxPrice = parseInt(maxPriceInput.value) || Number.MAX_VALUE;  //perdorimi i MAX_VALUE
+
+  if (isNaN(minPrice) || isNaN(maxPrice)) {
+    alert("Please enter a number."); // perdorimi i NaN
+    return;
+  }
 
   if (minPrice > maxPrice) {
     alert('Minimum price cannot be greater than the maximum price.');
@@ -465,29 +469,11 @@ filterForm.addEventListener('submit', (e) => {
   }
 
   const filteredProperties = properties.filter(property =>
-    property.location.toLowerCase().includes(location) &&
-    (propertyType === 'any' || property.type.toLowerCase() === propertyType.toLowerCase()) &&
+    property.location.toString().toLowerCase().includes(location) &&
+    (propertyType === 'any' || property.type.toString().toLowerCase() === propertyType.toLowerCase()) &&
     property.price >= minPrice &&
     property.price <= maxPrice
   );
 
   renderProperties(filteredProperties);
-});
-
-// JS per datalist
-const locationInput = document.getElementById('location');
-const locationSuggestions = document.getElementById('location-suggestions');
-
-const locations = ['Prishtina', 'Peja', 'Mitrovica', 'Prizren', 'Gjakova', 'Ferizaj', 'Vushtrri'];
-locationInput.addEventListener('input', function() {
-    const userInput = locationInput.value.toLowerCase();
-    const filteredLocations = locations.filter(location => location.toLowerCase().includes(userInput));
-
-    locationSuggestions.innerHTML = '';
-
-    filteredLocations.forEach(location => {
-        const option = document.createElement('option');
-        option.value = location;
-        locationSuggestions.appendChild(option);
-    });
 });
