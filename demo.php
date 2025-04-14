@@ -1,18 +1,130 @@
 <?php
 //yllka
-//variablat globale: $_GET — për të marrë të dhëna nga URL query string, $_POST — për të marrë të dhëna nga forma, $_SESSION — për të ruajtur të dhëna midis faqeve (si përdoruesi që është loguar).,
-// $_SERVER — për informata rreth serverit dhe kërkesës, $_COOKIE — për të lexuar cookie-t, $_FILES — për menaxhimin e file upload.
-echo "HELLO FROM XAMPP!<br>";
-
-$lokacioni = $_GET['lokacion'] ?? 'prishtina';
-$lloji = $_GET['lloji'] ?? 'apartment';
-
-function filtro()
-{
-    global $lokacioni, $lloji;
-    echo "Filtrim për: $lloji në $lokacioni <br>";
-}
-echo '</div>';
+//yllka
+ //variablat globale: $_GET — për të marrë të dhëna nga URL query string, $_POST — për të marrë të dhëna nga forma, $_SESSION — për të ruajtur të dhëna midis faqeve (si përdoruesi që është loguar).,
+ // $_SERVER — për informata rreth serverit dhe kërkesës, $_COOKIE — për të lexuar cookie-t, $_FILES — për menaxhimin e file upload.
+ echo "HELLO FROM XAMPP!<br>";
+ 
+ $lokacioni = $_GET['lokacion'] ?? 'prishtina';
+ $lloji = $_GET['lloji'] ?? 'apartment';
+ $base_url = "http://localhost/UEB2/UEB24_Gr25/";
+ 
+ function filtro()
+ {
+     global $lokacioni, $lloji;
+     echo "Filtrim për: $lloji në $lokacioni <br>";
+ function getAssetPath($assetName) {
+     global $base_url;
+     return rtrim($base_url, "/") . "/assets/" . $assetName;
+ }
+ 
+ $assets = [
+     "blog3.png", "blog4.jpg", "blog5.webp", "blog6.webp", "blog7.jpg", "blog8.webp",
+     "blog31.png", "blog41.webp", "blog51.avif", "blog52.avif", "blog53.avif",
+     "blog54.avif", "blog55.avif", "blog61.jpg", "blog71.webp", "blog72.jpg",
+     "blog73.jpg", "blog74.jpg", "blog75.webp", "blog76.jpg", "blog81.jpg", "blog82.webp"
+ ];
+ 
+ foreach ($assets as $asset) {
+     echo getAssetPath($asset) . "<br>";
+ }
+ 
+ filtro();
+ 
+ class Property {
+     private $title;
+     private $price;
+     private $location;
+     private $image;
+     private $beds;
+     private $baths;
+     private $size;
+ 
+     public function __construct($title, $price, $location, $image, $beds, $baths, $size) {
+         $this->title = $title;
+         $this->price = $price;
+         $this->location = $location;
+         $this->image = $image;
+         $this->beds = $beds;
+         $this->baths = $baths;
+         $this->size = $size;
+     }
+ 
+     public function getTitle() {
+         return $this->title;
+     }
+ 
+     public function getPrice() {
+         return $this->price;
+     }
+ 
+     public function getLocation() {
+         return $this->location;
+     }
+ 
+     public function getImage() {
+         return $this->image;
+     }
+ 
+     public function getBeds() {
+         return $this->beds;
+     }
+ 
+     public function getBaths() {
+         return $this->baths;
+     }
+ 
+     public function getSize() {
+         return $this->size;
+     }
+ 
+     protected function getFullDescription() {
+         return "{$this->beds} Bed | {$this->baths} Bath | {$this->size}m²";
+     }
+ 
+     public function getDetailsSummary() {
+         return $this->getFullDescription();
+     }
+ }
+ 
+ $properties = [
+     new Property("Modern House in Prizren", "€450,000", "Prizren", "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg", 5, 3, 240),
+     new Property("Luxury Apartment in Prishtina", "€750,000", "Prishtina", "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg", 6, 4, 300),
+     new Property("Charming House in Gjilan", "€600,000", "Gjilan", "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg", 3, 2, 120),
+     new Property("House in Prishtina", "€600/mo", "Prishtina", "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg", 4, 2, 200),
+     new Property("Apartment in Prishtina", "€350/mo", "Prishtina", "https://images.pexels.com/photos/129494/pexels-photo-129494.jpeg", 2, 1, 70),
+     new Property("Charming House in Peja", "€450,000", "Peja", "https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg", 5, 4, 300),
+     new Property("Cozy Apartment in Peja", "€500/mo", "Peja", "https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg", 3, 2, 110),
+     new Property("Beautiful House in Mitrovica", "€350,000", "Mitrovica", "https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg", 4, 2, 150),
+     new Property("Charming Apartment in Mitrovica", "€300", "Mitrovica", "https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg", 2, 1, 80),
+     new Property("House in the Heart of Prishtina", "€550,000", "Prishtina", "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg", 5, 4, 300),
+     new Property("Apartment in Prishtina", "€250/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 1, 1, 50),
+     new Property("House in Ferizaj", "€700,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 6, 5, 350),
+     new Property("Apartment in Ferizaj", "€250,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 120),
+     new Property("Pretty House in Gjakova", "€650/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 80),
+     new Property("Cozy Apartment in Gjakova", "€700/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 100),
+     new Property("Pretty House in Vushtrri", "€350,000", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 220),
+     new Property("Apartment in Vushtrri", "€250/mo", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 90),
+     new Property("Big House in Peja", "€400,000", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 2, 180),
+     new Property("Pretty Apartment in Peja", "€800/mo", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 250),
+     new Property("House in Prishtina", "€900/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 250),
+     new Property("Apartment in Prishtina", "€100,000", "Prishtina", "https://images.pexels.com/photos/209292/pexels-photo-209292.jpeg", 2, 1, 85),
+ ];
+ 
+ echo '<div class="listings">';
+ foreach ($properties as $property) {
+     echo '
+     <div class="property-card">
+         <img src="' . $property->getImage() . '" alt="Property Image">
+         <div class="property-details">
+             <h3>' . htmlspecialchars($property->getTitle()) . '</h3>
+             <p class="price">' . $property->getPrice() . '</p>
+             <p>' . $property->getDetailsSummary() . '</p>
+             <button class="view-details">View Details</button>
+         </div>
+     </div>';
+ }
+ echo '</div>';
 
 
 //---------------------------------------------------------------------------------------------------
