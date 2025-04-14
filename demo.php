@@ -1,18 +1,8 @@
 <?php
 //yllka
 //yllka
- //variablat globale: $_GET — për të marrë të dhëna nga URL query string, $_POST — për të marrë të dhëna nga forma, $_SESSION — për të ruajtur të dhëna midis faqeve (si përdoruesi që është loguar).,
- // $_SERVER — për informata rreth serverit dhe kërkesës, $_COOKIE — për të lexuar cookie-t, $_FILES — për menaxhimin e file upload.
- echo "HELLO FROM XAMPP!<br>";
  
- $lokacioni = $_GET['lokacion'] ?? 'prishtina';
- $lloji = $_GET['lloji'] ?? 'apartment';
- $base_url = "http://localhost/UEB2/UEB24_Gr25/";
- 
- function filtro()
- {
-     global $lokacioni, $lloji;
-     echo "Filtrim për: $lloji në $lokacioni <br>";
+$base_url = "http://localhost/UEB2/UEB24_Gr25/";
  function getAssetPath($assetName) {
      global $base_url;
      return rtrim($base_url, "/") . "/assets/" . $assetName;
@@ -29,9 +19,8 @@
      echo getAssetPath($asset) . "<br>";
  }
  
- filtro();
  
- class Property {
+ class Prona{
      private $title;
      private $price;
      private $location;
@@ -88,28 +77,84 @@
  }
  
  $properties = [
-     new Property("Modern House in Prizren", "€450,000", "Prizren", "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg", 5, 3, 240),
-     new Property("Luxury Apartment in Prishtina", "€750,000", "Prishtina", "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg", 6, 4, 300),
-     new Property("Charming House in Gjilan", "€600,000", "Gjilan", "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg", 3, 2, 120),
-     new Property("House in Prishtina", "€600/mo", "Prishtina", "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg", 4, 2, 200),
-     new Property("Apartment in Prishtina", "€350/mo", "Prishtina", "https://images.pexels.com/photos/129494/pexels-photo-129494.jpeg", 2, 1, 70),
-     new Property("Charming House in Peja", "€450,000", "Peja", "https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg", 5, 4, 300),
-     new Property("Cozy Apartment in Peja", "€500/mo", "Peja", "https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg", 3, 2, 110),
-     new Property("Beautiful House in Mitrovica", "€350,000", "Mitrovica", "https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg", 4, 2, 150),
-     new Property("Charming Apartment in Mitrovica", "€300", "Mitrovica", "https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg", 2, 1, 80),
-     new Property("House in the Heart of Prishtina", "€550,000", "Prishtina", "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg", 5, 4, 300),
-     new Property("Apartment in Prishtina", "€250/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 1, 1, 50),
-     new Property("House in Ferizaj", "€700,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 6, 5, 350),
-     new Property("Apartment in Ferizaj", "€250,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 120),
-     new Property("Pretty House in Gjakova", "€650/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 80),
-     new Property("Cozy Apartment in Gjakova", "€700/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 100),
-     new Property("Pretty House in Vushtrri", "€350,000", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 220),
-     new Property("Apartment in Vushtrri", "€250/mo", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 90),
-     new Property("Big House in Peja", "€400,000", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 2, 180),
-     new Property("Pretty Apartment in Peja", "€800/mo", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 250),
-     new Property("House in Prishtina", "€900/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 250),
-     new Property("Apartment in Prishtina", "€100,000", "Prishtina", "https://images.pexels.com/photos/209292/pexels-photo-209292.jpeg", 2, 1, 85),
+     new Prona("Modern House in Prizren", "€450,000", "Prizren", "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg", 5, 3, 240),
+     new Prona("Luxury Apartment in Prishtina", "€750,000", "Prishtina", "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg", 6, 4, 300),
+     new Prona("Charming House in Gjilan", "€600,000", "Gjilan", "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg", 3, 2, 120),
+     new Prona("House in Prishtina", "€600/mo", "Prishtina", "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg", 4, 2, 200),
+     new Prona("Apartment in Prishtina", "€350/mo", "Prishtina", "https://images.pexels.com/photos/129494/pexels-photo-129494.jpeg", 2, 1, 70),
+     new Prona("Charming House in Peja", "€450,000", "Peja", "https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg", 5, 4, 300),
+     new Prona("Cozy Apartment in Peja", "€500/mo", "Peja", "https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg", 3, 2, 110),
+     new Prona("Beautiful House in Mitrovica", "€350,000", "Mitrovica", "https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg", 4, 2, 150),
+     new Prona("Charming Apartment in Mitrovica", "€300", "Mitrovica", "https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg", 2, 1, 80),
+     new Prona("House in the Heart of Prishtina", "€550,000", "Prishtina", "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg", 5, 4, 300),
+     new Prona("Apartment in Prishtina", "€250/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 1, 1, 50),
+     new Prona("House in Ferizaj", "€700,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 6, 5, 350),
+     new Prona("Apartment in Ferizaj", "€250,000", "Ferizaj", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 120),
+     new Prona("Pretty House in Gjakova", "€650/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 80),
+     new Prona("Cozy Apartment in Gjakova", "€700/mo", "Gjakova", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 100),
+     new Prona("Pretty House in Vushtrri", "€350,000", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 220),
+     new Prona("Apartment in Vushtrri", "€250/mo", "Vushtrri", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 2, 1, 90),
+     new Prona("Big House in Peja", "€400,000", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 2, 180),
+     new Prona("Pretty Apartment in Peja", "€800/mo", "Peja", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 3, 2, 250),
+     new Prona("House in Prishtina", "€900/mo", "Prishtina", "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg", 4, 3, 250),
+     new Prona("Apartment in Prishtina", "€100,000", "Prishtina", "https://images.pexels.com/photos/209292/pexels-photo-209292.jpeg", 2, 1, 85),
  ];
+ echo '
+ <style>
+     .listings {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         justify-content: center;
+         padding: 20px;
+     }
+ 
+     .property-card {
+         width: 300px;
+         border: 1px solid #ddd;
+         border-radius: 10px;
+         overflow: hidden;
+         box-shadow: 0 0 10px rgba(0,0,0,0.1);
+         transition: transform 0.2s;
+         background-color: #fff;
+     }
+ 
+     .property-card img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+         display: block;
+     }
+ 
+     .property-details {
+         padding: 15px;
+     }
+ 
+     .property-details h3 {
+         margin: 0 0 10px;
+         font-size: 18px;
+     }
+ 
+     .price {
+         color: #27ae60;
+         font-weight: bold;
+         margin-bottom: 10px;
+     }
+ 
+     .view-details {
+         background-color: #3498db;
+         color: white;
+         border: none;
+         padding: 10px 15px;
+         border-radius: 5px;
+         cursor: pointer;
+     }
+ 
+     .view-details:hover {
+         background-color: #2980b9;
+     }
+ </style>
+ ';
  
  echo '<div class="listings">';
  foreach ($properties as $property) {
