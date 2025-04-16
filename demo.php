@@ -1,7 +1,5 @@
 <?php
-//yllka
-//yllka
- 
+//yllka 
 $base_url = "http://localhost/UEB2/UEB24_Gr25/";
  function getAssetPath($assetName) {
      global $base_url;
