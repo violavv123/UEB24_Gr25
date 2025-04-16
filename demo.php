@@ -100,12 +100,12 @@ class Property
         echo "Property destroyed: $this->location <br>";
     }
 
-    private function getLocation(): string
+    public function getLocation(): string
     {
         return $this->location;
     }
 
-    private function setLocation(string $location): void
+    public function setLocation(string $location): void
     {
         $this->location = $location;
     }
