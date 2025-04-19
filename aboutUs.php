@@ -300,11 +300,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <div class="associative-arrays">
-    <h2><strong>Shërbimet dhe Personeli</strong></h2>
+    <h2><strong>Services and staff</strong></h2>
 
    
     <form method="post">
-        <label for="sherbimi">Zgjidhni shërbimin:</label>
+        <label for="sherbimi">Select service:</label>
         <select id="sherbimi" name="sherbimi">
             <?php
            
@@ -316,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
         </select>
 
-        <button type="submit">Përzgjedh</button>
+        <button type="submit">Find</button>
     </form>
 
 
@@ -358,7 +358,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<h3>QUICK LINKS</h3>
 				<a href="#">Legal</a>
 				<a href="#">Privacy Policy</a>
-				<a href="indexRudina.html">Blog</a>
+				<a href="indexRudina.php">Blog</a>
 				<a href="#">Find an Agent</a>
 			</div>
 		</div>
