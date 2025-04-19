@@ -2,6 +2,7 @@
 
 <?php
 include 'Milestone.php';
+include 'OurTeam.php';
 
 $milestone2022 = new Milestone();
 $milestone2022->setYear("2022");
@@ -23,6 +24,25 @@ $milestones = [
         "Our mission continues: not just creating homes but building a legacy. We aim to lead innovation in real estate, embrace sustainable practices, and connect communities across the globe.",
         "https://images.pexels.com/photos/5217882/pexels-photo-5217882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     )
+];
+
+$violaResyli = new OurTeam();
+$violaResyli->setName("Viola Resyli");
+$violaResyli->setRole("Founder & CEO");
+$violaResyli->setImage("https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg");
+$violaResyli->setDescription("Viola’s vision and leadership have been the cornerstone of LUXury Homes. With over a decade of experience in real estate and a passion for personalized service, she’s dedicated to making every client feel at home.");
+
+$yllkaFejzullahu = new OurTeam();
+$yllkaFejzullahu->setName("Yllka Fejzullahu");
+$yllkaFejzullahu->setRole("Lead Agent");
+$yllkaFejzullahu->setImage("yllkasphoto.jpg");
+$yllkaFejzullahu->setDescription("Yllka brings unmatched local expertise and a keen eye for market trends. Whether you’re buying or selling, her strategic approach ensures the best results.");
+
+$teamMembers = [
+    $violaResyli,
+    $yllkaFejzullahu,
+    new OurTeam("Rudina Bulliqi", "Marketing Specialist", "rudinasphoto.jpg", "Rudina uses innovative marketing strategies to ensure your property stands out. From staging to social media campaigns, she’s got you covered."),
+    new OurTeam("Kimete Sadiku", "Client Success Manager", "kimetesphoto.jpg", "Kimete ensures every client enjoys a seamless experience. From initial consultations to closing deals, she’s dedicated to keeping everything on track.")
 ];
 
 ?>
@@ -141,69 +161,14 @@ $milestones = [
 </div>
 
 
-<h2>
-	<bold>Our Team</bold>
-</h2>
+<h2><strong>Our Team</strong></h2>
 <div class="team-section">
-	<div class="team-member">
-		<div class="team-card">
-			<div class="team-card-front">
-				<img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg" alt="Viola, Founder">
-				<h3>Viola Resyli</h3>
-				<p>Founder & CEO</p>
-			</div>
-			<!--underline-->
-			<div class="team-card-back">
-				<p>Viola’s vision and leadership have been the cornerstone of <u>LUXury Homes</u>. With over a decade of
-					experience in real estate and a passion for personalized service, she’s dedicated to making every client feel
-					at home.</p>
-			</div>
-		</div>
-	</div>
-	<div class="team-member">
-		<div class="team-card">
-			<div class="team-card-front">
-				<img src="yllkasphoto.jpg" alt="Yllka, Lead Agent">
-				<h3>Yllka Fejzullahu</h3>
-				<p>Lead Agent</p>
-			</div>
-			<div class="team-card-back">
-				<p>Yllka brings unmatched local expertise and a keen eye for market trends. Whether you’re buying or selling,
-					her strategic approach ensures the best results.</p>
-			</div>
-		</div>
-	</div>
-	<div class="team-member">
-		<div class="team-card">
-			<div class="team-card-front">
-				<img src="rudinasphoto.jpg" alt="Rudina, Marketing Specialist">
-				<h3>Rudina Bulliqi</h3>
-				<p>Marketing Specialist</p>
-			</div>
-			<div class="team-card-back">
-				<p>Rudina uses innovative marketing strategies to ensure your property stands out. From staging to social media
-					campaigns, she’s got you covered.</p>
-			</div>
-		</div>
-	</div>
-	<div class="team-member">
-		<div class="team-card">
-			<div class="team-card-front">
-				<img src="kimetesphoto.jpg" alt="Kimete, Client Success Manager">
-				<h3>Kimete Sadiku</h3>
-				<p>Client Success Manager</p>
-			</div>
-			<div class="team-card-back">
-				<p>Kimete ensures every client enjoys a seamless experience. From initial consultations to closing deals, she’s
-					dedicated to keeping everything on track.</p>
-			</div>
-		</div>
-	</div>
+    <?php OurTeam::showTeam($teamMembers); ?>
 </div>
 
 
 <h2>
-	<bold>Our Office Locations</bold>
+	<strong>Our Office Locations</strong>
 </h2>
 <div id="map"></div>
 
