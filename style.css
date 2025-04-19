@@ -4,7 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color:white;
+  color:black;
+  /* color:white; */
 }
 /*perdorimi i font face rule*/
  @font-face{
@@ -17,7 +18,10 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  color:black;
 }
+
+
 
 mark{
   background-color: lightblue;
@@ -692,4 +696,4 @@ button:hover {
     color:#003366;
   }
   
-
+  
