@@ -65,13 +65,16 @@ $teamMembers = [
 				rel="stylesheet">
 	<title>About Us</title>
 	<style>
-		   h2 {
+		.associative-arrays{
+			margin-left:20px;
+}
+		.associative-arrays  h2 {
     text-align: center;
     color: #003366;
     margin-bottom: 20px;
   }
 
-  form {
+  .associative-arrays form {
     background-color: #fff;
     padding: 30px 40px;
     border-radius: 12px;
@@ -80,14 +83,14 @@ $teamMembers = [
     max-width: 500px;
   }
 
-  label {
+  .associative-arrays label {
     font-weight: 600;
     margin-bottom: 8px;
     display: block;
     color: #333;
   }
 
-  select {
+  .associative-arrays select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -98,7 +101,7 @@ $teamMembers = [
     color: #333;
   }
 
-  button {
+  .associative-arrays button {
     background-color: #003366;
     color: white;
     border: none;
@@ -109,11 +112,11 @@ $teamMembers = [
     transition: background-color 0.3s ease;
   }
 
-  button:hover {
+  .associative-arrays button:hover {
     background-color: #e6ac00;
   }
 
-  #result {
+  .associative-arrays #result {
     margin-top: 25px;
     background-color: #e9f7ef;
     padding: 15px 20px;
