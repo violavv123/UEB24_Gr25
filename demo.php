@@ -1,5 +1,5 @@
 <?php
-//yllka
+
 //yllka
  
 $base_url = "http://localhost/UEB2/UEB24_Gr25/";
