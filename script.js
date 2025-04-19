@@ -447,33 +447,5 @@ closeButton.addEventListener('click', () => {
 detailsModal.classList.remove('active'); 
 modalOverlay.classList.remove('active'); 
 });
-renderProperties(properties);
 
-filterForm.addEventListener('submit', (e) => {
-  e.preventDefault();
 
-  const location = input.value.trim().toLowerCase().toString();
-  const propertyType = document.getElementById('property-type').value.toString(); //perdorimi i toString()
-  const propertyUse = document.getElementById('property-use').value.toString();
-  const minPrice = parseInt(minPriceInput.value) || 0; 
-  const maxPrice = parseInt(maxPriceInput.value) || Number.MAX_VALUE;  //perdorimi i MAX_VALUE
-
-  if (isNaN(minPrice) || isNaN(maxPrice)) {
-    alert("Please enter a number."); // perdorimi i NaN
-    return;
-  }
-
-  if (minPrice > maxPrice) {
-    alert('Minimum price cannot be greater than the maximum price.');
-    return;
-  }
-
-  const filteredProperties = properties.filter(property =>
-    property.location.toString().toLowerCase().includes(location) &&
-    (propertyType === 'any' || property.type.toString().toLowerCase() === propertyType.toLowerCase()) &&
-    property.price >= minPrice &&
-    property.price <= maxPrice
-  );
-
-  renderProperties(filteredProperties);
-});
