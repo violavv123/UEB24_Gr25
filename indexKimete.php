@@ -110,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </ul>
     </div>
 </nav>
+
        <div class="container">
       <!--Perdorimi i text fushave dhe password-->
         <section class="contact-form">
