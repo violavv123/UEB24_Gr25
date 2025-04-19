@@ -62,8 +62,8 @@
   }
 
   .numeric-arrays button {
-    background-color: #e6ac00; 
-    color: black;
+    background-color:#003366 ; 
+    color: white;
     border: none;
     padding: 12px 20px;
     font-size: 16px;
