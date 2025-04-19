@@ -234,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <h3>QUICK LINKS</h3>
               <a href="#">Legal</a>
               <a href="#">Privacy Policy</a>
-              <a href="indexRudina.html">Blog</a>
+              <a href="indexRudina.php">Blog</a>
               <a href="#">Find an Agent</a>
             </div>
           </div>
