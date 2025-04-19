@@ -845,7 +845,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </div>
-    
+                <!--pjesa e address cleaner-->
+                
+<div class="container-address-cleaner">
+    <h2>Address Cleaner</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="address">Type address:</label>
+            <input type="text" id="address" name="address" placeholder="Shembull: Rruga XYZ!!, Tirana.#123">
+        </div>
+        <button type="submit">Clean address</button>
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        function cleanAddress($address) {
+            
+            $pattern = '/[^a-zA-Z0-9\s,.-]/';
+            $cleanedAddress = preg_replace($pattern, '', $address);
+            return $cleanedAddress;
+        }
+
+       
+        $address = $_POST['address'];
+        if (!empty($address)) {
+           
+            $cleanedAddress = cleanAddress($address);
+            echo "<div class='result'><strong>Adresa e pastruar:</strong> $cleanedAddress</div>";
+        } else {
+            echo "<div class='result' style='background-color: #f8d7da; border-color: #f5c6cb;'><strong>Ju lutem, futni një adresë.</strong></div>";
+        }
+    }
+    ?>
+</div>
     <footer class="responsive-footer">
         <div class="footer-container">
             <div class="logo-contact">
