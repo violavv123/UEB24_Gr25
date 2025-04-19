@@ -338,11 +338,11 @@
     
       <div class="numeric-arrays">
 
-<h2 >Kontrollo nëse ofrojmë shërbime në qytetin tënd</h2>
+<h2 >Check if we offer services in your city</h2>
 <form id="phpForm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-     <label for="qyteti">Shkruaj qytetin:</label>
+     <label for="qyteti">Type the city:</label>
      <input type="text" name="qyteti" id="qyteti" required>
-     <button type="submit">Kontrollo</button>
+     <button type="submit">Check</button>
  </form>
  <?php
  
