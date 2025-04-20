@@ -18,41 +18,7 @@ $base_url = "http://localhost/UEB2/UEB24_Gr25/";
  foreach ($assets as $asset) {
      echo getAssetPath($asset) . "<br>";
  }
- 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $message = trim($_POST['message']);
-
-
-    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
-        echo "Please fill out all fields.";
-        exit;
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Please enter a valid email address.";
-        exit;
-    }
-
-    if (!preg_match("/^\d+$/", $phone)) {
-        echo "Please enter a valid phone number (only numbers).";
-        exit;
-    }
-
-    echo "Thank you, $name! We have received your message.";
-
-} else {
-    echo "Invalid request.";
-}
-
-
-
-
-
-//---------------------------------------------------------------------------------------------------
+ //---------------------------------------------------------------------------------------------------
 //rudina
 
 
