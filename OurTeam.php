@@ -3,9 +3,9 @@
 class OurTeam
 {
     private string $name;
-    private string $role;
+    protected string $role;
+    protected string $description;
     private string $image;
-    private string $description;
 
     public function __construct($name = '', $role = '', $image = '', $description = '')
     {

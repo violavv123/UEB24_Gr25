@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email    = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $phone    = $_POST['phone'] ?? '';
-    $message = $_POST['phone'] ?? '';
+    $message = $_POST['message'] ?? '';
 
     $errors = [];
 

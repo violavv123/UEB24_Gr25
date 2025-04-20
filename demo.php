@@ -2,7 +2,7 @@
 
 //yllka
  
-$base_url = "http://localhost/UEB2/UEB24_Gr25/";
+$base_url = "http://localhost/UEB24_Gr25/";
  function getAssetPath($assetName) {
      global $base_url;
      return rtrim($base_url, "/") . "/assets/" . $assetName;
