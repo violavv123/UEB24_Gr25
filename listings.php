@@ -14,7 +14,7 @@ class Property {
         $this->image        = $image;
         $this->details      = $details;
     }
-
+    // display function per cards, e perdorim ne indexYllka.php
     public function displayCard() {
         return "
         <div class='property-card'>
@@ -33,7 +33,7 @@ class Property {
     }
     
 }
-
+// sh. trashegmi n1
 class House extends Property {
   public $yardSize;
 
@@ -42,7 +42,7 @@ class House extends Property {
       $this->yardSize = $yardSize;
   }
 
-
+  // e njejta logjik si me floors te apartamenti
   protected function renderExtras() {
       if ($this->yardSize) {
           return "<p>Yard Size: {$this->yardSize} m²</p>";
@@ -51,7 +51,7 @@ class House extends Property {
   }
 }
 
-
+// sh trashegimi n2
 class Apartment extends Property {
   public $floor;
 
@@ -60,7 +60,7 @@ class Apartment extends Property {
       $this->floor = $floor;
   }
 
-  // Override to render floor if available
+  // nese kemi floor, e shtojm te ky funksioni, e cili e paraqet tani ne cards
   protected function renderExtras() {
       if ($this->floor) {
           return "<p>Floor: {$this->floor}</p>";
@@ -94,7 +94,7 @@ function createProperty($data) {
   );
 }
 
-
+// listings se pari te ruajtura ne array
 $rawListings = [
     [
       "title"        => "Modern House in Prizren",
@@ -245,6 +245,7 @@ $rawListings = [
     ]
 ];
 
+// konvertimi i array te listings ne objekte te klases property
 $listings = [];
 foreach ($rawListings as $item) {
     $listings[] = createProperty($item);
