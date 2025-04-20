@@ -248,7 +248,7 @@ if (isset($_GET['sort'])) {
           <li><a href="aboutUs.php">About Us</a></li>
           <li><a href="indexYllka.php">Listings</a></li>
           <li><a href="indexKimete.html">Contact Us</a></li>
-          <li><a href="indexRudina.html">Blog</a></li>
+          <li><a href="indexRudina.php">Blog</a></li>
         </ul>
       </div>
   </nav>
