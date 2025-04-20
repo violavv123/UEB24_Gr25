@@ -18,49 +18,7 @@ $base_url = "http://localhost/UEB2/UEB24_Gr25/";
  foreach ($assets as $asset) {
      echo getAssetPath($asset) . "<br>";
  }
- 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $message = trim($_POST['message']);
-
-    // Server-side validation
-
-    // Check if all fields are filled out
-    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
-        echo "Please fill out all fields.";
-        exit;
-    }
-
-    // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Please enter a valid email address.";
-        exit;
-    }
-
-    // Validate phone number (only numbers allowed)
-    if (!preg_match("/^\d+$/", $phone)) {
-        echo "Please enter a valid phone number (only numbers).";
-        exit;
-    }
-
-    // If all validations pass, process the data (e.g., save to database or send email)
-    echo "Thank you, $name! We have received your message.";
-
-    // You can process the form here, for example, save data to a database or send an email.
-    // For demonstration, we just echo the success message.
-} else {
-    echo "Invalid request.";
-}
-
-
-
-
-
-//---------------------------------------------------------------------------------------------------
+ //---------------------------------------------------------------------------------------------------
 //rudina
 
 
