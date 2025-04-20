@@ -161,7 +161,7 @@
         <p >
             Our real estate agency offers personalized services to help you find your dream home quickly and easily. 
             <mark><a href="SELL_YOUR_HOME.mp4">Watch the video</a></mark> to learn more about our approach and commitment to excellence. Sign in for a more personalized experience. <br><br>
-            <a href="indexKimete.html" class="btn">Sign In</a>
+            <a href="indexKimete.php" class="btn">Sign In</a>
         </p>
     </div>
 </section>
@@ -361,8 +361,33 @@
      $qytetiPerTeKontrolluar = trim($_POST["qyteti"]);
      echo "<p>" . kontrolloQytetin($qytetiPerTeKontrolluar, $qytetet) . "</p>";
  }
- ?> 
 
+ //varibalat globale
+$GLOBALS['propertyName'] = 'Luxury Villa';
+$GLOBALS['propertyPrice'] = 500000;
+$GLOBALS['propertyDescription'] = 'A beautiful luxury villa with 4 bedrooms, a swimming pool, and ocean view.';
+
+function displayPropertyDetails() {
+    global $propertyName, $propertyPrice, $propertyDescription;
+    
+    echo "Property Name: " . $propertyName . "<br>";
+    echo "Price: $" . number_format($propertyPrice, 2) . "<br>";
+    echo "Description: " . $propertyDescription . "<br>";
+}
+
+function updatePropertyPrice($newPrice) {
+    global $propertyPrice;
+    
+    $propertyPrice = $newPrice;
+    echo "The new property price is: $" . number_format($propertyPrice, 2) . "<br>";
+}
+
+displayPropertyDetails();
+
+updatePropertyPrice(600000);
+
+displayPropertyDetails();
+?>
  </div>
 
 
