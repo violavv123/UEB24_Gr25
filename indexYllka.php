@@ -1,34 +1,44 @@
 <?php
-$allListings = include 'listings.php';
-$listings = $allListings;
 
-$location = $_GET['location'] ?? '';
-$type = $_GET['property-type'] ?? 'any';
-$use = $_GET['property-use'] ?? 'any';
+$allListings = include 'listings.php';
+$listings    = $allListings;
+
+
+$location   = $_GET['location']      ?? '';
+$type       = $_GET['property-type'] ?? 'any';
+$use        = $_GET['property-use']  ?? 'any';
+
 
 $shouldFilter = $location !== '' || $type !== 'any' || $use !== 'any';
-
 if ($shouldFilter) {
-  $listings = array_filter($listings, function ($listing) use ($location, $type, $use) {
-    $title = strtolower($listing['title']);
+    $listings = array_filter($listings, function ($listing) use ($location, $type, $use) {
+        $titleLower = strtolower($listing->title);
+        
+        $matchLocation = $location === 'All'
+            || str_contains($titleLower, strtolower($location));
 
-    $matchLocation = $location === 'All' || str_contains($title, strtolower($location));
-    $matchType = $type === 'any' || str_contains($title, strtolower($type));
-    $matchUse = $use === 'any' || str_contains($title, strtolower($use));
+        $matchType = $type === 'any'
+            || ($type === 'apartment' && $listing instanceof Apartment)
+            || ($type === 'house'     && $listing instanceof House);
 
-    return $matchLocation && $matchType && $matchUse;
-  });
+        $isRent   = str_ends_with($listing->priceDisplay, '/mo');
+        $matchUse = $use === 'any'
+            || ($use === 'rent' && $isRent)
+            || ($use === 'buy'  && ! $isRent);
+
+        return $matchLocation && $matchType && $matchUse;
+    });
 }
+
 
 if (isset($_GET['sort'])) {
-  if ($_GET['sort'] === 'asc') {
-    usort($listings, fn($a, $b) => $a['price'] <=> $b['price']);
-  } elseif ($_GET['sort'] === 'desc') {
-    usort($listings, fn($a, $b) => $b['price'] <=> $a['price']);
-  }
+    if ($_GET['sort'] === 'asc') {
+        usort($listings, fn($a, $b) => $a->price <=> $b->price);
+    } elseif ($_GET['sort'] === 'desc') {
+        usort($listings, fn($a, $b) => $b->price <=> $a->price);
+    }
 }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -321,18 +331,12 @@ if (isset($_GET['sort'])) {
 
       <!-- gjenerimi i cards me php -->
       <div class="listings">
-        <?php foreach ($listings as $listing): ?>
-          <div class="property-card">
-            <img src="<?= $listing['image'] ?>" alt="Property Image">
-            <div class="property-details">
-              <h3><?= $listing['title'] ?></h3>
-              <p class="price"><?= $listing['priceDisplay'] ?></p>
-              <p><?= $listing['details'] ?></p>
-              <button class="view-details">View Details</button>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
+  <?php foreach ($listings as $listing): ?>
+    <?= $listing->displayCard(); ?>
+  <?php endforeach; ?>
+</div>
+
+
     </div>
   </section>
 
