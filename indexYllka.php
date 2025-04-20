@@ -3,6 +3,7 @@
 $allListings = include 'listings.php';
 $listings    = $allListings;
 
+global $location, $type, $use, $shouldFilter;
 
 $location   = $_GET['location']      ?? '';
 $type       = $_GET['property-type'] ?? 'any';
@@ -39,6 +40,8 @@ if (isset($_GET['sort'])) {
     }
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
