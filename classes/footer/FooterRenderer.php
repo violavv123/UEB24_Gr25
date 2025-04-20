@@ -1,6 +1,6 @@
 <?php
 
-class FooterRenderer
+class FooterRenderer extends Section
 {
     private array $sections = [];
 
