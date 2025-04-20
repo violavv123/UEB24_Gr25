@@ -16,18 +16,20 @@ class Property {
     }
     // display function per cards, e perdorim ne indexYllka.php
     public function displayCard() {
-        return "
-        <div class='property-card'>
-            <img src='{$this->image}' alt='Property Image'>
-            <div class='property-details'>
-                <h3>{$this->title}</h3>
-                <p class='price'>{$this->priceDisplay}</p>
-                <p>{$this->details}</p>
-                <button class='view-details'>View Details</button>
-            </div>
-        </div>
-        ";
-    }
+      return "
+      <div class='property-card'>
+          <img src='{$this->image}' alt='Property Image'>
+          <div class='property-details'>
+              <h3>{$this->title}</h3>
+              <p class='price'>{$this->priceDisplay}</p>
+              <p>{$this->details}</p>
+              {$this->renderExtras()}
+              <button class='view-details'>View Details</button>
+          </div>
+      </div>
+      ";
+  }
+  
     protected function renderExtras() {
       return '';
     }
