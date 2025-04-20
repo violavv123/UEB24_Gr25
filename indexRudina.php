@@ -312,53 +312,10 @@ function formatDate($date) {
     </div>
     <?php endforeach; ?>
 
-    <footer class="responsive-footer">
-        <div class="footer-container">
-            <div class="logo-contact">
-                <img src="logo.png" alt="Luxury Homes Logo" class="footer-logo">
-                <p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
-                <p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
-                <p><i class="fas fa-phone"></i> +383 49 790 117</p>
-                <p><i class="fas fa-envelope"></i> info@luxuryhomes.com</p>
-            </div>
-            <div class="footer-links-container">
-                <div class="footer-links">
-                    <h3>AGENT</h3>
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
-                </div>
-                <div class="footer-links">
-                    <h3>CITY LISTS</h3>
-                    <a href="#">Peja</a>
-                    <a href="#">Prishtina</a>
-                    <a href="#">Prizren</a>
-                    <a href="#">Others</a>
-                </div>
-                <div class="footer-links">
-                    <h3>QUICK LINKS</h3>
-                    <a href="#">Legal</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="indexRudina.html">Blog</a>
-                    <a href="#">Find an Agent</a>
-                </div>
-            </div>
-            <div class="newsletter">
-                <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
-                <p>Join our community of savvy real estate enthusiasts.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email address">
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+		<!--footer-->
+    <?php
+    include './classes/footer/footer.php';
+    ?>
 
     <script>
         function openModal(modalId) {

@@ -1,8 +1,8 @@
 <!-- ABOUT US*/ -->
 
 <?php
-include 'Milestone.php';
-include 'OurTeam.php';
+include './classes/aboutUs/Milestone.php';
+include './classes/aboutUs/OurTeam.php';
 
 $milestone2022 = new Milestone();
 $milestone2022->setYear("2022");
@@ -65,66 +65,67 @@ $teamMembers = [
 				rel="stylesheet">
 	<title>About Us</title>
 	<style>
-		.associative-arrays{
-			margin-left:20px;
-}
-		.associative-arrays  h2 {
-    text-align: center;
-    color: #003366;
-    margin-bottom: 20px;
-  }
+      .associative-arrays {
+          margin-left: 20px;
+      }
 
-  .associative-arrays form {
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-  }
+      .associative-arrays h2 {
+          text-align: center;
+          color: #003366;
+          margin-bottom: 20px;
+      }
 
-  .associative-arrays label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-    color: #333;
-  }
+      .associative-arrays form {
+          background-color: #fff;
+          padding: 30px 40px;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 500px;
+      }
 
-  .associative-arrays select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
-  }
+      .associative-arrays label {
+          font-weight: 600;
+          margin-bottom: 8px;
+          display: block;
+          color: #333;
+      }
 
-  .associative-arrays button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+      .associative-arrays select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          font-size: 16px;
+          background-color: #fff;
+          color: #333;
+      }
 
-  .associative-arrays button:hover {
-    background-color: #e6ac00;
-  }
+      .associative-arrays button {
+          background-color: #003366;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          border-radius: 8px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
 
-  .associative-arrays #result {
-    margin-top: 25px;
-    background-color: #e9f7ef;
-    padding: 15px 20px;
-    border-left: 5px solid #28a745;
-    border-radius: 8px;
-    color: #155724;
-    font-weight: 500;
-  }
+      .associative-arrays button:hover {
+          background-color: #e6ac00;
+      }
+
+      .associative-arrays #result {
+          margin-top: 25px;
+          background-color: #e9f7ef;
+          padding: 15px 20px;
+          border-left: 5px solid #28a745;
+          border-radius: 8px;
+          color: #155724;
+          font-weight: 500;
+      }
 	</style>
 </head>
 <body>
@@ -274,7 +275,8 @@ $personel = [
 ];
 
 
-function getPersonByService($service, $personel) {
+function getPersonByService($service, $personel)
+{
     foreach ($personel as $emri => $detajet) {
         if (in_array($service, $detajet['sherbime'])) {
             return [
@@ -300,24 +302,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <div class="associative-arrays">
-    <h2><strong>Services and staff</strong></h2>
+	<h2><strong>Services and staff</strong></h2>
 
-   
-    <form method="post">
-        <label for="sherbimi">Select service:</label>
-        <select id="sherbimi" name="sherbimi">
-            <?php
-           
-            foreach ($personel as $emri => $detajet) {
-                foreach ($detajet['sherbime'] as $sherbimi) {
-                    echo "<option value='$sherbimi'>$sherbimi</option>";
-                }
+
+	<form method="post">
+		<label for="sherbimi">Select service:</label>
+		<select id="sherbimi" name="sherbimi">
+        <?php
+
+        foreach ($personel as $emri => $detajet) {
+            foreach ($detajet['sherbime'] as $sherbimi) {
+                echo "<option value='$sherbimi'>$sherbimi</option>";
             }
-            ?>
-        </select>
+        }
+        ?>
+		</select>
 
-        <button type="submit">Find</button>
-    </form>
+		<button type="submit">Find</button>
+	</form>
 
 
     <?php
@@ -332,52 +334,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </h2>
 <div id="map"></div>
 
-<footer class="responsive-footer">
-	<div class="footer-container">
-		<div class="logo-contact">
-			<img src="logo.png" alt="Luxury Homes Logo" class="footer-logo">
-			<p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
-			<p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
-			<p><i class="fas fa-phone"></i> +383 49 790 117</p>
-			<p><i class="fas fa-envelope"></i> info@luxuryhomes.com</p>
-		</div>
-		<div class="footer-links-container">
-			<div class="footer-links">
-				<h3>AGENT</h3>
-				<a href="#">Login</a>
-				<a href="#">Register</a>
-			</div>
-			<div class="footer-links">
-				<h3>CITY LISTS</h3>
-				<a href="#">Peja</a>
-				<a href="#">Prishtina</a>
-				<a href="#">Prizren</a>
-				<a href="#">Others</a>
-			</div>
-			<div class="footer-links">
-				<h3>QUICK LINKS</h3>
-				<a href="#">Legal</a>
-				<a href="#">Privacy Policy</a>
-				<a href="indexRudina.php">Blog</a>
-				<a href="#">Find an Agent</a>
-			</div>
-		</div>
-		<div class="newsletter">
-			<h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
-			<p>Join our community of savvy real estate enthusiasts.</p>
-			<div class="newsletter-form">
-				<input type="email" placeholder="Your email address">
-				<button type="submit"><i class="fas fa-paper-plane"></i></button>
-			</div>
-			<div class="social-icons">
-				<a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-				<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-				<a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-				<a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-		</div>
-	</div>
-</footer>
+<!--footer-->
+<?php
+include './classes/footer/footer.php';
+?>
 
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
