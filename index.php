@@ -401,13 +401,44 @@
           <a href="#">Find an Agent</a>
         </div>
       </div>
+<?php
+function validateEmail($email) {
+    $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+    return preg_match($pattern, $email);
+}
+
+$emailError = "";
+$success = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = trim($_POST["newsletter_email"]);
+
+    if (empty($email)) {
+        $emailError = "Ju lutem vendosni një email.";
+    } elseif (!validateEmail($email)) {
+        $emailError = "Formati i email-it nuk është i vlefshëm.";
+    } else {
+        $success = "Email-i u regjistrua me sukses!";
+    }
+}
+?>
       <div class="newsletter">
         <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
         <p>Join our community of savvy real estate enthusiasts.</p>
-        <div  class="newsletter-form">
-          <input type="email" placeholder="Your email address" >
-          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        <form method="POST" action="">
+        <div class="newsletter-form">
+            <input type="email" name="newsletter_email" placeholder="Your email address"
+                   value="<?= isset($email) ? htmlspecialchars($email) : '' ?>">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
         </div>
+    </form>
+
+    <?php if ($emailError): ?>
+        <p style="color: red;"><?= $emailError ?></p>
+    <?php elseif ($success): ?>
+        <p style="color: green;"><?= $success ?></p>
+    <?php endif; ?>
+
         <div class="social-icons">
           <!--Hyperlink tek nje URL tjeter-->
          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
