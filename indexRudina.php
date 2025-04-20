@@ -164,6 +164,89 @@
                 /* Align text to the left */
             }
         }
+        /**per kalkulatorin magjik */
+        .container-kalkulatori {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            margin-bottom:20px;
+            margin-top:20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container-kalkulatori h2 {
+            text-align: center;
+            color:#003366 ;
+        }
+        .container-kalkulatori form div {
+            margin-bottom: 15px;
+            padding-right:10px;
+        }
+        .container-kalkulatori label, input {
+            display: block;
+            width: 100%;
+        }
+        .container-kalkulatori input[type="number"], input[type="submit"] {
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .container-kalkulatori .btn {
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .container-kalkulatori .result {
+            margin-top: 20px;
+            background-color: #e9f5ff;
+            padding: 10px;
+            border-left: 5px solid #003366;
+        }
+        /**css per address cleaner  */
+        .container-address-cleaner {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container-address-cleaner .form-group {
+            margin-bottom: 15px;
+        }
+        .container-address-cleaner label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .container-address-cleaner input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .container-address-cleaner button {
+            padding: 10px 15px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container-address-cleaner button:hover {
+            background-color: #e6ac00;
+        }
+        .container-address-cleaner.result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f7e7;
+            border: 1px solid #d6f0d6;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
@@ -720,6 +803,124 @@
         </div>
     </div>
 
+
+    <!-- pjesa e kalkulatorit magjik -->
+    <div class="container-kalkulatori">
+    <?php
+$mesatarja = "";
+$zbritjaRe = "";
+$perqindja = "";
+$kodi = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['llogarit_mesataren'])) {
+        $cmimet = [120000, 95000, 175000, 200000];
+        $mesatarja = array_sum($cmimet) / count($cmimet);
+    }
+
+    if (isset($_POST['llogarit_zbritjen'])) {
+        $cmimi = floatval($_POST['cmimi']);
+        $zbritja = floatval($_POST['zbritja']);
+        $zbritjaRe = $cmimi - $zbritja*0.01*$cmimi;
+    }
+
+    if (isset($_POST['llogarit_suksesin'])) {
+        $total = intval($_POST['total_listings']);
+        $shitje = intval($_POST['shitjet']);
+        if ($total > 0) {
+            $perqindja = round(($shitje / $total) * 100, 2);
+        } else {
+            $perqindja = "(0 listings)";
+        }
+    }
+
+    if (isset($_POST['gjenero_kodin'])) {
+        $id = rand(1, 9999);
+        $kodi = "2025-" . str_pad($id, 4, '0', STR_PAD_LEFT);
+    }
+}
+?>
+        <h2>Magic calculator</h2>
+        <form method="POST">
+            <!-- Butoni 1: Mesatarja -->
+            <div>
+                <input type="submit" name="llogarit_mesataren" value="Llogarit Mesataren e Qmimeve" class="btn">
+                <?php if ($mesatarja): ?>
+                    <div class="result">Mesatarja: €<?= number_format($mesatarja, 2) ?></div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Butoni 2: Llogarit Zbritjen -->
+            <div>
+                <label for="cmimi">Çmimi Fillestar:</label>
+                <input type="number" step="0.01" name="cmimi" >
+
+                <label for="zbritja">Zbritja në %:</label>
+                <input type="number" step="0.01" name="zbritja" >
+
+                <input type="submit" name="llogarit_zbritjen" value="Llogarit Çmimin Pas Zbritjes" class="btn">
+                <?php if ($zbritjaRe !== ""): ?>
+                    <div class="result">Çmimi pas zbritjes: €<?= number_format($zbritjaRe, 2) ?></div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Butoni 3: Përqindja e suksesit -->
+            <div>
+                <label for="total_listings">Numri i Listimeve:</label>
+                <input type="number" name="total_listings" >
+
+                <label for="shitjet">Numri i Shitjeve:</label>
+                <input type="number" name="shitjet" >
+
+                <input type="submit" name="llogarit_suksesin" value="Llogarit Përqindjen e Suksesit" class="btn">
+                <?php if ($perqindja !== ""): ?>
+                    <div class="result">Përqindja e suksesit: <?= $perqindja ?>%</div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Butoni 4: Gjenero Kodin -->
+            <div>
+                <input type="submit" name="gjenero_kodin" value="Gjenero Kodin për Blerjen" class="btn">
+                <?php if ($kodi): ?>
+                    <div class="result">Kodi i Blerjes: <?= $kodi ?></div>
+                <?php endif; ?>
+            </div>
+        </form>
+    </div>
+                <!--pjesa e address cleaner-->
+                
+<div class="container-address-cleaner">
+    <h2>Address Cleaner</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="address">Type address:</label>
+            <input type="text" id="address" name="address" placeholder="Shembull: Rruga XYZ!!, Tirana.#123">
+        </div>
+        <button type="submit">Clean address</button>
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        function cleanAddress($address) {
+            
+            $pattern = '/[^a-zA-Z0-9\s,.-]/';
+            $cleanedAddress = preg_replace($pattern, '', $address);
+            return $cleanedAddress;
+        }
+
+       
+        $address = $_POST['address'];
+        if (!empty($address)) {
+           
+            $cleanedAddress = cleanAddress($address);
+            echo "<div class='result'><strong>Adresa e pastruar:</strong> $cleanedAddress</div>";
+        } else {
+            echo "<div class='result' style='background-color: #f8d7da; border-color: #f5c6cb;'><strong>Ju lutem, futni një adresë.</strong></div>";
+        }
+    }
+    ?>
+</div>
     <footer class="responsive-footer">
         <div class="footer-container">
             <div class="logo-contact">
