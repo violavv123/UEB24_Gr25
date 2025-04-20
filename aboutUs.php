@@ -149,9 +149,9 @@ $teamMembers = [
 				<!--perdorimi i atributeve brenda HTML elementeve-->
 				<!--hyperlinks brenda HTML faqes-->
 				<li><a href="aboutUs.php">About Us</a></li>
-				<li><a href="indexYllka.html">Listings</a></li>
-				<li><a href="indexKimete.html">Contact Us</a></li>
-				<li><a href="indexRudina.html">Blog</a></li>
+				<li><a href="indexYllka.php">Listings</a></li>
+				<li><a href="indexKimete.php">Contact Us</a></li>
+				<li><a href="indexRudina.php">Blog</a></li>
 			</ul>
 		</div>
 </nav>
@@ -358,7 +358,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<h3>QUICK LINKS</h3>
 				<a href="#">Legal</a>
 				<a href="#">Privacy Policy</a>
-				<a href="indexRudina.html">Blog</a>
+				<a href="indexRudina.php">Blog</a>
 				<a href="#">Find an Agent</a>
 			</div>
 		</div>
