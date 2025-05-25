@@ -571,7 +571,7 @@ function getTrendingPosts($posts, $minViews = 5)
 
 <body>
     <!--Navigation Bar-->
-    <nav class="navbar">
+    <navF class="navbar">
         <div class="logo">
             <a href="/">
                 <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
@@ -599,7 +599,7 @@ function getTrendingPosts($posts, $minViews = 5)
                 </ul>
             </div>
         </div>
-    </nav>
+    </navF>
 
     <div class="pagination">
         <?php
