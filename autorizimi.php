@@ -1,5 +1,5 @@
 <?php
-function generateSalt(int $length = 20): string {
+function generateSalt(int $length = 6): string {
     $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     $salt = '';
     for ($i = 0; $i < $length; $i++) {
@@ -9,17 +9,23 @@ function generateSalt(int $length = 20): string {
 }
 
 function hashPassword(string $password, string $salt, int $iterations): string {
-    return hash_pbkdf2('sha256', $password, $salt, $iterations, 16);
+    return hash_pbkdf2('sha256', $password, $salt, $iterations);
 }
 
 function verifyPassword(string $providedPassword, string $storedHash, string $storedSalt, int $storedIterations): bool {
-    $hashOfInput = hashPassword($providedPassword, $storedSalt, $storedIterations);
+    $hashOfInput = hash_pbkdf2('sha256', $providedPassword, $storedSalt, $storedIterations, 32);
+    var_dump([
+  'storedHash' => $storedHash,
+  'calculatedHash' => $hashOfInput,
+  'storedSalt' => $storedSalt,
+  'storedIterations' => $storedIterations,
+]);
     return hash_equals($storedHash, $hashOfInput);
 }
 
 function createPasswordEntry(mysqli $conn, string $password): ?int {
     $salt = generateSalt();
-    $iterations = 10000; 
+    $iterations = 100; 
 
     $hashed = hashPassword($password, $salt, $iterations);
 
@@ -42,7 +48,7 @@ function createPasswordEntry(mysqli $conn, string $password): ?int {
 }
 
 function getPasswordInfoById(mysqli $conn, int $passwordId): ?array {
-    $stmt = $conn->prepare("SELECT hashedpassword, salt, iterations FROM passwords WHERE id = ?");
+    $stmt = $conn->prepare("SELECT hashed_password, salt, iterations FROM passwords WHERE id = ?");
     if (!$stmt) {
         error_log("Prepare failed: " . $conn->error);
         return null;
@@ -65,4 +71,6 @@ function getPasswordInfoById(mysqli $conn, int $passwordId): ?array {
     $stmt->close();
     return $row; 
 }
+
+
 ?>
