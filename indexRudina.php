@@ -129,7 +129,6 @@ function getRelatedPosts($currentPostId, $currentPostCategory, $allPosts)
     });
 }
 
-session_start();
 
 // Initialize views array if not exists
 if (!isset($_SESSION['post_views'])) {
