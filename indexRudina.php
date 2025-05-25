@@ -523,12 +523,55 @@ function getTrendingPosts($posts, $minViews = 5)
             color: #666;
             font-size: 0.8rem;
         }
+
+        .weather-box {
+            max-width: 350px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f4f4f4;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        .weather-box input {
+            width: 80%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .weather-box button {
+            background-color: #0058a3;
+            color: white;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .weather-box button:hover {
+            background-color: #003d7a;
+        }
+
+        #weatherResult {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        #weatherResult img {
+            margin-top: 10px;
+            width: 64px;
+            height: 64px;
+        }
     </style>
 </head>
 
 <body>
     <!--Navigation Bar-->
-    <nav class="navbar">
+    <navF class="navbar">
         <div class="logo">
             <a href="/">
                 <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
@@ -552,11 +595,11 @@ function getTrendingPosts($posts, $minViews = 5)
                     <li><a href="indexKimete.php">Contact Us</a></li>
                     <li><a href="indexRudina.php">Blog</a></li>
                     <li><a href="indexSignIn.php">Sign In</a></li>
-					<li><a href="favorites.php">Favorites</a></li>
+                    <li><a href="favorites.php">Favorites</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </navF>
 
     <div class="pagination">
         <?php
@@ -644,36 +687,45 @@ function getTrendingPosts($posts, $minViews = 5)
     <?php endforeach; ?>
     <!-- #region -->
 
+    <!-- Check Weather part -->
+    <section class="weather-box">
+        <h2>Check Weather</h2>
+        <input type="text" id="cityInput" placeholder="Enter City..." />
+        <button onclick="getWeather()">Show Weather</button>
+        <div id="weatherResult"></div>
+    </section>
+
+
     <!--pjesa e kalkulatorit magjik-->
     <div class="container-kalkulatori">
-    <h2>Magic Calculator</h2>
+        <h2>Magic Calculator</h2>
 
-    <div>
-        <button class="btn" onclick="calculate('average')">Llogarit Mesataren e Qmimeve</button>
-        <div id="avgResult" class="result"></div>
-    </div>
+        <div>
+            <button class="btn" onclick="calculate('average')">Llogarit Mesataren e Qmimeve</button>
+            <div id="avgResult" class="result"></div>
+        </div>
 
-    <div>
-        <h4>Llogarit Zbritjen</h4>
-        <input type="number" id="cmimi" placeholder="Çmimi Fillestar">
-        <input type="number" id="zbritja" placeholder="Zbritja në %">
-        <button class="btn" onclick="calculate('discount')">Llogarit Çmimin Pas Zbritjes</button>
-        <div id="discountResult" class="result"></div>
-    </div>
+        <div>
+            <h4>Llogarit Zbritjen</h4>
+            <input type="number" id="cmimi" placeholder="Çmimi Fillestar">
+            <input type="number" id="zbritja" placeholder="Zbritja në %">
+            <button class="btn" onclick="calculate('discount')">Llogarit Çmimin Pas Zbritjes</button>
+            <div id="discountResult" class="result"></div>
+        </div>
 
-    <div>
-        <h4>Përqindja e suksesit</h4>
-        <input type="number" id="total" placeholder="Numri i Listimeve">
-        <input type="number" id="sold" placeholder="Numri i Shitjeve">
-        <button class="btn" onclick="calculate('success')">Llogarit Përqindjen e Suksesit</button>
-        <div id="successResult" class="result"></div>
-    </div>
+        <div>
+            <h4>Përqindja e suksesit</h4>
+            <input type="number" id="total" placeholder="Numri i Listimeve">
+            <input type="number" id="sold" placeholder="Numri i Shitjeve">
+            <button class="btn" onclick="calculate('success')">Llogarit Përqindjen e Suksesit</button>
+            <div id="successResult" class="result"></div>
+        </div>
 
-    <div>
-        <button class="btn" onclick="calculate('code')">Gjenero Kodin për Blerjen</button>
-        <div id="codeResult" class="result"></div>
+        <div>
+            <button class="btn" onclick="calculate('code')">Gjenero Kodin për Blerjen</button>
+            <div id="codeResult" class="result"></div>
+        </div>
     </div>
-</div>
     <!--pjesa e address cleaner-->
 
     <div class="container-address-cleaner">
@@ -731,56 +783,82 @@ function getTrendingPosts($posts, $minViews = 5)
 
         //per kalkulator
         function calculate(type) {
-    let data = { action: type };
+            let data = {
+                action: type
+            };
 
-    if (type === "discount") {
-        data.cmimi = document.getElementById("cmimi").value;
-        data.zbritja = document.getElementById("zbritja").value;
-    }
+            if (type === "discount") {
+                data.cmimi = document.getElementById("cmimi").value;
+                data.zbritja = document.getElementById("zbritja").value;
+            }
 
-    if (type === "success") {
-        data.total = document.getElementById("total").value;
-        data.shitjet = document.getElementById("sold").value;
-    }
+            if (type === "success") {
+                data.total = document.getElementById("total").value;
+                data.shitjet = document.getElementById("sold").value;
+            }
 
-    fetch("calculator.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
-        if (type === "average") {
-            document.getElementById("avgResult").textContent = result.message;
-        } else if (type === "discount") {
-            document.getElementById("discountResult").textContent = result.message;
-        } else if (type === "success") {
-            document.getElementById("successResult").textContent = result.message;
-        } else if (type === "code") {
-            document.getElementById("codeResult").textContent = result.message;
+            fetch("calculator.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(result => {
+                    if (type === "average") {
+                        document.getElementById("avgResult").textContent = result.message;
+                    } else if (type === "discount") {
+                        document.getElementById("discountResult").textContent = result.message;
+                    } else if (type === "success") {
+                        document.getElementById("successResult").textContent = result.message;
+                    } else if (type === "code") {
+                        document.getElementById("codeResult").textContent = result.message;
+                    }
+                });
         }
-    });
-}
-//address cleaner
-document.getElementById('addressForm').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+        //address cleaner
+        document.getElementById('addressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    const formData = new FormData(this);
+            const formData = new FormData(this);
 
-    fetch('clean_address.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('result').innerHTML = data;
-    })
-    .catch(error => {
-        document.getElementById('result').innerHTML = "<div style='color:red;'>Gabim gjatë dërgimit.</div>";
-        console.error('Error:', error);
-    });
-});
+            fetch('clean_address.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = "<div style='color:red;'>Gabim gjatë dërgimit.</div>";
+                    console.error('Error:', error);
+                });
+        });
 
+        // Weather js
+
+        function getWeather() {
+            const city = document.getElementById("cityInput").value;
+
+            fetch("weatherApi.php?city=" + encodeURIComponent(city))
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("weatherResult").innerText = "Gabim: " + data.error;
+                    } else {
+                        document.getElementById("weatherResult").innerHTML =
+                            `<b>Temperature:</b> ${data.temperature}°C<br>
+                     <b>Description:</b> ${data.description}<br>
+                     <img src="${data.icon}" alt="icon moti">`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("weatherResult").innerText = "Error with weather forecasting. Try again later!";
+                });
+        }
     </script>
 </body>
 
