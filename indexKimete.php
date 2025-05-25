@@ -1,21 +1,21 @@
 <?php
-// require_once 'conn.php';
+require_once 'conn.php';
 
-// $agentsResult = $conn->query("SELECT id, name FROM agents");
-// $agents = [];
-// if ($agentsResult && $agentsResult->num_rows > 0) {
-//     while ($row = $agentsResult->fetch_assoc()) {
-//         $agents[] = $row;
-//     }
-// }
+$agentsResult = $conn->query("SELECT id, name FROM agents");
+$agents = [];
+if ($agentsResult && $agentsResult->num_rows > 0) {
+    while ($row = $agentsResult->fetch_assoc()) {
+        $agents[] = $row;
+    }
+}
 
-// $propertiesResult = $conn->query("SELECT id, title FROM properties");
-// $properties = [];
-// if ($propertiesResult && $propertiesResult->num_rows > 0) {
-//     while ($row = $propertiesResult->fetch_assoc()) {
-//         $properties[] = $row;
-//     }
-// }
+$propertiesResult = $conn->query("SELECT id, title FROM properties");
+$properties = [];
+if ($propertiesResult && $propertiesResult->num_rows > 0) {
+    while ($row = $propertiesResult->fetch_assoc()) {
+        $properties[] = $row;
+    }
+}
 ?>
 
 
@@ -46,6 +46,26 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+      #contactForm select {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 18px;
+  width: 90%;
+  max-width: 600px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23333'%20d='M2%200L0%202h4L2%200zm0%205l2-2H0l2%202z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+    </style>
   </head>
   <body>
     <!--Navigation Bar-->
@@ -83,14 +103,6 @@
       <section class="contact-form">
         <h2>Get in Touch</h2>
         <form id="contactForm" action="contact.php" method="POST">
-          <label for="name">Full Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your full name"
-            required
-          />
           <label for="email">Email:</label>
           <input
             type="email"
@@ -99,22 +111,6 @@
             placeholder="Enter your email"
             required
             autocomplete="on"
-          />
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
-          <label for="phone">Phone Number:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Enter your phone number"
-            required
           />
 <label for="agent">Select an Agent:</label>
 <select name="agent_id" id="agent" required>
