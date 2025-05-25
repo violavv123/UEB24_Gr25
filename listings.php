@@ -19,6 +19,28 @@ class Property {
     public function renderExtras() {
         return '';
     }
+    
+    public function displayCard($isFavorite = false): string
+    {
+        $heart = $isFavorite ? '❤️' : '♡';
+        return "
+    <div class='property-card'>
+        <img src='{$this->image}' alt='Property Image'>
+        <div class='property-details'>
+            <h3>{$this->title}</h3>
+            <p class='price'>{$this->priceDisplay}</p>
+            <p>{$this->details}</p>
+            {$this->renderExtras()}
+            <div class='card-actions'>
+                <button class='view-details'>View Details</button>
+              <button type='button' class='favorite-btn' data-id='{$this->id}'>
+    {$heart}
+</button>
+            </div>
+        </div>
+    </div>
+    ";
+    }
 }
 
 class House extends Property {
