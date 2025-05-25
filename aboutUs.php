@@ -1,6 +1,7 @@
 <!-- ABOUT US*/ -->
 
 <?php
+session_start();
 include './classes/aboutUs/Milestone.php';
 include './classes/aboutUs/OurTeam.php';
 
@@ -147,14 +148,16 @@ $teamMembers = [
 		<!-- Hidden Navigation Links -->
 		<div class="nav-links-container">
 			<ul class="nav-links">
-				<!--perdorimi i atributeve brenda HTML elementeve-->
-				<!--hyperlinks brenda HTML faqes-->
 				<li><a href="aboutUs.php">About Us</a></li>
 				<li><a href="indexYllka.php">Listings</a></li>
 				<li><a href="indexKimete.php">Contact Us</a></li>
 				<li><a href="indexRudina.php">Blog</a></li>
-				<li><a href="indexSignIn.php">Sign In</a></li>
-				<li><a href="favorites.php">Favorites</a></li>
+          <?php if (isset($_SESSION['user_id'])): ?>
+						<li><a href="logout.php">Sign Out</a></li>
+						<li><a href="favorites.php">Favorites</a></li>
+          <?php else: ?>
+						<li><a href="indexSignIn.php">Sign In</a></li>
+          <?php endif; ?>
 			</ul>
 		</div>
 </nav>

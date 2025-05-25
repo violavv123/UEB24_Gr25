@@ -1,14 +1,44 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['visit_count'])) {
+    $_SESSION['visit_count'] = 1;
+} else {
+    $_SESSION['visit_count']++;
+}
+
+function addMessageToSession($msg): void
+{
+    if (!isset($_SESSION['messages'])) {
+        $_SESSION['messages'] = [];
+    }
+    $_SESSION['messages'][] = $msg;
+}
+
+if ($_SESSION['visit_count'] === 1) {
+    addMessageToSession("Welcome to the listings page!");
+}
+
+if (!isset($_SESSION['milestone_value'])) {
+    $_SESSION['milestone_value'] = "";
+}
+
+if (($_SESSION['visit_count'] % 10) === 0) {
+    $_SESSION['milestone_value'] = "You have reached a milestone! You visited this page {$_SESSION['visit_count']} times.";
+}
+
+if ($_SESSION['visit_count'] === 5) {
+    unset($_SESSION['milestone_value']);
+}
+
 $allListings = include 'listings.php';
-$listings    = $allListings;
+$listings = $allListings;
 
 global $location, $type, $use, $shouldFilter;
 
-$location   = $_GET['location']      ?? '';
-$type       = $_GET['property-type'] ?? 'any';
-$use        = $_GET['property-use']  ?? 'any';
+$location = $_GET['location'] ?? '';
+$type = $_GET['property-type'] ?? 'any';
+$use = $_GET['property-use'] ?? 'any';
 
 $shouldFilter = $location !== '' || $type !== 'any' || $use !== 'any';
 if ($shouldFilter) {
@@ -20,12 +50,12 @@ if ($shouldFilter) {
 
         $matchType = $type === 'any'
             || ($type === 'apartment' && $listing instanceof Apartment)
-            || ($type === 'house'     && $listing instanceof House);
+            || ($type === 'house' && $listing instanceof House);
 
-        $isRent   = str_ends_with($listing->priceDisplay, '/mo');
+        $isRent = str_ends_with($listing->priceDisplay, '/mo');
         $matchUse = $use === 'any'
             || ($use === 'rent' && $isRent)
-            || ($use === 'buy'  && ! $isRent);
+            || ($use === 'buy' && !$isRent);
 
         return $matchLocation && $matchType && $matchUse;
     });
@@ -56,7 +86,8 @@ $favorites = $_SESSION['favorites'] ?? [];
 	<!-- google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+				rel="stylesheet">
 	<!--perdorimi i JS se jashtme-->
 	<script src="script.js" defer></script>
 
@@ -67,58 +98,71 @@ $favorites = $_SESSION['favorites'] ?? [];
           color: white;
           padding: 20px;
       }
+
       .footer-container {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
       }
+
       .logo-contact p {
           margin: 5px 0;
       }
+
       .logo-contact {
           flex: 1;
           min-width: 250px;
       }
+
       .footer-logo {
           max-width: 150px;
           margin-bottom: 10px;
       }
+
       .footer-links-container {
           display: flex;
           flex: 2;
           justify-content: space-around;
           min-width: 250px;
       }
+
       .footer-links {
           margin: 0 10px;
       }
+
       .footer-links h3 {
           margin-bottom: 10px;
       }
+
       .footer-links a {
           display: block;
           color: white;
           text-decoration: none;
           margin-bottom: 5px;
       }
+
       .footer-links a:hover {
           text-decoration: underline;
       }
+
       .newsletter {
           flex: 1.5;
           min-width: 250px;
       }
+
       .newsletter-form {
           display: flex;
           margin-top: 10px;
       }
+
       .newsletter-form input {
           flex: 1;
           padding: 8px;
           border: none;
           border-radius: 4px 0 0 4px;
       }
+
       .newsletter-form button {
           background-color: #00bcd4;
           color: white;
@@ -127,42 +171,52 @@ $favorites = $_SESSION['favorites'] ?? [];
           cursor: pointer;
           border-radius: 0 4px 4px 0;
       }
+
       .newsletter-form button:hover {
           background-color: #008c9e;
       }
+
       .social-icons {
           margin-top: 15px;
       }
+
       .social-icons a {
           margin-right: 10px;
           font-size: 1.2em;
           color: #fff;
           text-decoration: none;
       }
+
       .social-icons .fab:hover {
           color: #00bcd4;
       }
+
       @media (max-width: 768px) {
           .footer-container {
               flex-direction: column;
               text-align: center;
           }
+
           .footer-links-container {
               flex-direction: column;
               align-items: center;
           }
+
           .footer-links {
               margin-bottom: 20px;
           }
+
           .newsletter-form {
               flex-direction: column;
           }
+
           .newsletter-form input,
           .newsletter-form button {
               width: 100%;
               margin: 10px 0;
           }
       }
+
       /*Navbar Styling */
       .navbar {
           display: flex;
@@ -175,14 +229,17 @@ $favorites = $_SESSION['favorites'] ?? [];
           top: 0;
           z-index: 1000;
       }
+
       .logo {
           display: flex;
           align-items: center;
       }
+
       .logo img {
           height: 40px;
           margin-right: 10px;
       }
+
       .brand {
           color: white;
           text-decoration: none;
@@ -196,7 +253,7 @@ $favorites = $_SESSION['favorites'] ?? [];
 <nav class="navbar">
 	<div class="logo">
 		<a href="/">
-			<img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
+			<img src="logo.png" width="45" height="50" alt="Luxury Homes Logo"/>
 		</a>
 		<a href="#top" class="brand">LUXury Homes</a>
 	</div>
@@ -220,6 +277,58 @@ $favorites = $_SESSION['favorites'] ?? [];
 		</div>
 	</div>
 </nav>
+
+<style>
+    .session-info-center {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+    .session-info-card {
+        background: #f8fafc;
+        color: #003366;
+        padding: 24px 36px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        min-width: 320px;
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .session-info-card .visit-count {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .session-info-card .example-value {
+        margin-bottom: 10px;
+        color: #222;
+    }
+    .session-info-card .session-message {
+        margin-bottom: 6px;
+        color: #007bff;
+    }
+</style>
+<div class="session-info-center">
+	<div class="session-info-card">
+		<div class="visit-count">
+			Visits: <?= $_SESSION['visit_count'] ?>
+		</div>
+      <?php if (isset($_SESSION['milestone_value'])): ?>
+				<div class="example-value">
+            <?= htmlspecialchars($_SESSION['milestone_value']) ?>
+				</div>
+      <?php endif; ?>
+      <?php if (!empty($_SESSION['messages'])): ?>
+				<div>
+            <?php foreach ($_SESSION['messages'] as $msg): ?>
+							<div class="session-message">
+                  <?= htmlspecialchars($msg) ?>
+							</div>
+            <?php endforeach; ?>
+				</div>
+      <?php endif; ?>
+	</div>
+</div>
 
 <section class="listing-section">
 	<div class="container">
@@ -262,7 +371,9 @@ $favorites = $_SESSION['favorites'] ?? [];
 					<label for="property-type">Property Type</label>
 					<select id="property-type" name="property-type">
 						<option value="any" <?= ($_GET['property-type'] ?? 'any') === 'any' ? 'selected' : '' ?>>Any</option>
-						<option value="apartment" <?= ($_GET['property-type'] ?? '') === 'apartment' ? 'selected' : '' ?>>Apartment</option>
+						<option value="apartment" <?= ($_GET['property-type'] ?? '') === 'apartment' ? 'selected' : '' ?>>
+							Apartment
+						</option>
 						<option value="house" <?= ($_GET['property-type'] ?? '') === 'house' ? 'selected' : '' ?>>House</option>
 					</select>
 				</div>
@@ -274,7 +385,8 @@ $favorites = $_SESSION['favorites'] ?? [];
 					</select>
 				</div>
 				<div class="filter-item" style="text-align: center; margin-top: 15px;">
-					<button type="submit" style="background-color: #007bff; color: white; padding: 10px 0px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
+					<button type="submit"
+									style="background-color: #007bff; color: white; padding: 10px 0px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
 						Search
 					</button>
 				</div>
@@ -282,7 +394,28 @@ $favorites = $_SESSION['favorites'] ?? [];
 		</div>
 		<div class="listings">
         <?php foreach ($listings as $listing): ?>
-            <?= $listing->displayCard(in_array($listing->id, $favorites)); ?>
+					<div class="property-card">
+						<img src="<?= $listing->image ?>" alt="Property Image">
+						<div class="property-details">
+							<h3><?= $listing->title ?></h3>
+							<p class="price"><?= $listing->priceDisplay ?></p>
+							<p><?= $listing->details ?></p>
+                <?= $listing->renderExtras() ?>
+							<div class="card-actions">
+								<button class="view-details">View Details</button>
+                  <?php
+									if (isset($_SESSION['user_id'])): ?>
+										<button type="button" class="favorite-btn" data-id="<?= $listing->id ?>">
+                        <?= in_array($listing->id, $favorites) ? '❤️' : '♡' ?>
+										</button>
+                  <?php else: ?>
+										<a href="indexSignIn.php" class="favorite-btn" style="text-decoration:none; color:inherit;">
+											♡
+										</a>
+                  <?php endif; ?>
+							</div>
+						</div>
+					</div>
         <?php endforeach; ?>
 		</div>
 	</div>
@@ -312,9 +445,9 @@ $favorites = $_SESSION['favorites'] ?? [];
         navContainer.classList.toggle('active');
     });
 
-        document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.favorite-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.favorite-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
                 const propertyId = this.getAttribute('data-id');
                 const button = this;
                 fetch('favorite.php', {
