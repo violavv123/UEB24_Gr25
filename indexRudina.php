@@ -773,7 +773,7 @@ function getTrendingPosts($posts, $minViews = 5)
 
         <!-- Weather -->
         <section class="weather-box">
-            <h2>Check Weather</h2>
+            <h2>Check Weather for City</h2>
 
             <select id="citySelect">
                 <option disabled selected>Loading cities...</option>
@@ -930,7 +930,6 @@ function getTrendingPosts($posts, $minViews = 5)
         }
     </script>
 
-    </script>
 </body>
 
 </html>
