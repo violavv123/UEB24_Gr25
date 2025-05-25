@@ -708,3 +708,28 @@ body {
 footer {
   margin-top: auto;
 }
+.remove-favorite-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.remove-favorite-btn:hover {
+    background-color: #c0392b;
+}
+.property-details .price {
+    color: #000;
+}
+.favorite-card p {
+    color: #000;
+}
+
+body.dark {
+    background: #222;
+    color: #eee;
+}

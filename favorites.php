@@ -42,8 +42,12 @@ $favorites = array_filter(
 				<li><a href="indexYllka.php">Listings</a></li>
 				<li><a href="indexKimete.php">Contact Us</a></li>
 				<li><a href="indexRudina.php">Blog</a></li>
-				<li><a href="indexSignIn.php">Sign In</a></li>
-				<li><a href="favorites.php">Favorites</a></li>
+          <?php if (isset($_SESSION['user_id'])): ?>
+						<li><a href="logout.php">Sign Out</a></li>
+						<li><a href="favorites.php">Favorites</a></li>
+          <?php else: ?>
+						<li><a href="indexSignIn.php">Sign In</a></li>
+          <?php endif; ?>
 			</ul>
 		</div>
 	</div>
@@ -57,8 +61,9 @@ $favorites = array_filter(
 				<div class="favorite-card">
             <?= $listing->displayCard(); ?>
             <?php if (isset($_SESSION['user_id'])): ?>
-							<form method="POST" action="remove_favorite.php" style="margin-top:10px;">
-								<input type="hidden" name="property_id" value="<?= htmlspecialchars($id) ?>">
+							<form method="POST" action="remove_favorite.php">
+								<input type="hidden" name="property_id" value="<?= htmlspecialchars($listing->id) ?>">
+								<input type="hidden" name="redirect" value="<?= $_SERVER['REQUEST_URI'] ?>">
 								<button type="submit" class="remove-favorite-btn">Remove</button>
 							</form>
             <?php else: ?>

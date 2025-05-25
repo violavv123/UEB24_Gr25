@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'conn.php';
 
 $agentsResult = $conn->query("SELECT id, name FROM agents");
@@ -88,12 +89,16 @@ if ($propertiesResult && $propertiesResult->num_rows > 0) {
           <ul class="nav-links">
             <!--perdorimi i atributeve brenda HTML elementeve-->
             <!--hyperlinks brenda HTML faqes-->
-            <li><a href="aboutUs.php">About Us</a></li>
-            <li><a href="indexYllka.php">Listings</a></li>
-            <li><a href="indexKimete.php">Contact Us</a></li>
-            <li><a href="indexRudina.php">Blog</a></li>
-            <li><a href="indexSignIn.php">Sign In</a></li>
-						<li><a href="favorites.php">Favorites</a></li>
+						<li><a href="aboutUs.php">About Us</a></li>
+						<li><a href="indexYllka.php">Listings</a></li>
+						<li><a href="indexKimete.php">Contact Us</a></li>
+						<li><a href="indexRudina.php">Blog</a></li>
+              <?php if (isset($_SESSION['user_id'])): ?>
+								<li><a href="logout.php">Sign Out</a></li>
+								<li><a href="favorites.php">Favorites</a></li>
+              <?php else: ?>
+								<li><a href="indexSignIn.php">Sign In</a></li>
+              <?php endif; ?>
           </ul>
         </div>
       </div>
