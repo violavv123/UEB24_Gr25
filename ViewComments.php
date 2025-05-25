@@ -77,7 +77,7 @@
 
 <div class="comments">
 <?php
-$filePath = "logs/contact_messages.txt";
+$filePath = "logs/ContactMessages.txt";
 
 if (file_exists($filePath)) {
     $file = fopen($filePath, "r");

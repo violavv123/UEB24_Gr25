@@ -178,3 +178,26 @@ INSERT INTO houses (property_id, area, bedrooms, bathrooms, has_garage, num_floo
 (16, 220, 3, 3, TRUE, 2, TRUE),
 (18, 180, 2, 2, FALSE, 2, TRUE),
 (20, 250, 3, 3, TRUE, 3, TRUE);
+
+INSERT INTO neighbourhoods (name, description, city_id) VALUES
+('Lagja e Re', 'Lagje e qetë me ambiente të gjelbra.', 1),
+('Mati 1', 'Lagje me banesa familjare dhe shkolla.', 2),
+('Bregu i Diellit', 'E njohur për pamjet e bukura dhe parkun.', 3),
+('Dardania', 'Lagje e vjetër me histori dhe kulturë.', 4),
+('Kalabria', 'Lagje moderne dhe e populluar nga të rinjtë.', 5),
+('Ulqini', 'Qendër tregtare dhe zona rezidenciale.', 6),
+('Cërmjani', 'Lagje me ambiente të qeta dhe shkolla të mira.', 7),
+('Mati 2', 'E njohur për komunitetin e bashkuar.', 8),
+('Lagjja e Muhaxhirëve', 'Lagje me histori dhe traditë.', 9),
+('Bregu i Diellit 2', 'Lagje e re dhe e zhvilluar.', 1),
+
+('Dardania e Re', 'Lagje e madhe me zona sportive dhe shkolla.', 2),
+('Arbëria', 'Lagje me komunitet të madh dhe aktivitete kulturore.', 3),
+('Lagja Gërmia', 'Zona me pyje dhe hapësira të mëdha për rekreacion.', 4),
+('Lagja Dardania 2', 'Lagje popullore me banesa dhe dyqane.', 5),
+('Lagja Qendër', 'Zona qendrore me shumë biznese.', 6),
+('Lagja Kalabria 2', 'Lagje e njohur për aktivitetet sportive.', 7),
+('Lagja Veternik', 'Lagje e re me shumë banesa të reja.', 8),
+('Lagja Kodra e Trimave', 'Lagje e qetë me pamje nga qyteti.', 9),
+('Lagja Mati i Poshtëm', 'Lagje me komunitet të fuqishëm dhe hapësira publike.', 1),
+('Lagja Dardania e Poshtme', 'Lagje me shumë shkolla dhe institucione arsimore.', 2);

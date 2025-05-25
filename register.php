@@ -11,6 +11,17 @@ if ($result) {
     $result->free();
 }
 
+function trajtoGabimin($errno, $errstr, $errfile, $errline) {
+    echo "<b>Gabim i detektuar!</b><br>";
+    echo "Kodi: $errno <br>";
+    echo "Përshkrimi: $errstr <br>";
+    echo "Skedari: $errfile <br>";
+    echo "Rreshti: $errline <br><br>";
+    return true;
+}
+
+set_error_handler("trajtoGabimin");
+
 $username = $email = $password = $budget = $preferred_city = $property_type = "";
 $username_err = $email_err = $password_err = $budget_err = $preferred_city_err = $property_type_err = "";
 $success_msg = "";
@@ -50,9 +61,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST["password"])) < 6) {
-        $password_err = "Password must be at least 6 characters.";
+       }else {
+        try{
+if (strlen(trim($_POST["password"])) < 6) {
+    throw new Exception("Password must be at least 6 characters.");
     } else {
         $password = trim($_POST["password"]);
+    }
+    } catch (Exception $e) {
+            $password_err = $e->getMessage();
+        }
     }
 
     if (empty(trim($_POST["budget"]))) {
