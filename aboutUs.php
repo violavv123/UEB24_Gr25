@@ -230,104 +230,38 @@ $teamMembers = [
     <?php OurTeam::showTeam($teamMembers); ?>
 </div>
 
-<?php
-
-$personel = [
-    "Uranit Vuçitërna" => [
-        "role" => "Agjent",
-        "sherbime" => [
-            "Shitja e pasurive",
-            "Qiradhënia e pasurive",
-            "Konsulencë imobiliare"
-        ]
-    ],
-    "Riga Zubaku" => [
-        "role" => "Menaxhere për suksesin e klientëve",
-        "sherbime" => [
-            "Menaxhimi i marrëdhënieve me klientët",
-            "Sigurimi i shërbimit të shkëlqyer për klientët",
-            "Konsulencë për klientët"
-        ]
-    ],
-    "Yllka Fejzullahu" => [
-        "role" => "Agjente kryesore",
-        "sherbime" => [
-            "Konsulencë për shitjen e pasurive të luksit",
-            "Përgatitja e dokumentacionit të shitjes",
-            "Negociata me blerësit"
-        ]
-    ],
-    "Viola Resyli" => [
-        "role" => "CEO",
-        "sherbime" => [
-            "Strategji për zhvillimin e biznesit",
-            "Marrëdhënie me partnerë dhe investitorë",
-            "Menaxhimi i ekipit"
-        ]
-    ],
-    "Rudina Bulliqi" => [
-        "role" => "Specialiste e marketingut",
-        "sherbime" => [
-            "Fushata marketingu për pasuri",
-            "Përgatitja e materialeve promocionale",
-            "Analiza e tregut dhe pozicionimi"
-        ]
-    ]
-];
-
-
-function getPersonByService($service, $personel)
-{
-    foreach ($personel as $emri => $detajet) {
-        if (in_array($service, $detajet['sherbime'])) {
-            return [
-                'emri' => $emri,
-                'role' => $detajet['role']
-            ];
-        }
-    }
-    return null;
-}
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $selectedService = $_POST['sherbimi'];
-    $person = getPersonByService($selectedService, $personel);
-
-    if ($person) {
-        $result = "<b>{$person['emri']}</b> është përgjegjës për shërbimin <b>{$selectedService}</b>. <br> Roli: {$person['role']}";
-    } else {
-        $result = "Nuk u gjet asnjë person për këtë shërbim.";
-    }
-}
-?>
-
 <div class="associative-arrays">
-	<h2><strong>Services and staff</strong></h2>
+    <h2><strong>Services and Staff</strong></h2>
 
+    <form id="serviceForm">
+        <label for="sherbimi">Select service:</label>
+        <select id="sherbimi" name="sherbimi">
+            <?php
+            $personel = [
+                "Uranit Vuçitërna" => ["sherbime" => ["Shitja e pasurive", "Qiradhënia e pasurive", "Konsulencë imobiliare"]],
+                "Riga Zubaku" => ["sherbime" => ["Menaxhimi i marrëdhënieve me klientët", "Sigurimi i shërbimit të shkëlqyer për klientët", "Konsulencë për klientët"]],
+                "Yllka Fejzullahu" => ["sherbime" => ["Konsulencë për shitjen e pasurive të luksit", "Përgatitja e dokumentacionit të shitjes", "Negociata me blerësit"]],
+                "Viola Resyli" => ["sherbime" => ["Strategji për zhvillimin e biznesit", "Marrëdhënie me partnerë dhe investitorë", "Menaxhimi i ekipit"]],
+                "Rudina Bulliqi" => ["sherbime" => ["Fushata marketingu për pasuri", "Përgatitja e materialeve promocionale", "Analiza e tregut dhe pozicionimi"]]
+            ];
 
-	<form method="post">
-		<label for="sherbimi">Select service:</label>
-		<select id="sherbimi" name="sherbimi">
-        <?php
-
-        foreach ($personel as $emri => $detajet) {
-            foreach ($detajet['sherbime'] as $sherbimi) {
-                echo "<option value='$sherbimi'>$sherbimi</option>";
+            $unique_services = [];
+            foreach ($personel as $p) {
+                foreach ($p['sherbime'] as $s) {
+                    $unique_services[$s] = $s;
+                }
             }
-        }
-        ?>
-		</select>
 
-		<button type="submit">Find</button>
-	</form>
+            foreach ($unique_services as $sherbimi) {
+                echo "<option value=\"$sherbimi\">$sherbimi</option>";
+            }
+            ?>
+        </select>
 
+        <button type="submit">Find</button>
+    </form>
 
-    <?php
-    if (isset($result)) {
-        echo "<div id='result'>$result</div>";
-    }
-    ?>
+    <div id="result"></div>
 </div>
 
 <h2>
@@ -390,7 +324,7 @@ include './classes/footer/footer.php';
     });
 
     gallery.addEventListener('dragover', (e) => {
-        e.preventDefault(); // Allows drop
+        e.preventDefault(); 
         const afterElement = getDragAfterElement(gallery, e.clientX);
         const dragging = document.querySelector('.dragging');
         if (afterElement == null) {
@@ -413,7 +347,24 @@ include './classes/footer/footer.php';
         }, {offset: Number.NEGATIVE_INFINITY}).element;
     }
 
+document.getElementById("serviceForm").addEventListener("submit", function (e) {
+    e.preventDefault(); 
 
+    const formData = new FormData(this);
+
+    fetch("find_staff.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("result").innerHTML = data;
+    })
+    .catch(err => {
+        console.error(err);
+        document.getElementById("result").innerText = "An error occurred.";
+    });
+});
 </script>
 </body>
 </html>

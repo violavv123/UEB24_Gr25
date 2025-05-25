@@ -348,89 +348,8 @@
  </form>
  </div>
 
-<footer class="responsive-footer" >
-    <div class="footer-container">
-      <div class="logo-contact">
-        <img src="logo.png" alt="Luxury Homes Logo" class="footer-logo">
-        <!--perdorimi i tagut address-->
-        <address>
-          <p><i class="fas fa-map-marker-alt"></i> Rruga Gazmend Zajmi Nr.47 </p>
-          <!--perdorimi i inline css-->
-        <p style="padding-left: 15px;"> Prishtina 10000, Kosovo</p>
-        <p><i class="fas fa-phone"></i> +383 49 790 117</p>
-        <!--perdorimi i hyperlinkut per te derguar email-->
-        <p><i class="fas fa-envelope"></i> <a href="mailto:viola.resyli@student.uni-pr.edu?subject=Feedback">info@luxuryhomes.com</a></p>
-        </address>
-      </div>
-      <div class="footer-links-container">
-        <div class="footer-links">
-          <h3>AGENT</h3>
-          <a href="#">Login</a>
-          <a href="#">Register</a>
-        </div>
-        <div class="footer-links">
-          <h3>CITY LISTS</h3>
-          <a href="#">Peja</a>
-          <a href="#">Prishtina</a>
-          <a href="#">Prizren</a>
-          <a href="#">Others</a>
-        </div>
-        <div class="footer-links">
-          <h3>QUICK LINKS</h3>
-          <a href="#">Legal</a>
-          <a href="#">Privacy Policy</a>
-          <a href="indexRudina.php">Blog</a>
-          <a href="#">Find an Agent</a>
-        </div>
-      </div>
-<?php
-function validateEmail($email) {
-    $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
-    return preg_match($pattern, $email);
-}
+  <?php include './classes/footer/footer.php'; ?>
 
-$emailError = "";
-$success = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = trim($_POST["newsletter_email"]);
-
-    if (empty($email)) {
-        $emailError = "Ju lutem vendosni një email.";
-    } elseif (!validateEmail($email)) {
-        $emailError = "Formati i email-it nuk është i vlefshëm.";
-    } else {
-        $success = "Email-i u regjistrua me sukses!";
-    }
-}
-?>
-      <div class="newsletter">
-        <h3 style="margin-top:5px;">SIGN UP FOR OUR NEWSLETTER</h3>
-        <p>Join our community of savvy real estate enthusiasts.</p>
-        <form method="POST" action="">
-        <div class="newsletter-form">
-            <input type="email" name="newsletter_email" placeholder="Your email address"
-                   value="<?= isset($email) ? htmlspecialchars($email) : '' ?>">
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </form>
-
-    <?php if ($emailError): ?>
-        <p style="color: red;"><?= $emailError ?></p>
-    <?php elseif ($success): ?>
-        <p style="color: green;"><?= $success ?></p>
-    <?php endif; ?>
-
-        <div class="social-icons">
-          <!--Hyperlink tek nje URL tjeter-->
-         <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 <!--javascript files-->
 <script>
@@ -508,7 +427,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 
 document.getElementById("phpForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent form from reloading the page
+    e.preventDefault();
 
     const formData = new FormData(this);
 
