@@ -885,40 +885,50 @@ function getTrendingPosts($posts, $minViews = 5)
 
         // Weather js
 
-        
-// Load cities from the database
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('getCities.php')
-        .then(res => res.json())
-        .then(cities => {
-            const select = document.getElementById("citySelect");
-            select.innerHTML = cities.map(city =>
-                `<option value="${city}">${city}</option>`
-            ).join('');
+
+        // Ngarkon qytetet nga databaza
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('getCities.php')
+                .then(res => res.json())
+                .then(cities => {
+                    const select = document.getElementById("citySelect");
+                    select.innerHTML = cities.map(city =>
+                        `<option value="${city}">${city}</option>`
+                    ).join('');
+                })
+                .catch(() => {
+                    const result = document.getElementById("weatherResult");
+                    result.innerText = "Failed to load cities from the database.";
+                });
         });
-});
 
-// Use your existing PHP API
-function getWeather() {
-    const city = document.getElementById("citySelect").value;
+        // Merr të dhënat e motit
+        function getWeather() {
+            const city = document.getElementById("citySelect").value;
+            const result = document.getElementById('weatherResult');
 
-    fetch(`weatherApi.php?city=${encodeURIComponent(city)}`)
-        .then(res => res.json())
-        .then(data => {
-            const result = document.getElementById("weatherResult");
-            if (data.error) {
-                result.innerText = data.error;
-            } else {
-                result.innerHTML = `
+            result.innerHTML = "<p>Loading weather data...</p>";
+
+            fetch(`weatherapi.php?city=${encodeURIComponent(city)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const result = document.getElementById("weatherResult");
+                    if (data.error) {
+                        result.innerText = `<p style="color:red;">⚠️ ${data.error}</p>`;
+                    } else {
+                        result.innerHTML = `
                     <p><strong>${city}</strong></p>
                     <p>🌡️ ${data.temperature}°C</p>
                     <p>${data.description}</p>
                     <img src="${data.icon}" alt="Weather Icon">
                 `;
-            }
-        });
-}
-</script>
+                    }
+                })
+                .catch(() => {
+                    result.innerHTML = `<p style="color:red;">⚠️ Failed to retrieve weather data. Please try again later.</p>`;
+                });
+        }
+    </script>
 
     </script>
 </body>
