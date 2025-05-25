@@ -548,9 +548,9 @@ function getTrendingPosts($posts, $minViews = 5)
                     <!--perdorimi i atributeve brenda HTML elementeve-->
                     <!--hyperlinks brenda HTML faqes-->
                     <li><a href="aboutUs.php">About Us</a></li>
-                    <li><a href="indexYllka.html">Listings</a></li>
-                    <li><a href="indexKimete.html">Contact Us</a></li>
-                    <li><a href="indexRudina.html">Blog</a></li>
+                    <li><a href="indexYllka.php">Listings</a></li>
+                    <li><a href="indexKimete.php">Contact Us</a></li>
+                    <li><a href="indexRudina.php">Blog</a></li>
                     <li><a href="indexSignIn.php">Sign In</a></li>
                 </ul>
             </div>
@@ -643,124 +643,48 @@ function getTrendingPosts($posts, $minViews = 5)
     <?php endforeach; ?>
     <!-- #region -->
 
-    <!-- pjesa e kalkulatorit magjik -->
+    <!--pjesa e kalkulatorit magjik-->
     <div class="container-kalkulatori">
-        <?php
-        $mesatarja = "";
-        $zbritjaRe = "";
-        $perqindja = "";
-        $kodi = "";
+    <h2>Magic Calculator</h2>
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST['llogarit_mesataren'])) {
-                $cmimet = [120000, 95000, 175000, 200000];
-                $mesatarja = array_sum($cmimet) / count($cmimet);
-            }
-
-            if (isset($_POST['llogarit_zbritjen'])) {
-                $cmimi = floatval($_POST['cmimi']);
-                $zbritja = floatval($_POST['zbritja']);
-                $zbritjaRe = $cmimi - $zbritja * 0.01 * $cmimi;
-            }
-
-            if (isset($_POST['llogarit_suksesin'])) {
-                $total = intval($_POST['total_listings']);
-                $shitje = intval($_POST['shitjet']);
-                if ($total > 0) {
-                    $perqindja = round(($shitje / $total) * 100, 2);
-                } else {
-                    $perqindja = "(0 listings)";
-                }
-            }
-
-            if (isset($_POST['gjenero_kodin'])) {
-                $id = rand(1, 9999);
-                $kodi = "2025-" . str_pad($id, 4, '0', STR_PAD_LEFT);
-            }
-        }
-        ?>
-        <h2>Magic calculator</h2>
-        <form method="POST">
-            <!-- Butoni 1: Mesatarja -->
-            <div>
-                <input type="submit" name="llogarit_mesataren" value="Llogarit Mesataren e Qmimeve" class="btn">
-                <?php if ($mesatarja): ?>
-                    <div class="result">Mesatarja: €<?= number_format($mesatarja, 2) ?></div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Butoni 2: Llogarit Zbritjen -->
-            <div>
-                <label for="cmimi">Çmimi Fillestar:</label>
-                <input type="number" step="0.01" name="cmimi">
-
-                <label for="zbritja">Zbritja në %:</label>
-                <input type="number" step="0.01" name="zbritja">
-
-                <input type="submit" name="llogarit_zbritjen" value="Llogarit Çmimin Pas Zbritjes" class="btn">
-                <?php if ($zbritjaRe !== ""): ?>
-                    <div class="result">Çmimi pas zbritjes: €<?= number_format($zbritjaRe, 2) ?></div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Butoni 3: Përqindja e suksesit -->
-            <div>
-                <label for="total_listings">Numri i Listimeve:</label>
-                <input type="number" name="total_listings">
-
-                <label for="shitjet">Numri i Shitjeve:</label>
-                <input type="number" name="shitjet">
-
-                <input type="submit" name="llogarit_suksesin" value="Llogarit Përqindjen e Suksesit" class="btn">
-                <?php if ($perqindja !== ""): ?>
-                    <div class="result">Përqindja e suksesit: <?= $perqindja ?>%</div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Butoni 4: Gjenero Kodin -->
-            <div>
-                <input type="submit" name="gjenero_kodin" value="Gjenero Kodin për Blerjen" class="btn">
-                <?php if ($kodi): ?>
-                    <div class="result">Kodi i Blerjes: <?= $kodi ?></div>
-                <?php endif; ?>
-            </div>
-        </form>
+    <div>
+        <button class="btn" onclick="calculate('average')">Llogarit Mesataren e Qmimeve</button>
+        <div id="avgResult" class="result"></div>
     </div>
 
+    <div>
+        <h4>Llogarit Zbritjen</h4>
+        <input type="number" id="cmimi" placeholder="Çmimi Fillestar">
+        <input type="number" id="zbritja" placeholder="Zbritja në %">
+        <button class="btn" onclick="calculate('discount')">Llogarit Çmimin Pas Zbritjes</button>
+        <div id="discountResult" class="result"></div>
+    </div>
+
+    <div>
+        <h4>Përqindja e suksesit</h4>
+        <input type="number" id="total" placeholder="Numri i Listimeve">
+        <input type="number" id="sold" placeholder="Numri i Shitjeve">
+        <button class="btn" onclick="calculate('success')">Llogarit Përqindjen e Suksesit</button>
+        <div id="successResult" class="result"></div>
+    </div>
+
+    <div>
+        <button class="btn" onclick="calculate('code')">Gjenero Kodin për Blerjen</button>
+        <div id="codeResult" class="result"></div>
+    </div>
+</div>
     <!--pjesa e address cleaner-->
 
     <div class="container-address-cleaner">
         <h2>Address Cleaner</h2>
-        <form method="POST">
+        <form id="addressForm" method="POST">
             <div class="form-group">
                 <label for="address">Type address:</label>
                 <input type="text" id="address" name="address" placeholder="Shembull: Rruga XYZ!!, Tirana.#123">
             </div>
             <button type="submit">Clean address</button>
+            <div id="result"></div>
         </form>
-
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            function cleanAddress($address)
-            {
-
-                $pattern = '/[^a-zA-Z0-9\s,.-]/';
-                $cleanedAddress = preg_replace($pattern, '', $address);
-                return $cleanedAddress;
-            }
-
-
-            $address = $_POST['address'];
-            if (!empty($address)) {
-
-                $cleanedAddress = cleanAddress($address);
-                echo "<div class='result'><strong>Adresa e pastruar:</strong> $cleanedAddress</div>";
-            } else {
-                echo "<div class='result' style='background-color: #f8d7da; border-color: #f5c6cb;'><strong>Ju lutem, futni një adresë.</strong></div>";
-            }
-        }
-        ?>
     </div>
     <!--footer-->
     <?php
@@ -796,9 +720,6 @@ function getTrendingPosts($posts, $minViews = 5)
             });
         };
 
-
-
-
         //javascript per navbar
         const menuButton = document.querySelector('.menu-btn');
         const navContainer = document.querySelector('.nav-links-container');
@@ -806,6 +727,59 @@ function getTrendingPosts($posts, $minViews = 5)
         menuButton.addEventListener('click', () => {
             navContainer.classList.toggle('active'); // Show/hide the nav links
         });
+
+        //per kalkulator
+        function calculate(type) {
+    let data = { action: type };
+
+    if (type === "discount") {
+        data.cmimi = document.getElementById("cmimi").value;
+        data.zbritja = document.getElementById("zbritja").value;
+    }
+
+    if (type === "success") {
+        data.total = document.getElementById("total").value;
+        data.shitjet = document.getElementById("sold").value;
+    }
+
+    fetch("calculator.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (type === "average") {
+            document.getElementById("avgResult").textContent = result.message;
+        } else if (type === "discount") {
+            document.getElementById("discountResult").textContent = result.message;
+        } else if (type === "success") {
+            document.getElementById("successResult").textContent = result.message;
+        } else if (type === "code") {
+            document.getElementById("codeResult").textContent = result.message;
+        }
+    });
+}
+//address cleaner
+document.getElementById('addressForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    const formData = new FormData(this);
+
+    fetch('clean_address.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+        document.getElementById('result').innerHTML = "<div style='color:red;'>Gabim gjatë dërgimit.</div>";
+        console.error('Error:', error);
+    });
+});
+
     </script>
 </body>
 
