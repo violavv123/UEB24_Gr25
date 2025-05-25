@@ -1,6 +1,7 @@
 <?php
 
 class Property {
+    public $id; // unique identifier for each property
     public $title;
     public $price;
     public $priceDisplay;
@@ -15,21 +16,30 @@ class Property {
         $this->details      = $details;
     }
     // display function per cards, e perdorim ne indexYllka.php
-    public function displayCard() {
-      return "
-      <div class='property-card'>
-          <img src='{$this->image}' alt='Property Image'>
-          <div class='property-details'>
-              <h3>{$this->title}</h3>
-              <p class='price'>{$this->priceDisplay}</p>
-              <p>{$this->details}</p>
-              {$this->renderExtras()}
-              <button class='view-details'>View Details</button>
-          </div>
-      </div>
-      ";
-  }
-  
+    public function displayCard($isFavorite = false): string
+    {
+        $heart = $isFavorite ? '❤️' : '♡';
+        return "
+    <div class='property-card'>
+        <img src='{$this->image}' alt='Property Image'>
+        <div class='property-details'>
+            <h3>{$this->title}</h3>
+            <p class='price'>{$this->priceDisplay}</p>
+            <p>{$this->details}</p>
+            {$this->renderExtras()}
+            <div class='card-actions'>
+                <button class='view-details'>View Details</button>
+              <button type='button' class='favorite-btn' data-id='{$this->id}'>
+    {$heart}
+</button>
+            </div>
+        </div>
+    </div>
+    ";
+    }
+
+
+
     protected function renderExtras() {
       return '';
     }
@@ -249,9 +259,12 @@ $rawListings = [
 
 // konvertimi i array te listings ne objekte te klases property
 $listings = [];
-foreach ($rawListings as $item) {
-    $listings[] = createProperty($item);
+foreach ($rawListings as $index => $item) {
+    $property = createProperty($item);
+    $property->id = $index; // 💡 store the index as unique ID
+    $listings[$index] = $property;
 }
+
 
 return $listings;
 ?>
