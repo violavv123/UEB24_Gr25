@@ -799,9 +799,17 @@ function getTrendingPosts($posts, $minViews = 5)
             });
             // Send view count to PHP
             fetch(`update-views.php?post_id=${modalId}`)
-                .then(() => {
+                .then(res => res.json())
+                .then(data => {
                     document.getElementById(modalId).style.display = "flex";
+
+                    // Gjej dhe përditëso numrin e view-ve në modal
+                    const viewCountElem = document.querySelector(`#${modalId} .view-count`);
+                    if (viewCountElem && data.views !== undefined) {
+                        viewCountElem.textContent = `Views: ${data.views}`;
+                    }
                 });
+
         }
 
         function closeModal(modalId) {
