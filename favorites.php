@@ -56,10 +56,14 @@ $favorites = array_filter(
         <?php foreach ($favorites as $id => $listing): ?>
 				<div class="favorite-card">
             <?= $listing->displayCard(); ?>
-					<form method="POST" action="remove_favorite.php" style="margin-top:10px;">
-						<input type="hidden" name="property_id" value="<?= htmlspecialchars($id) ?>">
-						<button type="submit" class="remove-favorite-btn">Remove</button>
-					</form>
+            <?php if (isset($_SESSION['user_id'])): ?>
+							<form method="POST" action="remove_favorite.php" style="margin-top:10px;">
+								<input type="hidden" name="property_id" value="<?= htmlspecialchars($id) ?>">
+								<button type="submit" class="remove-favorite-btn">Remove</button>
+							</form>
+            <?php else: ?>
+							<a href="indexSignIn.php">Sign in to add to favorites</a>
+            <?php endif; ?>
 				</div>
         <?php endforeach; ?>
     <?php endif; ?>
