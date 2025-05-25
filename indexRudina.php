@@ -773,21 +773,23 @@ function getTrendingPosts($posts, $minViews = 5)
 
         <!-- Weather -->
         <section class="weather-box">
-            <!-- Check Weather part -->
-            <section class="weather-box">
-                <h2>Check Weather</h2>
-                <input type="text" id="cityInput" placeholder="Enter City..." />
-                <button onclick="getWeather()">Show Weather</button>
-                <div id="weatherResult"></div>
-            </section>
+            <h2>Check Weather</h2>
+
+            <select id="citySelect">
+                <option disabled selected>Loading cities...</option>
+            </select>
+
+            <button onclick="getWeather()">Show Weather</button>
+            <div id="weatherResult"></div>
         </section>
+
     </div>
 
 
 
     <!--footer-->
-     <?php include './classes/footer/footer.php'; ?>
-     
+    <?php include './classes/footer/footer.php'; ?>
+
     <script>
         function openModal(modalId) {
 
@@ -883,26 +885,41 @@ function getTrendingPosts($posts, $minViews = 5)
 
         // Weather js
 
-        function getWeather() {
-            const city = document.getElementById("cityInput").value;
+        
+// Load cities from the database
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('getCities.php')
+        .then(res => res.json())
+        .then(cities => {
+            const select = document.getElementById("citySelect");
+            select.innerHTML = cities.map(city =>
+                `<option value="${city}">${city}</option>`
+            ).join('');
+        });
+});
 
-            fetch("weatherApi.php?city=" + encodeURIComponent(city))
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        document.getElementById("weatherResult").innerText = "Gabim: " + data.error;
-                    } else {
-                        document.getElementById("weatherResult").innerHTML =
-                            `<b>Temperature:</b> ${data.temperature}°C<br>
-                     <b>Description:</b> ${data.description}<br>
-                     <img src="${data.icon}" alt="icon moti">`;
-                    }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    document.getElementById("weatherResult").innerText = "Error with weather forecasting. Try again later!";
-                });
-        }
+// Use your existing PHP API
+function getWeather() {
+    const city = document.getElementById("citySelect").value;
+
+    fetch(`weatherApi.php?city=${encodeURIComponent(city)}`)
+        .then(res => res.json())
+        .then(data => {
+            const result = document.getElementById("weatherResult");
+            if (data.error) {
+                result.innerText = data.error;
+            } else {
+                result.innerHTML = `
+                    <p><strong>${city}</strong></p>
+                    <p>🌡️ ${data.temperature}°C</p>
+                    <p>${data.description}</p>
+                    <img src="${data.icon}" alt="Weather Icon">
+                `;
+            }
+        });
+}
+</script>
+
     </script>
 </body>
 
