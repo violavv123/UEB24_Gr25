@@ -1,3 +1,24 @@
+<?php
+// require_once 'conn.php';
+
+// $agentsResult = $conn->query("SELECT id, name FROM agents");
+// $agents = [];
+// if ($agentsResult && $agentsResult->num_rows > 0) {
+//     while ($row = $agentsResult->fetch_assoc()) {
+//         $agents[] = $row;
+//     }
+// }
+
+// $propertiesResult = $conn->query("SELECT id, title FROM properties");
+// $properties = [];
+// if ($propertiesResult && $propertiesResult->num_rows > 0) {
+//     while ($row = $propertiesResult->fetch_assoc()) {
+//         $properties[] = $row;
+//     }
+// }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -95,6 +116,25 @@
             placeholder="Enter your phone number"
             required
           />
+<label for="agent">Select an Agent:</label>
+<select name="agent_id" id="agent" required>
+  <option value="">-- Select Agent --</option>
+  <?php foreach ($agents as $agent): ?>
+    <option value="<?= htmlspecialchars($agent['id']) ?>">
+      <?= htmlspecialchars($agent['name']) ?>
+    </option>
+  <?php endforeach; ?>
+</select>
+
+<label for="property">Select a Property:</label>
+<select name="property_id" id="property" required>
+  <option value="">-- Select Property --</option>
+  <?php foreach ($properties as $property): ?>
+    <option value="<?= htmlspecialchars($property['id']) ?>">
+      <?= htmlspecialchars($property['title']) ?>
+    </option>
+  <?php endforeach; ?>
+</select>
           <label for="message">Message:</label>
           <textarea
             id="message"
