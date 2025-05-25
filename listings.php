@@ -1,7 +1,7 @@
 <?php
 
 class Property {
-    public $id; // unique identifier for each property
+    public $id;
     public $title;
     public $price;
     public $priceDisplay;
@@ -15,95 +15,85 @@ class Property {
         $this->image        = $image;
         $this->details      = $details;
     }
-    // display function per cards, e perdorim ne indexYllka.php
-    public function displayCard($isFavorite = false): string
-    {
-        $heart = $isFavorite ? '❤️' : '♡';
-        return "
-    <div class='property-card'>
-        <img src='{$this->image}' alt='Property Image'>
-        <div class='property-details'>
-            <h3>{$this->title}</h3>
-            <p class='price'>{$this->priceDisplay}</p>
-            <p>{$this->details}</p>
-            {$this->renderExtras()}
-            <div class='card-actions'>
-                <button class='view-details'>View Details</button>
-              <button type='button' class='favorite-btn' data-id='{$this->id}'>
-    {$heart}
-</button>
-            </div>
-        </div>
-    </div>
-    ";
+
+    public function renderExtras() {
+        return '';
     }
-
-
-
-    protected function renderExtras() {
-      return '';
-    }
-    
 }
-// sh. trashegmi n1
+
 class House extends Property {
-  public $yardSize;
+    public $yardSize;
 
-  public function __construct($title, $price, $priceDisplay, $image, $details, $yardSize = null) {
-      parent::__construct($title, $price, $priceDisplay, $image, $details);
-      $this->yardSize = $yardSize;
-  }
+    public function __construct($title, $price, $priceDisplay, $image, $details, $yardSize = null) {
+        parent::__construct($title, $price, $priceDisplay, $image, $details);
+        $this->yardSize = $yardSize;
+    }
 
-  // e njejta logjik si me floors te apartamenti
-  protected function renderExtras() {
-      if ($this->yardSize) {
-          return "<p>Yard Size: {$this->yardSize} m²</p>";
-      }
-      return '';
-  }
+    public function renderExtras() {
+        if ($this->yardSize) {
+            return "<p>Yard Size: {$this->yardSize} m²</p>";
+        }
+        return '';
+    }
 }
 
-// sh trashegimi n2
 class Apartment extends Property {
-  public $floor;
+    public $floor;
 
-  public function __construct($title, $price, $priceDisplay, $image, $details, $floor = null) {
-      parent::__construct($title, $price, $priceDisplay, $image, $details);
-      $this->floor = $floor;
-  }
+    public function __construct($title, $price, $priceDisplay, $image, $details, $floor = null) {
+        parent::__construct($title, $price, $priceDisplay, $image, $details);
+        $this->floor = $floor;
+    }
 
-  // nese kemi floor, e shtojm te ky funksioni, e cili e paraqet tani ne cards
-  protected function renderExtras() {
-      if ($this->floor) {
-          return "<p>Floor: {$this->floor}</p>";
-      }
-      return '';
-  }
+    public function renderExtras() {
+        if ($this->floor) {
+            return "<p>Floor: {$this->floor}</p>";
+        }
+        return '';
+    }
 }
 
+function updatePrice(&$property, $newPrice) {
+    $property->price = $newPrice;
+    $property->priceDisplay = "€" . number_format($newPrice, 0, '.', ',');
+}
 
-function createProperty($data) {
-  if (stripos($data['title'], 'Apartment') !== false) {
-      $floor = $data['floor'] ?? null;
-      return new Apartment(
-          $data['title'], 
-          $data['price'], 
-          $data['priceDisplay'], 
-          $data['image'], 
-          $data['details'], 
-          $floor
-      );
-  }
+function emphasizeTitle(&$property) {
+    $property->title = strtoupper($property->title);
+}
 
-  $yard = $data['yardSize'] ?? null;
-  return new House(
-      $data['title'],
-      $data['price'], 
-      $data['priceDisplay'], 
-      $data['image'], 
-      $data['details'], 
-      $yard
-  );
+function &getCheapestListing(&$listings) {
+    $min = null;
+    foreach ($listings as &$property) {
+        if ($min === null || $property->price < $min->price) {
+            $min = &$property;
+        }
+    }
+    return $min;
+}
+
+function createProperty(&$data) { // ✅ Përcjellja e vlerës përmes referencës
+    if (stripos($data['title'], 'Apartment') !== false) {
+        $floor = $data['floor'] ?? null;
+        return new Apartment(
+            $data['title'], 
+            $data['price'], 
+            $data['priceDisplay'], 
+            $data['image'], 
+            $data['details'], 
+            $floor
+        );
+    }
+
+    $yard = $data['yardSize'] ?? null;
+    return new House(
+        $data['title'],
+        $data['price'], 
+        $data['priceDisplay'], 
+        $data['image'], 
+        $data['details'], 
+        $yard
+    );
 }
 
 // listings se pari te ruajtura ne array
@@ -257,14 +247,26 @@ $rawListings = [
     ]
 ];
 
-// konvertimi i array te listings ne objekte te klases property
 $listings = [];
 foreach ($rawListings as $index => $item) {
     $property = createProperty($item);
-    $property->id = $index; // 💡 store the index as unique ID
+    $property->id = $index;
     $listings[$index] = $property;
 }
 
+$firstListing = &$listings[0];
+$firstListing->title = "🔥 Featured: " . $firstListing->title;
+
+updatePrice($listings[1], 999000);
+emphasizeTitle($listings[2]);
+
+$cheapest = &getCheapestListing($listings);
+$cheapest->title .= " (Cheapest)";
+
+foreach ($listings as &$property) {
+    $property->details .= " | Promo";
+}
+unset($property);
 
 return $listings;
 ?>
