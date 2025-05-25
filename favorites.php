@@ -69,6 +69,8 @@ $favorites = array_filter(
     <?php endif; ?>
 </div>
 
+<?php include 'neighbourhoods.php'; ?>
+
 <?php include './classes/footer/footer.php'; ?>
 
 <script>
