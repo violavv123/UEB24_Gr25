@@ -117,6 +117,7 @@
         <li><a href="indexYllka.php">Listings</a></li>
         <li><a href="indexKimete.php">Contact Us</a></li>
         <li><a href="indexRudina.php">Blog</a></li>
+        <li><a href="indexSignIn.php">Sign In</a></li>
     </ul>
     </div>
     </div>
@@ -161,7 +162,7 @@
         <p >
             Our real estate agency offers personalized services to help you find your dream home quickly and easily. 
             <mark><a href="SELL_YOUR_HOME.mp4">Watch the video</a></mark> to learn more about our approach and commitment to excellence. Sign in for a more personalized experience. <br><br>
-            <a href="indexKimete.php" class="btn">Sign In</a>
+            <a href="indexSignIn.php" class="btn">Sign In</a>
         </p>
     </div>
 </section>
@@ -339,57 +340,13 @@
       <div class="numeric-arrays">
 
 <h2 >Check if we offer services in your city</h2>
-<form id="phpForm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+<form id="phpForm">
      <label for="qyteti">Type the city:</label>
      <input type="text" name="qyteti" id="qyteti" required>
      <button type="submit">Check</button>
+      <div id="result"></div>
  </form>
- <?php
- 
- $qytetet = ["Peja", "Prishtina", "Prizreni", "Gjakova", "Ferizaj", "Gjilani", "Podujeva","Mitrovica"];
-
- function kontrolloQytetin($qytet, $listaQyteteve) {
-     if (in_array($qytet, $listaQyteteve)) {
-         return " $qytet është në listën tonë të shërbimit.";
-     } else {
-         return " Na vjen keq, $qytet nuk është në listën tonë.";
-     }
- }
-
- 
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-     $qytetiPerTeKontrolluar = trim($_POST["qyteti"]);
-     echo "<p>" . kontrolloQytetin($qytetiPerTeKontrolluar, $qytetet) . "</p>";
- }
-
- //varibalat globale
-$GLOBALS['propertyName'] = 'Luxury Villa';
-$GLOBALS['propertyPrice'] = 500000;
-$GLOBALS['propertyDescription'] = 'A beautiful luxury villa with 4 bedrooms, a swimming pool, and ocean view.';
-
-function displayPropertyDetails() {
-    global $propertyName, $propertyPrice, $propertyDescription;
-    
-    echo "Property Name: " . $propertyName . "<br>";
-    echo "Price: $" . number_format($propertyPrice, 2) . "<br>";
-    echo "Description: " . $propertyDescription . "<br>";
-}
-
-function updatePropertyPrice($newPrice) {
-    global $propertyPrice;
-    
-    $propertyPrice = $newPrice;
-    echo "The new property price is: $" . number_format($propertyPrice, 2) . "<br>";
-}
-
-displayPropertyDetails();
-
-updatePropertyPrice(600000);
-
-displayPropertyDetails();
-?>
  </div>
-
 
 <footer class="responsive-footer" >
     <div class="footer-container">
@@ -550,7 +507,24 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 
+document.getElementById("phpForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form from reloading the page
 
+    const formData = new FormData(this);
+
+    fetch("check_city.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("result").innerHTML = data;
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("result").innerHTML = "An error occurred.";
+    });
+});
 
 </script>
 
