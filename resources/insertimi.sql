@@ -109,12 +109,12 @@ INSERT INTO services (name) VALUES
 ('Analiza e tregut dhe pozicionimi');
 
 
-INSERT INTO agents (user_id, office_id, license_no, phone, title_id) VALUES
-(6, 'Uranit Vuçitërna', 1, 'LIC-UV123', '+383 44 111 222', 1),
-(10, 'Riga Zubaku', 1, 'LIC-RZ456', '+383 44 333 444', 2),
-(11, 'Yllka Fejzullahu', 3, 'LIC-YF789', '+383 44 555 666', 3),
-(13, 'Viola Resyli', 1, 'LIC-VR012', '+383 44 777 888', 4),
-(14, 'Rudina Bulliqi', 5, 'LIC-RB345', '+383 44 999 000', 5);
+INSERT INTO agents (name, user_id, office_id, license_no, phone, title_id) VALUES
+('Uranit Vuçitërna',6 , 1, 'LIC-UV123', '+383 44 111 222', 1),
+('Riga Zubaku',10, 1, 'LIC-RZ456', '+383 44 333 444', 2),
+('Yllka Fejzullahu',11, 3, 'LIC-YF789', '+383 44 555 666', 3),
+('Viola Resyli',13, 1, 'LIC-VR012', '+383 44 777 888', 4),
+('Rudina Bulliqi',14, 5, 'LIC-RB345', '+383 44 999 000', 5);
 
 
 INSERT INTO agent_service (agent_id, service_id) VALUES
