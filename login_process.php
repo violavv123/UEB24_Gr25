@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($isValid) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $email;
-        // Optionally, set a cookie for "remember me" (expires in 7 days)
         setcookie('user_id', $user['id'], time() + (86400 * 7), "/");
         header("Location: index.php");
         exit;
