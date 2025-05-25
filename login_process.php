@@ -1,4 +1,5 @@
 <?php
+global $conn;
 session_start();
 require_once 'conn.php';
 require_once 'autorizimi.php';
@@ -27,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $resultUser->fetch_assoc();
     $passwordId = $user['password_id'];
 
-  
     $passwordInfo = getPasswordInfoById($conn, (int)$passwordId);
     if (!$passwordInfo) {
         echo "Could not retrieve password info.";
@@ -38,8 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($isValid) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $email;
-
-        header("Location: favorites.php");
+        // Optionally, set a cookie for "remember me" (expires in 7 days)
+        setcookie('user_id', $user['id'], time() + (86400 * 7), "/");
+        header("Location: index.php");
         exit;
     } else {
         echo "Invalid password.";
