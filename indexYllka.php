@@ -278,28 +278,7 @@ $favorites = $_SESSION['favorites'] ?? [];
 		</div>
 		<div class="listings">
         <?php foreach ($listings as $listing): ?>
-					<div class="property-card">
-						<img src="<?= $listing->image ?>" alt="Property Image">
-						<div class="property-details">
-							<h3><?= $listing->title ?></h3>
-							<p class="price"><?= $listing->priceDisplay ?></p>
-							<p><?= $listing->details ?></p>
-                <?= $listing->renderExtras() ?>
-							<div class="card-actions">
-								<button class="view-details">View Details</button>
-                  <?php
-									if (isset($_SESSION['user_id'])): ?>
-										<button type="button" class="favorite-btn" data-id="<?= $listing->id ?>">
-                        <?= in_array($listing->id, $favorites) ? '❤️' : '♡' ?>
-										</button>
-                  <?php else: ?>
-										<a href="indexSignIn.php" class="favorite-btn" style="text-decoration:none; color:inherit;">
-											♡
-										</a>
-                  <?php endif; ?>
-							</div>
-						</div>
-					</div>
+            <?= $listing->displayCard(in_array($listing->id, $favorites)); ?>
         <?php endforeach; ?>
 		</div>
 	</div>
@@ -329,8 +308,8 @@ $favorites = $_SESSION['favorites'] ?? [];
         navContainer.classList.toggle('active');
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.favorite-btn[type="button"]').forEach(function(btn) {
+        document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.favorite-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 const propertyId = this.getAttribute('data-id');
                 const button = this;
