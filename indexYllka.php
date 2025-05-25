@@ -278,7 +278,24 @@ $favorites = $_SESSION['favorites'] ?? [];
 		</div>
 		<div class="listings">
         <?php foreach ($listings as $listing): ?>
-            <?= $listing->displayCard(in_array($listing->id, $favorites)); ?>
+            <?php foreach ($listings as $listing): ?>
+    <div class="property-card">
+        <img src="<?= $listing->image ?>" alt="Property Image">
+        <div class="property-details">
+            <h3><?= $listing->title ?></h3>
+            <p class="price"><?= $listing->priceDisplay ?></p>
+            <p><?= $listing->details ?></p>
+            <?= $listing->renderExtras() ?>
+            <div class="card-actions">
+                <button class="view-details">View Details</button>
+                <button type="button" class="favorite-btn" data-id="<?= $listing->id ?>">
+                    <?= in_array($listing->id, $favorites) ? '❤️' : '♡' ?>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
         <?php endforeach; ?>
 		</div>
 	</div>
