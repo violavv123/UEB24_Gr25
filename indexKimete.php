@@ -112,6 +112,14 @@ if ($propertiesResult && $propertiesResult->num_rows > 0) {
             required
             autocomplete="on"
           />
+             <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
 <label for="agent">Select an Agent:</label>
 <select name="agent_id" id="agent" required>
   <option value="">-- Select Agent --</option>

@@ -3,6 +3,7 @@ require_once 'conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email      = $_POST['email'] ?? '';
+    $phone    = $_POST['phone'] ?? '';
     $message    = $_POST['message'] ?? '';
     $agentId    = $_POST['agent_id'] ?? null;
     $propertyId = $_POST['property_id'] ?? null;
@@ -12,6 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Format invalid i email. Ju lutem provoni perseri!";
+    }
+
+     if (!preg_match("/^\+3834\d{7}$/", $phone)) {
+        $errors[] = "Numri duhet te filloj me +3834 dhe te mbaroj me 7 numra tjera.";
     }
 
     if (strlen($message) < 10) {
@@ -80,11 +85,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $stmtInsert = $conn->prepare("INSERT INTO appointments (buyer_id, agent_id, property_id, message) VALUES (?, ?, ?, ?)");
-    $stmtInsert->bind_param("iiis", $buyerId, $agentId, $propertyId, $message);
+    $stmtInsert = $conn->prepare("INSERT INTO appointments (buyer_id, agent_id, property_id, telephone_number, message) VALUES (?, ?, ?, ?, ?)");
+    $stmtInsert->bind_param("iiiss", $buyerId, $agentId, $propertyId, $phone, $message);
 
     if ($stmtInsert->execute()) {
-        echo "<script>alert('Takimi u rezervua me sukses!'); window.location.href='indexKimete.html';</script>";
+        echo "<script>alert('Takimi u rezervua me sukses!'); window.location.href='indexKimete.php';</script>";
     } else {
         echo "Gabim gjatë regjistrimit të takimit: " . $conn->error;
     }
