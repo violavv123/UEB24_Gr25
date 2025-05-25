@@ -9,7 +9,7 @@ function generateSalt(int $length = 6): string {
 }
 
 function hashPassword(string $password, string $salt, int $iterations): string {
-    return hash_pbkdf2('sha256', $password, $salt, $iterations);
+    return hash_pbkdf2('sha256', $password, $salt, $iterations,32);
 }
 
 function verifyPassword(string $providedPassword, string $storedHash, string $storedSalt, int $storedIterations): bool {
@@ -29,7 +29,7 @@ function createPasswordEntry(mysqli $conn, string $password): ?int {
 
     $hashed = hashPassword($password, $salt, $iterations);
 
-    $stmt = $conn->prepare("INSERT INTO passwords (hashedpassword, salt, iterations) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO passwords (hashed_password, salt, iterations) VALUES (?, ?, ?)");
     if (!$stmt) {
         error_log("Prepare failed: " . $conn->error);
         return null;
@@ -42,7 +42,7 @@ function createPasswordEntry(mysqli $conn, string $password): ?int {
         return null;
     }
 
-    $passwordId = $stmt->insert_id;
+    $passwordId = $conn->insert_id;
     $stmt->close();
     return $passwordId;
 }
