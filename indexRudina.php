@@ -786,10 +786,8 @@ function getTrendingPosts($posts, $minViews = 5)
 
 
     <!--footer-->
-    <?php
-    include './classes/footer/footer.php';
-    ?>
-
+     <?php include './classes/footer/footer.php'; ?>
+     
     <script>
         function openModal(modalId) {
 
