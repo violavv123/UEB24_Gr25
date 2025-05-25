@@ -118,7 +118,7 @@
         <li><a href="indexKimete.php">Contact Us</a></li>
         <li><a href="indexRudina.php">Blog</a></li>
         <li><a href="indexSignIn.php">Sign In</a></li>
-			  <li><a href="favorites.php">Favorites</a></li>
+			  <li><a href="favorites.php">❤️</a></li>
     </ul>
     </div>
     </div>
