@@ -94,7 +94,7 @@ function &getCheapestListing(&$listings) {
     return $min;
 }
 
-function createProperty(&$data) { // ✅ Përcjellja e vlerës përmes referencës
+function createProperty(&$data) { 
     if (stripos($data['title'], 'Apartment') !== false) {
         $floor = $data['floor'] ?? null;
         return new Apartment(
