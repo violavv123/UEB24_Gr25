@@ -136,3 +136,11 @@ FOREIGN KEY (buyer_id) REFERENCES buyers(id) ON DELETE CASCADE,
 FOREIGN KEY (agent_id) REFERENCES agents(id) ON DELETE CASCADE,
 FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE
 );
+
+CREATE TABLE neighbourhoods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    city_id INT,
+    FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE,
+);
