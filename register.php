@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        }else {
         try{
 if (strlen(trim($_POST["password"])) < 6) {
-    throw new Exception("Password must be at least 6 characters.")
+    throw new Exception("Password must be at least 6 characters.");
     } else {
         $password = trim($_POST["password"]);
     }
