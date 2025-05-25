@@ -1,8 +1,7 @@
 <?php
-$ds ="mysql:host=localhost; dbname=real_estate; ";
 $user = "root";
 $pass ="";
-$conn = mysqli_connect("localhost",$user,$pass,"test_ligjerata");
+$conn = mysqli_connect("localhost",$user,$pass,"real_estate");
 if(!$conn){
     echo "<br> Gabim gjate qasjes ne databaze me metoden mysqli!".mysqli_connect_error();
     die();
