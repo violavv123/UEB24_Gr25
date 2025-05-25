@@ -1,12 +1,17 @@
 <?php
 require_once 'conn.php';
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email      = $_POST['email'] ?? '';
-    $phone    = $_POST['phone'] ?? '';
-    $message    = $_POST['message'] ?? '';
-    $agentId    = $_POST['agent_id'] ?? null;
-    $propertyId = $_POST['property_id'] ?? null;
+    $email      = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $phone      = filter_var($_POST['phone'] ?? '', FILTER_SANITIZE_STRING);
+    $message    = filter_var($_POST['message'] ?? '', FILTER_SANITIZE_STRING);
+    $agentId    = filter_var($_POST['agent_id'] ?? null, FILTER_SANITIZE_NUMBER_INT);
+    $propertyId = filter_var($_POST['property_id'] ?? null, FILTER_SANITIZE_NUMBER_INT);
+
 
     $errors = [];
 
@@ -89,7 +94,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmtInsert->bind_param("iiiss", $buyerId, $agentId, $propertyId, $phone, $message);
 
     if ($stmtInsert->execute()) {
-        echo "<script>alert('Takimi u rezervua me sukses!'); window.location.href='indexKimete.php';</script>";
+ $mail = new PHPMailer(true);
+
+        try {
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'yfejzullahuu@gmail.com';   
+            $mail->Password   = 'qpmvzuliuipyqqwg';        
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            $mail->setFrom('youremail@gmail.com', 'Agjensioni i Patundshmërive');
+            $mail->addAddress($email);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Rezervimi i Takimit me Agjentin';
+            $mail->Body    = "
+                <h3>Përshëndetje,</h3>
+                <p>Takimi juaj është rezervuar me sukses.</p>
+                <p>
+                    <b>Agjenti ID:</b> $agentId<br>
+                    <b>Prona ID:</b> $propertyId<br>
+                    <b>Mesazhi:</b> $message<br>
+                    <b>Telefoni:</b> $phone
+                </p>
+                <p>Faleminderit që na kontaktuat!</p>
+            ";
+
+            $mail->send();
+            echo "<script>alert('Takimi u rezervua dhe emaili u dërgua me sukses!'); window.location.href='indexKimete.php';</script>";
+        } catch (Exception $e) {
+            echo "Takimi u regjistrua, por ndodhi një gabim gjatë dërgimit të emailit: {$mail->ErrorInfo}";
+        }
     } else {
         echo "Gabim gjatë regjistrimit të takimit: " . $conn->error;
     }
