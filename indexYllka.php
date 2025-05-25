@@ -252,6 +252,7 @@ if (isset($_GET['sort'])) {
           <li><a href="indexYllka.php">Listings</a></li>
           <li><a href="indexKimete.php">Contact Us</a></li>
           <li><a href="indexRudina.php">Blog</a></li>
+          <li><a href="indexSignIn.php">Sign In</a></li>
         </ul>
       </div>
   </nav>

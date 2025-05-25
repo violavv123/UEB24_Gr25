@@ -551,6 +551,7 @@ function getTrendingPosts($posts, $minViews = 5)
                     <li><a href="indexYllka.html">Listings</a></li>
                     <li><a href="indexKimete.html">Contact Us</a></li>
                     <li><a href="indexRudina.html">Blog</a></li>
+                    <li><a href="indexSignIn.php">Sign In</a></li>
                 </ul>
             </div>
         </div>
