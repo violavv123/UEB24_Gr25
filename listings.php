@@ -190,70 +190,70 @@ $rawListings = [
       "price"        => 700000,
       "priceDisplay" => "€700,000",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "6 Bed | 5 Bath | 350m²"
+      "details"      => "6 Beds | 5 Bath | 350m²"
     ],
     [
       "title"        => "Apartment in Ferizaj",
       "price"        => 250000,
       "priceDisplay" => "€250,000",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "3 Bed | 2 Bath | 120m²"
+      "details"      => "3 Beds | 2 Bath | 120m²"
     ],
     [
       "title"        => "Pretty House in Gjakova",
       "price"        => 650,
       "priceDisplay" => "€650/mo",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "2 Bed | 1 Bath | 80m²"
+      "details"      => "2 Beds | 1 Bath | 80m²"
     ],
     [
       "title"        => "Cozy Apartament in Gjakova",
       "price"        => 700,
       "priceDisplay" => "€700/mo",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "3 Bed | 2 Bath | 100m²"
+      "details"      => "3 Beds | 2 Bath | 100m²"
     ],
     [
       "title"        => "Pretty House in Vushtrri",
       "price"        => 350000,
       "priceDisplay" => "€350,000",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "4 Bed | 3 Bath | 220m²"
+      "details"      => "4 Beds | 3 Bath | 220m²"
     ],
     [
       "title"        => "Apartment in Vushtrri",
       "price"        => 250,
       "priceDisplay" => "€250/mo",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "2 Bed | 1 Bath | 90m²"
+      "details"      => "2 Beds | 1 Bath | 90m²"
     ],
     [
       "title"        => "Big House in Peja",
       "price"        => 400000,
       "priceDisplay" => "€400,000",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "4 Bed | 2 Bath |180m²"
+      "details"      => "4 Beds | 2 Bath |180m²"
     ],
     [
       "title"        => "Pretty Apartment in Peja",
       "price"        => 800,
       "priceDisplay" => "€800/mo",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "3 Bed | 2 Bath | 250m²"
+      "details"      => "3 Beds | 2 Bath | 250m²"
     ],
     [
       "title"        => "House in Prishtina",
       "price"        => 900,
       "priceDisplay" => "€900/mo",
       "image"        => "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-      "details"      => "4 Bed | 3 Bath | 250m²"
+      "details"      => "4 Beds | 3 Bath | 250m²"
     ],
     [
       "title"        => "Apartment in Prishtina",
       "price"        => 100000,
       "priceDisplay" => "€100,000",
       "image"        => "https://images.pexels.com/photos/209292/pexels-photo-209292.jpeg",
-      "details"      => "2 Bed | 1 Bath | 85m²"
+      "details"      => "2 Beds | 1 Bath | 85m²"
     ]
 ];
 
