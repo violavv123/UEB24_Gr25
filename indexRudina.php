@@ -781,6 +781,7 @@ function getTrendingPosts($posts, $minViews = 5)
 
             <button onclick="getWeather()">Show Weather</button>
             <div id="weatherResult"></div>
+            <button onclick="shtoQytetin()">Shto qytetin Istog</button>
         </section>
 
     </div>
@@ -936,6 +937,24 @@ function getTrendingPosts($posts, $minViews = 5)
                     result.innerHTML = `<p style="color:red;">⚠️ Failed to retrieve weather data. Please try again later.</p>`;
                 });
         }
+        // Shto qytetin "Istog" në databazë
+        function shtoQytetin() {
+        fetch('addCity.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ city: 'Istog' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
+                alert(data.message);
+            } else {
+                alert(data.error);
+            }
+        });
+    }
     </script>
 
 </body>
