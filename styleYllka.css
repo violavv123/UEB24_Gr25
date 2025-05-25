@@ -479,6 +479,26 @@ datalist option:hover {
 datalist option:last-child {
   border-bottom: none;
 }
+.card-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.favorite-btn:hover {
+  color: red;
+}
+
 
 
 
