@@ -566,12 +566,37 @@ function getTrendingPosts($posts, $minViews = 5)
             width: 64px;
             height: 64px;
         }
+
+        .main-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container-kalkulatori,
+        .container-address-cleaner,
+        .weather-box {
+            flex: 1 1 300px;
+            /* grow, shrink, base width */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 280px;
+            /* ensures readable width */
+            max-width: 100%;
+        }
     </style>
 </head>
 
 <body>
     <!--Navigation Bar-->
-    <navF class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <a href="/">
                 <img src="logo.png" width="45" height="50" alt="Luxury Homes Logo" />
@@ -599,7 +624,8 @@ function getTrendingPosts($posts, $minViews = 5)
                 </ul>
             </div>
         </div>
-    </navF>
+    </nav>
+
 
     <div class="pagination">
         <?php
@@ -687,58 +713,78 @@ function getTrendingPosts($posts, $minViews = 5)
     <?php endforeach; ?>
     <!-- #region -->
 
-    <!-- Check Weather part -->
-    <section class="weather-box">
-        <h2>Check Weather</h2>
-        <input type="text" id="cityInput" placeholder="Enter City..." />
-        <button onclick="getWeather()">Show Weather</button>
-        <div id="weatherResult"></div>
-    </section>
 
 
-    <!--pjesa e kalkulatorit magjik-->
-    <div class="container-kalkulatori">
-        <h2>Magic Calculator</h2>
 
-        <div>
-            <button class="btn" onclick="calculate('average')">Llogarit Mesataren e Qmimeve</button>
-            <div id="avgResult" class="result"></div>
-        </div>
 
-        <div>
-            <h4>Llogarit Zbritjen</h4>
-            <input type="number" id="cmimi" placeholder="Çmimi Fillestar">
-            <input type="number" id="zbritja" placeholder="Zbritja në %">
-            <button class="btn" onclick="calculate('discount')">Llogarit Çmimin Pas Zbritjes</button>
-            <div id="discountResult" class="result"></div>
-        </div>
 
-        <div>
-            <h4>Përqindja e suksesit</h4>
-            <input type="number" id="total" placeholder="Numri i Listimeve">
-            <input type="number" id="sold" placeholder="Numri i Shitjeve">
-            <button class="btn" onclick="calculate('success')">Llogarit Përqindjen e Suksesit</button>
-            <div id="successResult" class="result"></div>
-        </div>
 
-        <div>
-            <button class="btn" onclick="calculate('code')">Gjenero Kodin për Blerjen</button>
-            <div id="codeResult" class="result"></div>
-        </div>
-    </div>
-    <!--pjesa e address cleaner-->
+    <div class="main-sections">
+        <!-- Magic Calculator -->
+        <div class="container-kalkulatori">
+            <!--pjesa e kalkulatorit magjik-->
+            <div class="container-kalkulatori">
+                <h2>Magic Calculator</h2>
 
-    <div class="container-address-cleaner">
-        <h2>Address Cleaner</h2>
-        <form id="addressForm" method="POST">
-            <div class="form-group">
-                <label for="address">Type address:</label>
-                <input type="text" id="address" name="address" placeholder="Shembull: Rruga XYZ!!, Tirana.#123">
+                <div>
+                    <button class="btn" onclick="calculate('average')">Llogarit Mesataren e Qmimeve</button>
+                    <div id="avgResult" class="result"></div>
+                </div>
+
+                <div>
+                    <h4>Llogarit Zbritjen</h4>
+                    <input type="number" id="cmimi" placeholder="Çmimi Fillestar">
+                    <input type="number" id="zbritja" placeholder="Zbritja në %">
+                    <button class="btn" onclick="calculate('discount')">Llogarit Çmimin Pas Zbritjes</button>
+                    <div id="discountResult" class="result"></div>
+                </div>
+
+                <div>
+                    <h4>Përqindja e suksesit</h4>
+                    <input type="number" id="total" placeholder="Numri i Listimeve">
+                    <input type="number" id="sold" placeholder="Numri i Shitjeve">
+                    <button class="btn" onclick="calculate('success')">Llogarit Përqindjen e Suksesit</button>
+                    <div id="successResult" class="result"></div>
+                </div>
+
+                <div>
+                    <button class="btn" onclick="calculate('code')">Gjenero Kodin për Blerjen</button>
+                    <div id="codeResult" class="result"></div>
+                </div>
             </div>
-            <button type="submit">Clean address</button>
-            <div id="result"></div>
-        </form>
+        </div>
+
+        <!-- Address Cleaner -->
+        <div class="container-address-cleaner">
+            <!--pjesa e address cleaner-->
+
+            <div class="container-address-cleaner">
+                <h2>Address Cleaner</h2>
+                <form id="addressForm" method="POST">
+                    <div class="form-group">
+                        <label for="address">Type address:</label>
+                        <input type="text" id="address" name="address" placeholder="Shembull: Rruga XYZ!!, Tirana.#123">
+                    </div>
+                    <button type="submit">Clean address</button>
+                    <div id="result"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Weather -->
+        <section class="weather-box">
+            <!-- Check Weather part -->
+            <section class="weather-box">
+                <h2>Check Weather</h2>
+                <input type="text" id="cityInput" placeholder="Enter City..." />
+                <button onclick="getWeather()">Show Weather</button>
+                <div id="weatherResult"></div>
+            </section>
+        </section>
     </div>
+
+
+
     <!--footer-->
     <?php
     include './classes/footer/footer.php';
