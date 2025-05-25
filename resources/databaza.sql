@@ -142,5 +142,5 @@ CREATE TABLE neighbourhoods (
     name VARCHAR(100) NOT NULL,
     description TEXT,
     city_id INT,
-    FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE,
+    FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
 );
