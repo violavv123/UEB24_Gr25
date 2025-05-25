@@ -1,6 +1,16 @@
+CREATE TABLE titles(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE services(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL UNIQUE
+);
+
 CREATE TABLE passwords(
 id INT AUTO_INCREMENT PRIMARY KEY,
-hashed_password VARCHAR(255) NO NULL,
+hashed_password VARCHAR(255) NOT NULL,
 salt VARCHAR(255) NOT NULL,
 iterations INT NOT NULL
 );
@@ -12,38 +22,36 @@ email VARCHAR(100) NOT NULL UNIQUE,
 role ENUM('buyer','agent','seller') DEFAULT 'buyer',
 password_id INT NOT NULL,
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-FOREIGN KEY (password_id) REFRENCES passwords(id) ON DELETE CASCADE
+FOREIGN KEY (password_id) REFERENCES passwords(id) ON DELETE CASCADE
 );
+
+CREATE TABLE cities (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100) NOT NULL UNIQUE
+);
+
 
 CREATE TABLE offices (
 id INT AUTO_INCREMENT PRIMARY KEY,
 city_id INT,
 address VARCHAR(255),
 phone VARCHAR(20),
-FOREIGN KEY (city_id) REFERNCES cities(id) ON DELETE CASCADE
+FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
 );
+
 
 CREATE TABLE agents(
 id INT AUTO_INCREMENT PRIMARY KEY,
-user_id INT NOT NULL,
+user_id INT,
 office_id INT,
 license_no VARCHAR(50),
 phone VARCHAR(20),
-title_id INT NOT NULL,
+title_id INT,
 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
 FOREIGN KEY (office_id) REFERENCES offices(id) ON DELETE SET NULL,
 FOREIGN KEY (title_id) REFERENCES titles(id) ON DELETE SET NULL
 );
 
-CREATE TABLE titles(
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE services(
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(255) NOT NULL UNIQUE
-);
 
 CREATE TABLE agent_service(
 agent_id INT,
@@ -52,6 +60,7 @@ PRIMARY KEY (agent_id, service_id),
 FOREIGN KEY (agent_id) REFERENCES agents(id) ON DELETE CASCADE,
 FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
+
 
 CREATE TABLE buyers (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,11 +72,6 @@ FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 FOREIGN KEY (preferred_city_id) REFERENCES cities(id) ON DELETE CASCADE
 );
 
-CREATE TABLE cities (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL UNIQUE
-);
-
 CREATE TABLE sellers (
 id INT AUTO_INCREMENT PRIMARY KEY,
 user_id INT NOT NULL UNIQUE,
@@ -76,6 +80,7 @@ contant_number VARCHAR(20),
 verified BOOLEAN DEFAULT FALSE,
 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
 
 CREATE TABLE properties(
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -86,6 +91,7 @@ address VARCHAR(255),
 city_id INT,
 property_type ENUM('apartment', 'house') NOT NULL,
 available BOOLEAN DEFAULT TRUE,
+rented BOOLEAN DEFAULT FALSE,
 FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE SET NULL
 );
 
@@ -107,7 +113,7 @@ bathrooms INT,
 has_garage BOOLEAN,
 num_floors INT,
 available BOOLEAN DEFAULT TRUE,
-FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE SET CASCADE
+FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE
 );
 
 CREATE TABLE favourites(
