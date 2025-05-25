@@ -42,6 +42,7 @@ FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
 
 CREATE TABLE agents(
 id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
 user_id INT,
 office_id INT,
 license_no VARCHAR(50),
