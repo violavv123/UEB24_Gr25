@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $email;
         setcookie('user_id', $user['id'], time() + (86400 * 7), "/");
-        header("Location: index.php");
+        header("Location: favorites.php");
         exit;
     } else {
         echo "Invalid password.";
